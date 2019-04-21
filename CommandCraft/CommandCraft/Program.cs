@@ -36,9 +36,9 @@ namespace CommandCraft
     /// </remarks>
     class DownloadWebSources
     {
-        public string htmlIdsSource { get; }
-        public string htmlSource { get; }
-        public string jsSource { get; }
+        public string HtmlDict{ get; }
+        public string HtmlMain{ get; }
+        public string JsContent { get; }
 
 
         public DownloadWebSources(string _address)
