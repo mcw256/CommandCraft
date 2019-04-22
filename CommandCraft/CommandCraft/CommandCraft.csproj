@@ -50,11 +50,14 @@
     <Compile Include="Avtivities\GenerateMinecraftFuntion.cs" />
     <Compile Include="Avtivities\TranslateBlockListCoordinates.cs" />
     <Compile Include="DataTypes\Block.cs" />
+    <Compile Include="DataTypes\MyInt.cs" />
+    <Compile Include="DataTypes\MyString.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\ImprovedWebClient.cs">
+    <Compile Include="Utils\ImprovedWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utils\RegexConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
