@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 using CommandCraft.Utils;
 using CommandCraft.DataTypes;
 
-namespace CommandCraft.Avtivities
+namespace CommandCraft.Activities
 {
+    /// <summary>
+    /// Downloads html srouce from given urls, also finds jsurl in html srouce and downloads it
+    /// </summary>
     class DownloadWebSources
     {
         //inputs

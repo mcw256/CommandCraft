@@ -42,16 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Avtivities\DownloadWebSources.cs" />
-    <Compile Include="Avtivities\ExtractBlocksFromJsSource.cs" />
-    <Compile Include="Avtivities\ExtractDictionaryFromIdsSource.cs" />
-    <Compile Include="Avtivities\ExtractValuesFromHtmlSource.cs" />
-    <Compile Include="Avtivities\FindTranslationParams.cs" />
-    <Compile Include="Avtivities\GenerateMinecraftFuntion.cs" />
-    <Compile Include="Avtivities\TranslateBlockListCoordinates.cs" />
+    <Compile Include="Activities\DownloadWebSources.cs" />
+    <Compile Include="Activities\ExtractBlocksFromJsContent.cs" />
+    <Compile Include="Activities\ExtractDictFromItemsSource.cs" />
+    <Compile Include="Activities\FindTranslationParams.cs" />
+    <Compile Include="Activities\GenerateMinecraftFuntion.cs" />
+    <Compile Include="Activities\TranslateBlocks.cs" />
     <Compile Include="DataTypes\Block.cs" />
     <Compile Include="DataTypes\MyInt.cs" />
     <Compile Include="DataTypes\MyString.cs" />
+    <Compile Include="FileActivities\LoadItemDictFromFile.cs" />
+    <Compile Include="FileActivities\SaveItemDictToFile.cs" />
+    <Compile Include="FileActivities\SaveMinecraftFunctionToFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\ImprovedWebClient.cs">

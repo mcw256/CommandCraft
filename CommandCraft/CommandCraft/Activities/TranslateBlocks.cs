@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandCraft.Avtivities
+namespace CommandCraft.Activities
 {
+    /// <summary>
+    /// Creates suitable blocks data for creating minecraft function
+    /// </summary>
     class TranslateBlocks
     {
         //inputs
@@ -43,7 +46,7 @@ namespace CommandCraft.Avtivities
             }
 
             foreach (var item in rawBlocks)
-                translatedBlocks.Add(new Block((item.X - 5) / transParamIncrease.Value, (item.Y - transParamStartingY.Value) / transParamIncrease.Value, item.Z - 1, itemsDict[item.Type]))
+                translatedBlocks.Add(new Block((item.X - 5) / transParamIncrease.Value, (item.Y - transParamStartingY.Value) / transParamIncrease.Value, item.Z - 1, itemsDict[item.Type]));
         }    
     }
 }

@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandCraft.Avtivities
+namespace CommandCraft.Activities
 {
+    /// <summary>
+    /// Finds parameters that are needed to convert rawBlocks x,y,z units
+    /// </summary>
     class FindTranslationParams
     {
         //inputs
