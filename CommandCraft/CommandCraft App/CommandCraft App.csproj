@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{305A5ACF-6BA4-491C-8645-0FCC6867C54A}</ProjectGuid>
+    <ProjectGuid>{243C1F1F-F7DD-42A5-93C8-ECED5DAAEFAE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CommandCraft_App</RootNamespace>
     <AssemblyName>CommandCraft App</AssemblyName>
