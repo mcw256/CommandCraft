@@ -4,9 +4,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CommandCraft_App"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="15" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="15" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="#1976d2" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3">
+            <Button x:Name="btnHome" BorderBrush="#FF1976D2" Width="50" Padding="0" Height="50" Margin="0,0,0,1" Background="#FF1976D2" Click="BtnHome_Click">
+                <materialDesign:PackIcon Kind="Home" Width="25" Height="25" />
+            </Button>
+
+            <Button x:Name="btnSearch" BorderBrush="#FF1976D2" Width="50" Padding="0" Height="50" Margin="0,0,0,1" Background="#FF1976D2">
+                <materialDesign:PackIcon Kind="Search" Width="25" Height="25" />
+            </Button>
+
+            <Button x:Name="btnSave" BorderBrush="#FF1976D2" Width="50" Padding="0" Height="50" Margin="0,0,0,1" Background="#FF1976D2">
+                <materialDesign:PackIcon Kind="ContentSave" Width="25" Height="25" />
+            </Button>
+
+            <Button x:Name="btnAbout" BorderBrush="#FF1976D2" Width="50" Padding="0" Height="50" Margin="0,0,0,1" Background="#FF1976D2">
+                <materialDesign:PackIcon Kind="About" Width="25" Height="25" />
+            </Button>
+            
+        </StackPanel>
+
+        <Frame x:Name="pageContent" Grid.Column="2" Grid.Row="1" NavigationUIVisibility="Hidden" />
+
     </Grid>
 </Window>

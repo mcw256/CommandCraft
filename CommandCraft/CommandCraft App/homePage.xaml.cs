@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace CommandCraft_App
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for homePage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class homePage : Page
     {
-        public MainWindow()
+        public homePage()
         {
             InitializeComponent();
-        }
-
-        private void BtnHome_Click(object sender, RoutedEventArgs e)
-        {
-            pageContent.Content = new homePage();
         }
     }
 }
