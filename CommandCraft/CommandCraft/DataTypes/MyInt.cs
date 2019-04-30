@@ -10,11 +10,6 @@ namespace CommandCraft.DataTypes
     {
         public int Value { get; set; }
 
-        public MyInt()
-        {
-
-        }
-
         public MyInt(int _num)
         {
             Value = _num;

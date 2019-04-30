@@ -14,11 +14,6 @@ namespace CommandCraft.DataTypes
     {
         public string Value { get; set; }
 
-        public MyString()
-        {
-
-        }
-
         public MyString( string _text)
         {
             Value = _text;

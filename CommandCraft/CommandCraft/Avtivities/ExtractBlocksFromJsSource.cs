@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 using CommandCraft.DataTypes;
 using CommandCraft.Utils;
 
-namespace CommandCraft.Activities
+namespace CommandCraft.Avtivities
 {
-
-    /// <summary>
-    /// Extract raw data about blocks from Js source provided in input.
-    /// </summary>
-    class ExtractBlocksFromJsContent
+    class ExtractBlocksFromJsSource
     {
         //inputs
         MyString jsContent;
@@ -36,7 +32,6 @@ namespace CommandCraft.Activities
             MatchCollection planesCol;
             MatchCollection blocksCol;
 
-           // Console.WriteLine($"O co kurwa chodzi{jsContent.Value}");
             planesCol = RegexConfig.SelectPlane.Matches(jsContent.Value);
             
             int i = 1;

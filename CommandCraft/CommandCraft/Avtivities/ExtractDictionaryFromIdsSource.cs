@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 using CommandCraft.DataTypes;
 using CommandCraft.Utils;
 
-namespace CommandCraft.Activities
+namespace CommandCraft.Avtivities
 {
-    /// <summary>
-    /// Extracts items dictionary from html source
-    /// </summary>
-    class ExtractDictFromItemsSource
+    class ExtractDictionaryFromIdsSource
     {
         //inputs
         MyString htmlDict;
