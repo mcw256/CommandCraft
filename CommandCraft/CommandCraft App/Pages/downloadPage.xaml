@@ -1,0 +1,106 @@
+﻿<Page
+    x:Class="CommandCraft_App.Pages.downloadPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:CommandCraft_App.Pages"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="downloadPage"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid Background="#FFC5C5C5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="15" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="15" />
+        </Grid.RowDefinitions>
+
+
+        <Grid
+            Grid.Row="1"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+
+
+            <TextBox
+                Grid.Column="0"
+                Grid.Row="0"
+                MinWidth="300"
+                materialDesign:HintAssist.Hint="Enter grabcraft-project URL here"
+                Background="Transparent"
+                CaretBrush="#FF694C34"
+                Foreground="#FF2E2E2E"
+                SelectionBrush="#FF72B248" />
+
+            <Button
+                x:Name="btnGet"
+                Grid.Column="1"
+                Grid.Row="0"
+                Margin="15,0,0,0"
+                Background="#FF694C34"
+                BorderBrush="#FF694C34"
+                Content="Get" Click="BtnGet_Click" />
+
+            <!-- ITEMS BELOW SHOULD BE BRACED IN SOME KIND OF SPAN TO MAKE THEM INVISIBLE-->
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                FontFamily="VCR OSD Mono"
+                FontSize="25"
+                Foreground="#FF464546"
+                Text="Nazwa Budowli" 
+                Margin="0,40,0,10"/>
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                FontFamily="VCR OSD Mono"
+                FontSize="15"
+                Foreground="#FF464546"
+                Text="has been successfully downloaded and converted"
+                Margin="0,0,0,10"
+                />
+
+            <Button
+                Grid.Row="3"
+                Grid.Column="0"
+                Background="#FF694C34"
+                BorderBrush="#FF694C34"
+                Content="Save as .txt" />
+
+            <Button
+                Grid.Row="3"
+                Grid.Column="1"
+                Background="#FF694C34"
+                BorderBrush="#FF694C34"
+                Margin="15,0,0,0"
+                Content="Add to database" />
+
+        </Grid>
+
+    </Grid>
+</Page>

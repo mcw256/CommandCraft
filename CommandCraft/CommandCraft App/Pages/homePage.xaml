@@ -1,0 +1,36 @@
+﻿<Page x:Class="CommandCraft_App.homePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CommandCraft_App"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="homePage">
+
+    <Grid Background="#FFC5C5C5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="15" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15" />
+            <RowDefinition Height= "*" />
+            <RowDefinition Height="15" />
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            
+        <TextBlock Text="CommandCraft"  Grid.Row="0"  FontFamily="VCR OSD Mono" FontSize="55" Foreground="#FF464546" />
+        <TextBlock Text="Minecraft buildings generator tool"  Grid.Row="1"  FontFamily="VCR OSD Mono" FontSize="19" Foreground="#FF464546" Margin="0,15,0,0" />
+
+        </Grid>
+
+    </Grid>
+</Page>

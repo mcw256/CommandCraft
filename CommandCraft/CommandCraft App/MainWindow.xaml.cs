@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandCraft_App.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,11 +24,25 @@ namespace CommandCraft_App
         public MainWindow()
         {
             InitializeComponent();
+            pageFrame.Content = new homePage();
+
+
         }
 
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
-            pageContent.Content = new homePage();
+            pageFrame.Content = new homePage();
+        }
+
+       
+        private void BtnDownload_Click(object sender, RoutedEventArgs e)
+        {
+            pageFrame.Content = new downloadPage();
+        }
+
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            pageFrame.Content = new searchPage();
         }
     }
 }
