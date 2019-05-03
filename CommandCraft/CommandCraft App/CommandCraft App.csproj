@@ -60,6 +60,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Business Logic\Activities\DownloadWebSources.cs" />
+    <Compile Include="Business Logic\Activities\ExtractBlocksFromJsContent.cs" />
+    <Compile Include="Business Logic\Activities\ExtractDictFromItemsSource.cs" />
+    <Compile Include="Business Logic\Activities\FindTranslationParams.cs" />
+    <Compile Include="Business Logic\Activities\GenerateMinecraftFunction.cs" />
+    <Compile Include="Business Logic\Activities\TranslateBlocks.cs" />
+    <Compile Include="Business Logic\ProcessManager.cs" />
+    <Compile Include="Business Logic\DataTypes\Block.cs" />
+    <Compile Include="Business Logic\DataTypes\MyInt.cs" />
+    <Compile Include="Business Logic\DataTypes\MyString.cs" />
+    <Compile Include="Business Logic\FileActivities\LoadItemDictFromFile.cs" />
+    <Compile Include="Business Logic\FileActivities\SaveItemDictToFile.cs" />
+    <Compile Include="Business Logic\FileActivities\SaveMinecraftFunctionToFile.cs" />
+    <Compile Include="Business Logic\Utils\ImprovedWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Business Logic\Utils\RegexConfig.cs" />
     <Compile Include="Pages\downloadPage.xaml.cs">
       <DependentUpon>downloadPage.xaml</DependentUpon>
     </Compile>

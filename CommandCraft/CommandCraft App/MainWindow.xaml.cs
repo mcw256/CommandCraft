@@ -21,20 +21,26 @@ namespace CommandCraft_App
     /// </summary>
     public partial class MainWindow : Window
     {
+        #region Default Constructor
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();         
+        }
+        #endregion
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
             pageFrame.Content = new homePage();
-
-
         }
 
+
+        #region Side menu button onclicks handlers
         private void BtnHome_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Content = new homePage();
         }
-
-       
+      
         private void BtnDownload_Click(object sender, RoutedEventArgs e)
         {
             pageFrame.Content = new downloadPage();
@@ -44,5 +50,8 @@ namespace CommandCraft_App
         {
             pageFrame.Content = new searchPage();
         }
+
+        #endregion
+
     }
 }
