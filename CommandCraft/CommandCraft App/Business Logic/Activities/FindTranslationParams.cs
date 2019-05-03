@@ -1,11 +1,11 @@
-﻿using CommandCraft.DataTypes;
+﻿using CommandCraft.Business_Logic.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandCraft.Activities
+namespace CommandCraft.Business_Logic.Activities
 {
     /// <summary>
     /// Finds parameters that are needed to convert rawBlocks x,y,z units

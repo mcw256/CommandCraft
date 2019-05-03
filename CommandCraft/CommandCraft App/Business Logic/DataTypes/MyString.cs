@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandCraft.DataTypes
+namespace CommandCraft.Business_Logic.DataTypes
 {
 
     /// <summary>
@@ -13,6 +13,11 @@ namespace CommandCraft.DataTypes
     public class MyString
     {
         public string Value { get; set; }
+
+        public MyString()
+        {
+
+        }
 
         public MyString( string _text)
         {

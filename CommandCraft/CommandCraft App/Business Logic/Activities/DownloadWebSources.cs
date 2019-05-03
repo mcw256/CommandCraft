@@ -4,15 +4,15 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using CommandCraft.Utils;
-using CommandCraft.DataTypes;
+using CommandCraft.Business_Logic.Utils;
+using CommandCraft.Business_Logic.DataTypes;
 
-namespace CommandCraft.Activities
+namespace CommandCraft.Business_Logic.Activities
 {
     /// <summary>
     /// Downloads html srouce from given urls, also finds jsurl in html srouce and downloads it
     /// </summary>
-    class DownloadWebSources
+    class downloadWebSources
     {
         //inputs
         MyString htmlMainUrl;

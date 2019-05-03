@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandCraft.FileActivities
+namespace CommandCraft.Business_Logic.FileActivities
 {
     static class SaveMinecraftFuntionToFile
         {

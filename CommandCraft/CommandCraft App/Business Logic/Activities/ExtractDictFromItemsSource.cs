@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using CommandCraft.DataTypes;
-using CommandCraft.Utils;
+using CommandCraft.Business_Logic.DataTypes;
+using CommandCraft.Business_Logic.Utils;
 
-namespace CommandCraft.Activities
+namespace CommandCraft.Business_Logic.Activities
 {
     /// <summary>
     /// Extracts items dictionary from html source
