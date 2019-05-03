@@ -9,98 +9,71 @@
     Title="downloadPage"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
     mc:Ignorable="d">
 
-    <Grid Background="#FFC5C5C5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="15" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="15" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="15" />
-        </Grid.RowDefinitions>
+    <Border Padding="15" Background="White">
 
+        <StackPanel>
+            <Grid Margin="50,100,50,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-        <Grid
-            Grid.Row="1"
-            Grid.Column="1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
+                <TextBox Grid.Column="0" materialDesign:HintAssist.Hint="e.g. https://www.grabcraft.com/minecraft/pig-statue/farm-animals-1" />
+                <Button
+                    Grid.Column="1"
+                    Margin="20,0,0,0"
+                    Content="Get" />
 
+            </Grid>
 
+            <TextBlock Visibility="Collapsed"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    Text="unable to load the building" 
+                    Margin="0 50 0 0"
+                    />
 
-            <TextBox
-                Grid.Column="0"
-                Grid.Row="0"
-                MinWidth="300"
-                materialDesign:HintAssist.Hint="Enter grabcraft-project URL here"
-                Background="Transparent"
-                CaretBrush="#FF694C34"
-                Foreground="#FF2E2E2E"
-                SelectionBrush="#FF72B248" />
+            <StackPanel Margin="50,50,50,0">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    Text="Just Example Name of Building" 
+                    Margin="0 0 0 10"
+                    />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Building have been successfully loaded" 
+                    Margin="0 0 0 25"
+                    />
 
-            <Button
-                x:Name="btnGet"
-                Grid.Column="1"
-                Grid.Row="0"
-                Margin="15,0,0,0"
-                Background="#FF694C34"
-                BorderBrush="#FF694C34"
-                Content="Get" Click="BtnGet_Click" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-            <!-- ITEMS BELOW SHOULD BE BRACED IN SOME KIND OF SPAN TO MAKE THEM INVISIBLE-->
-            <TextBlock
-                Grid.Row="1"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center"
-                FontFamily="VCR OSD Mono"
-                FontSize="25"
-                Foreground="#FF464546"
-                Text="Nazwa Budowli" 
-                Margin="0,40,0,10"/>
+                    <Button
+                        Grid.Column="0"
+                        Margin="70,0,10,0"
+                        Content="Save as .txt" />
 
-            <TextBlock
-                Grid.Row="2"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center"
-                FontFamily="VCR OSD Mono"
-                FontSize="15"
-                Foreground="#FF464546"
-                Text="has been successfully downloaded and converted"
-                Margin="0,0,0,10"
-                />
+                    <Button
+                        Grid.Column="1"
+                        Margin="10,0,70,0"
+                        Content="Add to database" />
 
-            <Button
-                Grid.Row="3"
-                Grid.Column="0"
-                Background="#FF694C34"
-                BorderBrush="#FF694C34"
-                Content="Save as .txt" />
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </Border>
 
-            <Button
-                Grid.Row="3"
-                Grid.Column="1"
-                Background="#FF694C34"
-                BorderBrush="#FF694C34"
-                Margin="15,0,0,0"
-                Content="Add to database" />
-
-        </Grid>
-
-    </Grid>
 </Page>

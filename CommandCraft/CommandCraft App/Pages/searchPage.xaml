@@ -5,91 +5,79 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:CommandCraft_App"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
     Title="serachPage"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid Background="#FFC5C5C5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="15" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="15" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="15" />
-        </Grid.RowDefinitions>
+    <Border Padding="15" Background="White">
+
+        <StackPanel>
+            <Grid Margin="50,100,50,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
 
-        <Grid
-            Grid.Row="1"
-            Grid.Column="1"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center">
+                <ComboBox Grid.Column="0">
+                    
+                    
+                </ComboBox>
+                <Button
+                    Grid.Column="1"
+                    Margin="20,0,0,0"
+                    Content="Load" />
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto" />
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
+            </Grid>
 
-            <ComboBox
-                Grid.Row="0"
-                Grid.Column="0"
-                MinWidth="150">
-                <ComboBoxItem>ComboBox Item #1</ComboBoxItem>
-                <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
-                <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
-            </ComboBox>
+            <TextBlock Visibility="Collapsed"
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    Text="unable to load the building" 
+                    Margin="0 50 0 0"
+                    />
 
-            <Button
-                x:Name="btnLoad"
-                Grid.Row="0"
-                Grid.Column="1"
-                Margin="15,0,0,0"
-                Background="#FF694C34"
-                BorderBrush="#FF694C34"
-                Content="Load" />
-            
-            <!--ITEMS BELOW SHOULD BRACED IN SOME KIND OF SPAN TO MAKE THEM INVISIBLE -->
-            <TextBlock
-                Grid.Row="1"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center"
-                FontFamily="VCR OSD Mono"
-                FontSize="25"
-                Foreground="#FF464546"
-                Text="Nazwa Budowli" 
-                Margin="0,40,0,10"/>
+            <StackPanel Margin="50,50,50,0">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                    Text="Just Example Name of Building" 
+                    Margin="0 0 0 10"
+                    />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+                    Text="Building have been successfully loaded" 
+                    Margin="0 0 0 25"
+                    />
 
-            <TextBlock
-                Grid.Row="2"
-                Grid.Column="0"
-                Grid.ColumnSpan="2"
-                HorizontalAlignment="Center"
-                FontFamily="VCR OSD Mono"
-                FontSize="15"
-                Foreground="#FF464546"
-                Text="has been successfully loaded"
-                Margin="0,0,0,10"
-                />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-            <Button
-                Grid.Row="3"
-                Grid.Column="0"
-                Background="#FF694C34"
-                BorderBrush="#FF694C34"
-                Content="Save as .txt" />
+                    <Button
+                        Grid.Column="0"
+                        Margin="70,0,0,0"
+                        Content="Save as .txt" />
 
-        </Grid>
+                </Grid>
 
-    </Grid>
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+    </Border>
+
 </Page>

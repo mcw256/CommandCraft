@@ -8,29 +8,17 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="homePage">
 
-    <Grid Background="#FFC5C5C5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="15" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="15" />
-            <RowDefinition Height= "*" />
-            <RowDefinition Height="15" />
-        </Grid.RowDefinitions>
+    <Border Background="White">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="CommandCraft" Style="{StaticResource MaterialDesignDisplay3TextBlock}" />
+            <TextBlock Text="Minecraft commands generating tool" Style="{StaticResource MaterialDesignTitleTextBlock}" />
 
 
-        <Grid Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-            
-        <TextBlock Text="CommandCraft"  Grid.Row="0"  FontFamily="VCR OSD Mono" FontSize="55" Foreground="#FF464546" />
-        <TextBlock Text="Minecraft buildings generator tool"  Grid.Row="1"  FontFamily="VCR OSD Mono" FontSize="19" Foreground="#FF464546" Margin="0,15,0,0" />
-
-        </Grid>
-
-    </Grid>
+        </StackPanel>
+        
+        
+        
+    </Border>
+    
+    
 </Page>
