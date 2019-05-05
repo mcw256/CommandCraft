@@ -26,34 +26,41 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <TextBox Grid.Column="0" materialDesign:HintAssist.Hint="e.g. https://www.grabcraft.com/minecraft/pig-statue/farm-animals-1" />
+                <TextBox
+                    x:Name="txtBoxUrl"
+                    Grid.Column="0"
+                    materialDesign:HintAssist.Hint="e.g. https://www.grabcraft.com/minecraft/pig-statue/farm-animals-1" />
                 <Button
+                    x:Name="btnGet"
                     Grid.Column="1"
                     Margin="20,0,0,0"
-                    Content="Get" />
+                    Click="BtnGet_Click"
+                    Content="Get" 
+                    IsEnabled="{Binding Source={x:Type Button}}"
+                    />
 
             </Grid>
 
-            <TextBlock Visibility="Collapsed"
-                    HorizontalAlignment="Center"
-                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                    Text="unable to load the building" 
-                    Margin="0 50 0 0"
-                    />
+            <TextBlock
+                x:Name="txtBlockError"
+                Margin="0,50,0,0"
+                HorizontalAlignment="Center"
+                Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                Text="unable to load the building"
+                Visibility="Collapsed" />
 
             <StackPanel Margin="50,50,50,0">
                 <TextBlock
+                    x:Name="txtBlockBuildingName"
+                    Margin="0,0,0,10"
                     HorizontalAlignment="Center"
                     Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                    Text="Just Example Name of Building" 
-                    Margin="0 0 0 10"
-                    />
+                    Text="Example Building name" />
                 <TextBlock
+                    Margin="0,0,0,25"
                     HorizontalAlignment="Center"
                     Style="{StaticResource MaterialDesignSubheadingTextBlock}"
-                    Text="Building have been successfully loaded" 
-                    Margin="0 0 0 25"
-                    />
+                    Text="Building have been successfully loaded" />
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -62,13 +69,17 @@
                     </Grid.ColumnDefinitions>
 
                     <Button
+                        x:Name="btnSaveAsTxt"
                         Grid.Column="0"
                         Margin="70,0,10,0"
+                        Click="BtnSaveAsTxt_Click"
                         Content="Save as .txt" />
 
                     <Button
+                        x:Name="btnAddToDatabase"
                         Grid.Column="1"
                         Margin="10,0,70,0"
+                        Click="BtnAddToDatabase_Click"
                         Content="Add to database" />
 
                 </Grid>

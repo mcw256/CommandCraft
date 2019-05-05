@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace CommandCraft.Business_Logic.Utils
+namespace CommandCraft_App.Business_Logic.Utils
 {
     public static class RegexConfig
     {
@@ -20,6 +20,9 @@ namespace CommandCraft.Business_Logic.Utils
         public static Regex FindKeyAndValue { get; } = new Regex(@">[\w\s]+<\/a><br>\(<em>minecraft:[(<wbr>\w_]+<\/em>"); // >Acacia Boat</a><br>(<em>minecraft:<wbr>acacia_<wbr>boat</em>
         public static Regex FindKey { get; } = new Regex(@">[\w\s]+<\/a>"); //>Acacia Boat</a>
         public static Regex FindValue { get; } = new Regex(@"<em>minecraft:<wbr>[\w(<wbr>)]+<\/em>"); //<em>minecraft:<wbr>acacia_<wbr>boat</em>
+
+        public static Regex FindBuildingName { get; } = new Regex(@"<h1 id=""content-title"" itemprop=""name"">[\w\s]+<\/h1>");
+
 
     }
 }

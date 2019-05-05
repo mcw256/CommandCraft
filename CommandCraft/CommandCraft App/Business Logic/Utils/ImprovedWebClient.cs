@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandCraft.Business_Logic.Utils
+namespace CommandCraft_App.Business_Logic.Utils
 {
     /// <summary>
     /// Copied from http://www.codingvision.net/tips-and-tricks/c-webclient-with-cookies

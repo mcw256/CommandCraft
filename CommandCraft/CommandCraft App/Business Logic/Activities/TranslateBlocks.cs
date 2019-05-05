@@ -1,11 +1,11 @@
-﻿using CommandCraft.Business_Logic.DataTypes;
+﻿using CommandCraft_App.Business_Logic.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandCraft.Business_Logic.Activities
+namespace CommandCraft_App.Business_Logic.Activities
 {
     /// <summary>
     /// Creates suitable blocks data for creating minecraft function

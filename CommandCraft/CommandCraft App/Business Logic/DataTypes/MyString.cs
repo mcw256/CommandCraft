@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommandCraft.Business_Logic.DataTypes
+namespace CommandCraft_App.Business_Logic.DataTypes
 {
 
     /// <summary>

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using CommandCraft.Business_Logic.DataTypes;
-using CommandCraft.Business_Logic.Utils;
+using CommandCraft_App.Business_Logic.DataTypes;
+using CommandCraft_App.Business_Logic.Utils;
 
-namespace CommandCraft.Business_Logic.Activities
+namespace CommandCraft_App.Business_Logic.Activities
 {
 
     /// <summary>

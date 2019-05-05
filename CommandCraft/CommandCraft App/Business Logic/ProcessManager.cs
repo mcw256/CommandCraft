@@ -1,6 +1,6 @@
-﻿using CommandCraft.Business_Logic.DataTypes;
-using CommandCraft.Business_Logic.Activities;
-using CommandCraft.Business_Logic.FileActivities;
+﻿using CommandCraft_App.Business_Logic.DataTypes;
+using CommandCraft_App.Business_Logic.Activities;
+using CommandCraft_App.Business_Logic.FileActivities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +23,15 @@ namespace CommandCraft_App.Business_Logic
         public MyInt TransParamIncrease { get; set; } = new MyInt();
         public List<string> MinecraftFunction { get; set; } = new List<string>();
         public List<Block> TranslatedBlocks { get; set; } = new List<Block>();
+        public MyString BuildingName { get; set; } = new MyString();
     }
 
     public static class ProcessManager
     {
         private static DataContainer data = new DataContainer();
 
-        private static downloadWebSources downloadWebSources = new downloadWebSources();
+        private static DownloadWebSources downloadWebSources = new DownloadWebSources();
+        private static ExtractBuildingName extractBuildingName = new ExtractBuildingName();
         private static ExtractBlocksFromJsContent extractBlocksFromJsContent = new ExtractBlocksFromJsContent();
         private static ExtractDictFromItemsSource extractDictFromItemsSource = new ExtractDictFromItemsSource();
         private static FindTranslationParams findTranslationParams = new FindTranslationParams();
@@ -44,11 +46,20 @@ namespace CommandCraft_App.Business_Logic
             data.HtmlDictUrl.Value = @"https://www.digminecraft.com/lists/item_id_list_pc.php?fbclid=IwAR2xBKrh6ayrSUYrDLZut0IPMUH4VO_QQ0YacUGPDvIMBjiSf5zCZIGR4iA";
         }
 
+        public static string GetBuildingName()
+        {
+            return data.BuildingName.Value;
+        }
+
         public static void Process()
         {
             downloadWebSources.SetInput(data.HtmlMainUrl.Value, data.HtmlDictUrl.Value);
             downloadWebSources.SetOutput(data.HtmlDict, data.HtmlMain, data.JsUrl, data.JsContent);
             downloadWebSources.Process();
+
+            extractBuildingName.SetInput(data.HtmlMain.Value);
+            extractBuildingName.SetOutput(data.BuildingName);
+            extractBuildingName.Process();
 
             extractBlocksFromJsContent.SetInput(data.JsContent);
             extractBlocksFromJsContent.SetOutput(data.RawBlocks);
