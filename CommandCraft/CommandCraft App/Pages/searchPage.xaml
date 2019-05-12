@@ -14,7 +14,7 @@
     TextOptions.TextRenderingMode="Auto"
     Title="serachPage"
     d:DesignHeight="450"
-    d:DesignWidth="800"
+    d:DesignWidth="600"
     mc:Ignorable="d"
     Loaded="Page_Loaded"
     >
@@ -29,34 +29,32 @@
                 </Grid.ColumnDefinitions>
 
 
-                <ComboBox x:Name="cbBuildings" Grid.Column="0">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding BuildingName}" />
-                        </DataTemplate>
-                        
-                    </ComboBox.ItemTemplate>
-                    
-                </ComboBox>
+                <ComboBox x:Name="cbBuildings" Grid.Column="0"  ItemsSource="{Binding BuildingsCol}"/> <!-- gotta set itemssource-->
+
                 <Button
+                    x:Name="btnLoad"
                     Grid.Column="1"
                     Margin="20,0,0,0"
-                    Content="Load" />
-
-            </Grid>
-
-            <TextBlock Visibility="Collapsed"
-                    HorizontalAlignment="Center"
-                    Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                    Text="unable to load the building" 
-                    Margin="0 50 0 0"
+                    Content="Load"
+                    Click="BtnLoad_Click"
                     />
 
-            <StackPanel Margin="50,50,50,0">
+            </Grid>
+            <!-- This may result in error, since it has the same x:name such as element on download page-->
+            <TextBlock
+                x:Name="txtBlockError"
+                Margin="0,50,0,0"
+                HorizontalAlignment="Center"
+                Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                Text="unable to load the building"
+                Visibility="Collapsed" />
+
+            <StackPanel Margin="50,50,50,0" Visibility="{Binding IsBuildingInfoVisible}"> <!--visibility binding-->
                 <TextBlock
+                    x:Name="txtBuildingName"
                     HorizontalAlignment="Center"
                     Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                    Text="Just Example Name of Building" 
+                    Text="{Binding BuildingName}" 
                     Margin="0 0 0 10"
                     />
                 <TextBlock
@@ -73,9 +71,12 @@
                     </Grid.ColumnDefinitions>
 
                     <Button
+                        x:Name="btnSaveAsTxt"
                         Grid.Column="0"
                         Margin="70,0,0,0"
-                        Content="Save as .txt" />
+                        Content="Save as .txt"
+                        Click="BtnSaveAsTxt_Click"
+                        />
 
                 </Grid>
 

@@ -15,6 +15,7 @@
     TextElement.FontWeight="Regular"
     TextOptions.TextFormattingMode="Ideal"
     TextOptions.TextRenderingMode="Auto"
+    Loaded="Page_Loaded"
     mc:Ignorable="d">
 
     <Border Padding="15" Background="White">
@@ -36,7 +37,7 @@
                     Margin="20,0,0,0"
                     Click="BtnGet_Click"
                     Content="Get" 
-                    IsEnabled="{Binding Source={x:Type Button}}"
+                    IsEnabled="{Binding IsGetButtonEnabled}"
                     />
 
             </Grid>
@@ -49,13 +50,13 @@
                 Text="unable to load the building"
                 Visibility="Collapsed" />
 
-            <StackPanel Margin="50,50,50,0">
+            <StackPanel Margin="50,50,50,0" Visibility="{Binding IsBuildingInfoVisible}">
                 <TextBlock
                     x:Name="txtBlockBuildingName"
                     Margin="0,0,0,10"
                     HorizontalAlignment="Center"
                     Style="{StaticResource MaterialDesignHeadlineTextBlock}"
-                    Text="Example Building name" />
+                    Text="{Binding BuildingName}" />
                 <TextBlock
                     Margin="0,0,0,25"
                     HorizontalAlignment="Center"

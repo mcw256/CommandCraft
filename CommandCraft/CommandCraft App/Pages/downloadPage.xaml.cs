@@ -15,6 +15,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CommandCraft_App.DBHandling;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Microsoft.Win32;
+using System.IO;
 
 namespace CommandCraft_App.Pages
 {
@@ -23,10 +27,9 @@ namespace CommandCraft_App.Pages
     /// </summary>
     public partial class downloadPage : Page
     {
-        private string buildingName;
-        private string givenUrl;
-        
-        
+        private downloadPageDataViewModel pageData;
+
+
         #region Default Constructor
         public downloadPage()
         {
@@ -34,38 +37,125 @@ namespace CommandCraft_App.Pages
         }
         #endregion
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            pageData = new downloadPageDataViewModel("", "", true, Visibility.Collapsed);
+
+            DataContext = pageData;
+          
+        }
+
         #region Buttons Click Handlers
 
         private void BtnGet_Click(object sender, RoutedEventArgs e)
         {
-            btnGet.IsEnabled = false;
-            givenUrl = txtBoxUrl.Text;
-            //TODO given url validation -  regex checking
-            ProcessManager.SetHtmlMainUrl(givenUrl);
-            ProcessManager.Process();
-            buildingName = ProcessManager.GetBuildingName();
+            pageData.IsGetButtonEnabled = false;
+            var buildingUrl = txtBoxUrl.Text;
+            ProcessManager.Process(buildingUrl);
 
-            txtBlockBuildingName.Text = buildingName;
+            pageData.BuildingName = ProcessManager.BuildingName;
+            pageData.IsBuildingInfoVisible = Visibility.Visible;
+            pageData.IsGetButtonEnabled = true;
         }
 
         private void BtnSaveAsTxt_Click(object sender, RoutedEventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text file (*.txt)|*.txt|McFunction (*.mcfunction)|*.mcfunction";
+            if (saveFileDialog.ShowDialog() == true)
+                File.WriteAllLines(saveFileDialog.FileName, ProcessManager.MinecraftFunction);
 
         }
 
         private void BtnAddToDatabase_Click(object sender, RoutedEventArgs e)
         {
-            DataAccess db = new DataAccess();
+            DataAccess db = new DataAccess(); //don't know why I don't make this class static
 
-            db.SaveBuilding(buildingName);
+
+            string buildingData = String.Join("\r\n", ProcessManager.MinecraftFunction);
+            db.SaveBuilding(pageData.BuildingName, buildingData);
 
         }
 
-        #endregion
-
-
-
-
-
+        #endregion      
     }
+
+    class downloadPageDataViewModel : INotifyPropertyChanged
+    {
+        private string _givenUrl;
+        public string GivenUrl
+        {
+            get { return _givenUrl; }
+
+            set
+            {
+                if (_givenUrl == value)
+                    return; 
+
+                _givenUrl = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _buildingName;
+        public string BuildingName
+        {
+            get { return _buildingName; }
+
+            set
+            {
+                if (_buildingName == value)
+                    return;
+
+                _buildingName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isGetButtonEnabled;
+        public bool IsGetButtonEnabled
+        {
+            get { return _isGetButtonEnabled; }
+
+            set
+            {
+                if (_isGetButtonEnabled == value)
+                    return;
+
+                _isGetButtonEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Visibility _isBuildingInfoVisible;
+        public Visibility IsBuildingInfoVisible
+        {
+            get { return _isBuildingInfoVisible; }
+
+            set
+            {
+                if (_isBuildingInfoVisible == value)
+                    return;
+
+                _isBuildingInfoVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public downloadPageDataViewModel(string givenUrl, string buildingName, bool isGetButtonEnabled, Visibility isBuildingInfoVisible)
+        {
+            GivenUrl = givenUrl;
+            BuildingName = buildingName;
+            IsGetButtonEnabled = isGetButtonEnabled;
+            IsBuildingInfoVisible = isBuildingInfoVisible;
+        }
+
+        private void OnPropertyChanged([CallerMemberName] string memberName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(memberName));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
+
 }

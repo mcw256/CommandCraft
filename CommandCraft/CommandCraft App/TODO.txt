@@ -1,9 +1,14 @@
 ﻿Things to end up school version
-1. Save as .txt 
-2. Adding to database - fix error
-3. Adding one after another - fix error
-4. size of combox item - fix
-
+	1. Save as .txt in downloadPage
+	DONE
+	2. Save as .txt in searchPage
+	DONE
+	3. Adding to database - fix error
+	DONE
+	4. Adding one after another - fix error
+	DONE
+	5. size of combox item - fix
+	DONE
 
 Things to end up outgoing version
 1. refactor business logic
@@ -18,3 +23,5 @@ Things to end up outgoing version
 5. Save that minecraft funcition in appropriate fromat in appropriate folder locations
 
 6. Create script to download all buildigns data, in case they hide it from me somehow
+
+7. implement mvvm

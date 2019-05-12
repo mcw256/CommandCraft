@@ -24,12 +24,23 @@ namespace CommandCraft_App.Business_Logic
         public List<string> MinecraftFunction { get; set; } = new List<string>();
         public List<Block> TranslatedBlocks { get; set; } = new List<Block>();
         public MyString BuildingName { get; set; } = new MyString();
+      
     }
 
     public static class ProcessManager
     {
-        private static DataContainer data = new DataContainer();
+        private static DataContainer data;
+        public static string BuildingName
+        {
+            get { return data.BuildingName.Value; }
+        }
 
+        public static List<string> MinecraftFunction
+        {
+            get { return data.MinecraftFunction; }
+        }
+
+        #region prepare activity objects
         private static DownloadWebSources downloadWebSources = new DownloadWebSources();
         private static ExtractBuildingName extractBuildingName = new ExtractBuildingName();
         private static ExtractBlocksFromJsContent extractBlocksFromJsContent = new ExtractBlocksFromJsContent();
@@ -37,22 +48,14 @@ namespace CommandCraft_App.Business_Logic
         private static FindTranslationParams findTranslationParams = new FindTranslationParams();
         private static TranslateBlocks translateBlocks = new TranslateBlocks();
         private static GenerateMinecraftFunction generateMinecraftFunction = new GenerateMinecraftFunction();
+        #endregion
 
-
-
-        public static void SetHtmlMainUrl(string htmlMainUrl)
+        public static void Process(string htmlMainUrl)
         {
-            data.HtmlMainUrl.Value = htmlMainUrl;
-            data.HtmlDictUrl.Value = @"https://www.digminecraft.com/lists/item_id_list_pc.php?fbclid=IwAR2xBKrh6ayrSUYrDLZut0IPMUH4VO_QQ0YacUGPDvIMBjiSf5zCZIGR4iA";
-        }
+            data = new DataContainer();
 
-        public static string GetBuildingName()
-        {
-            return data.BuildingName.Value;
-        }
+            SetHtmlMainUrl(htmlMainUrl);
 
-        public static void Process()
-        {
             downloadWebSources.SetInput(data.HtmlMainUrl.Value, data.HtmlDictUrl.Value);
             downloadWebSources.SetOutput(data.HtmlDict, data.HtmlMain, data.JsUrl, data.JsContent);
             downloadWebSources.Process();
@@ -81,6 +84,12 @@ namespace CommandCraft_App.Business_Logic
             generateMinecraftFunction.SetOutput(data.MinecraftFunction);
             generateMinecraftFunction.Process();
 
+        }
+
+        private static void SetHtmlMainUrl(string htmlMainUrl)
+        {
+            data.HtmlMainUrl.Value = htmlMainUrl;
+            data.HtmlDictUrl.Value = @"https://www.digminecraft.com/lists/item_id_list_pc.php?fbclid=IwAR2xBKrh6ayrSUYrDLZut0IPMUH4VO_QQ0YacUGPDvIMBjiSf5zCZIGR4iA";
         }
     }
 }

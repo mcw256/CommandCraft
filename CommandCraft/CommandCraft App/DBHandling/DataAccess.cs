@@ -20,11 +20,11 @@ namespace CommandCraft_App.DBHandling
             }
         }
 
-        public void SaveBuilding( string _buildingName)
+        public void SaveBuilding( string _buildingName, string _buildingData)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(Helper.CnnVal("CommandCraftDB")))
             {
-                connection.Query<Building>($"INSERT INTO Buildings VALUES('{3}', {_buildingName }, 'sample data')");
+                connection.Execute($"INSERT INTO Buildings VALUES('{_buildingName }', '{_buildingData}')");
                 
             }
         }
