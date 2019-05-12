@@ -11,12 +11,12 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.green.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.green.xaml" />
-
-
             </ResourceDictionary.MergedDictionaries>
-            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="White"/>
-            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="White"/>
-            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="White"/>
+
+            <!--  Override default colors  -->
+            <SolidColorBrush x:Key="PrimaryHueDarkForegroundBrush" Color="White" />
+            <SolidColorBrush x:Key="PrimaryHueLightForegroundBrush" Color="White" />
+            <SolidColorBrush x:Key="PrimaryHueMidForegroundBrush" Color="White" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,2 +1,20 @@
-﻿
+﻿Things to end up school version
+1. Save as .txt 
+2. Adding to database - fix error
+3. Adding one after another - fix error
+4. size of combox item - fix
 
+
+Things to end up outgoing version
+1. refactor business logic
+	it will be getting full object by constructor param, and then link it inside contructor
+
+2. create full dictionary and read it from file everytime
+
+3. Enhance function Translate Blocks, to handle all the buildings
+
+4. Enhance minecraft funcition generation to not generate by static coords
+
+5. Save that minecraft funcition in appropriate fromat in appropriate folder locations
+
+6. Create script to download all buildigns data, in case they hide it from me somehow
