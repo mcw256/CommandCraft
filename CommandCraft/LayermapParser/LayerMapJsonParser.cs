@@ -22,14 +22,14 @@ namespace LayermapParser
         /// <returns>
         /// List of Buildings Raw Named. Note that all coords starts from 0!!
         /// </returns>
-        public static List<BuildingsRawNamed> Parse(string json)
+        public static List<BlockRawNamed> Parse(string json)
         {
             json =  Regex.Replace(json, @"^.+=\s*", "");
 
             Dictionary<string, List<RawItem>> rawData = JsonConvert.DeserializeObject<Dictionary<string, List<RawItem>>>(json);
             List<FirstPhaseData> firstPhaseDatas = FirstPhaseProcess.Process(rawData);
 
-            List<BuildingsRawNamed> output = SecondPhaseProcess.Process(firstPhaseDatas);
+            List<BlockRawNamed> output = SecondPhaseProcess.Process(firstPhaseDatas);
             return output;
         }
     }

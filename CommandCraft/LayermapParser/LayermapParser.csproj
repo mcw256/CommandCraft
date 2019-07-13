@@ -50,9 +50,10 @@
   <ItemGroup>
     <Compile Include="DataProcess\FirstPhaseProcess.cs" />
     <Compile Include="DataProcess\SecondPhaseProcess.cs" />
+    <Compile Include="DataTypes\BuildingFileJsonResponse.cs" />
     <Compile Include="DataTypes\RawItem.cs" />
     <Compile Include="DataTypes\FirstPhaseData.cs" />
-    <Compile Include="DataTypes\BuildingsRawNamed.cs" />
+    <Compile Include="DataTypes\BlockRawNamed.cs" />
     <Compile Include="LayerMapJsonParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandCraft App", "CommandCraft App\CommandCraft App.csproj", "{243C1F1F-F7DD-42A5-93C8-ECED5DAAEFAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayermapParser", "LayermapParser\LayermapParser.csproj", "{D0B966D8-5B36-41E8-B683-73DC9C0D99D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameTranslationTests", "NameTranslationTests\NameTranslationTests.csproj", "{0B09EE6D-FDC1-4C0C-AF5F-E7DBFB153DBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{243C1F1F-F7DD-42A5-93C8-ECED5DAAEFAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{243C1F1F-F7DD-42A5-93C8-ECED5DAAEFAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{243C1F1F-F7DD-42A5-93C8-ECED5DAAEFAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0B966D8-5B36-41E8-B683-73DC9C0D99D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0B966D8-5B36-41E8-B683-73DC9C0D99D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0B966D8-5B36-41E8-B683-73DC9C0D99D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0B966D8-5B36-41E8-B683-73DC9C0D99D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B09EE6D-FDC1-4C0C-AF5F-E7DBFB153DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B09EE6D-FDC1-4C0C-AF5F-E7DBFB153DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B09EE6D-FDC1-4C0C-AF5F-E7DBFB153DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B09EE6D-FDC1-4C0C-AF5F-E7DBFB153DBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

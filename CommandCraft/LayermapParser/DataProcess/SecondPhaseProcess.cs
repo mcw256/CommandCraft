@@ -9,9 +9,9 @@ namespace LayermapParser.DataProcess
 {
     static class SecondPhaseProcess
     {
-        public static List<BuildingsRawNamed> Process(List<FirstPhaseData> data)
+        public static List<BlockRawNamed> Process(List<FirstPhaseData> data)
         {
-            List<BuildingsRawNamed> output = new List<BuildingsRawNamed>();
+            List<BlockRawNamed> output = new List<BlockRawNamed>();
             int interval = CalcualteInterval(data);
             int startingY = CalculateStartingY(data, interval);
 
@@ -25,7 +25,7 @@ namespace LayermapParser.DataProcess
                     newName = item.Name.Substring(1);
                 else
                     newName = item.Name;
-                output.Add(new BuildingsRawNamed(newX, newY, newZ, newName));
+                output.Add(new BlockRawNamed(newX, newY, newZ, newName));
             }
 
             return output;

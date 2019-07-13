@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LayermapParser.DataTypes
 {
-    public class BuildingsRawNamed
+    public class BlockRawNamed
     {
-        public BuildingsRawNamed(int x, int y, int z, string name)
+        public BlockRawNamed(int x, int y, int z, string name)
         {
             X = x;
             Y = y;

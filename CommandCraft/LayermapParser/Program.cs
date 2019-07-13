@@ -28,11 +28,11 @@ namespace LayermapParser
         {
             string path = @"C:\Users\rivae\Desktop\1 - Troll Hut.json";
             string rawJson = File.ReadAllText(path);
-            Rootobject obj1 = JsonConvert.DeserializeObject<Rootobject>(rawJson);
+            BuildingFileJsonResponse obj1 = JsonConvert.DeserializeObject<BuildingFileJsonResponse>(rawJson);
             return obj1.LayerMap;
         }
 
-        static void Display(List<BuildingsRawNamed> data)
+        static void Display(List<BlockRawNamed> data)
         {
             foreach (var item in data)
             {
@@ -45,17 +45,5 @@ namespace LayermapParser
             }
 
         }
-
-        public class Rootobject
-        {
-            public string Name { get; set; }
-            public string URL { get; set; }
-            public string Category { get; set; }
-            public string LayerMap { get; set; }
-        }
-
-
-
-
     }
 }
