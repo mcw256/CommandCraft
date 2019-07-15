@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using LayermapParser;
 using LayermapParser.DataTypes;
 using System.Text.RegularExpressions;
+using NameTranslationTests.DictionaryUpdating;
 
 namespace NameTranslationTests
 {
@@ -19,10 +20,9 @@ namespace NameTranslationTests
 
         static void Main(string[] args)
         {
-            Dictionary<string, string> blockNamesDictionary = LoadDict();
-            BuildingFileJsonResponse building = LoadBuilding();
+            DictionaryUpdater DictUpdater = new DictionaryUpdater(@"E:\Grabcraft\Dictionary\digminecraftdotcom manual edition 1.json");
 
-            
+            DictUpdater.Go(@"E:\Grabcraft\AllBuildingsData", @"E:\Test\missingItems v2.txt");
 
         }
 

@@ -9,8 +9,10 @@ namespace NameTranslationTests
 {
     static class DownloadDictionary
     {
-        public static Dictionary<string, string> GetBlockNamesTranslations()
+        public static Dictionary<string, string> Download()
         {
+            throw new Exception("This function has been already used. It's one-off");
+
             Dictionary<string, string> BlockNamesTranslations = new Dictionary<string, string>();
             HtmlWeb web = new HtmlWeb();
             HtmlDocument htmlDoc = web.Load(@"https://www.digminecraft.com/lists/item_id_list_pc.php?fbclid=IwAR2xBKrh6ayrSUYrDLZut0IPMUH4VO_QQ0YacUGPDvIMBjiSf5zCZIGR4iA");
@@ -37,8 +39,5 @@ namespace NameTranslationTests
 
             return BlockNamesTranslations;
         }
-
-
-
     }
 }
