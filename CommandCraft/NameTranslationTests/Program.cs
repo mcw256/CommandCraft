@@ -22,7 +22,11 @@ namespace NameTranslationTests
         {
             DictionaryUpdater DictUpdater = new DictionaryUpdater(@"E:\Grabcraft\Dictionary\digminecraftdotcom manual edition 1.json");
 
-            DictUpdater.Go(@"E:\Grabcraft\AllBuildingsData", @"E:\Test\missingItems v2.txt");
+            // DictUpdater.Go(@"E:\Grabcraft\AllBuildingsData", @"E:\Test\missingItems v2.txt");
+
+            DictUpdater.Go2(@"E:\Test\Creating stairs pattern3");
+
+
 
         }
 

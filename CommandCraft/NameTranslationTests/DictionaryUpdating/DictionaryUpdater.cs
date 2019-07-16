@@ -30,6 +30,7 @@ namespace NameTranslationTests.DictionaryUpdating
 
         public void Go(string pathToContainingFolder, string pathWhereToSaveMissingItems)
         {
+            throw new Exception("no longer need to use this");
             var fileNames = LoadListOfFileNames(pathToContainingFolder);
 
             List<string> missingNames = new List<string>();
@@ -49,6 +50,40 @@ namespace NameTranslationTests.DictionaryUpdating
                 StoreMissingItems(itemNames, missingNames);
             }
             File.WriteAllLines(pathWhereToSaveMissingItems, missingNames);
+        }
+
+        public void Go2(string pathToContainingFolder)
+        {
+            var fileNames = LoadListOfFileNames(pathToContainingFolder);
+
+            List<string> temporary = new List<string>();
+            foreach (var item in fileNames)
+            {
+                var rawData = LoadBuildingData(item);
+                var blocksData = ParseLayerMap(rawData.LayerMap);
+                var itemNames = ExtractItemNamesList(blocksData);
+
+
+                foreach (var x in itemNames)
+                {
+                    StringBuilder qq = new StringBuilder();
+
+                    if (Utils.AreThereAnyAttributes(x))
+                    {
+                        foreach (var y in Utils.ExtractAttributesList(x))
+                        {
+                            qq.Append($"{y}*");
+                        }
+                        temporary.Add($"{ x} @@@{qq.ToString()}");
+
+                    }
+                    else
+                        temporary.Add($"{ x} --- {Utils.AreThereAnyAttributes(x)}");
+                    qq.Clear();
+                }
+
+                File.WriteAllLines($"{item.Substring(0, item.Length - 5)}.txt", temporary);
+            }
         }
 
         Dictionary<string, string> LoadDictionary(string path)
@@ -129,6 +164,42 @@ namespace NameTranslationTests.DictionaryUpdating
         {
             return File.ReadAllLines(@"E:\Test\Corrupted ones.txt").ToList<string>();
         }
+
+
+
+
+        static class Utils
+        {
+            public static bool AreThereAnyAttributes(string block)
+            {
+                if (Regex.IsMatch(block, @".+\(.+\)")) return true; //needs to be tested
+                else return false;
+
+            }
+
+            public static string CutAtributes(string block)
+            {
+                return Regex.Replace(block, @"\s\(.+\)", "");
+            }
+
+            public static List<string> ExtractAttributesList(string block)
+            {
+                List<string> result = new List<string>();
+
+                foreach (var item in Regex.Matches(block, @"[\w\s-]+[,\)]"))
+                {
+                    string helper = item.ToString();
+                    helper = Regex.Replace(helper, @"^\s", "");
+                    helper = Regex.Replace(helper, @"[,\)]$", "");
+
+                    result.Add(helper);
+
+                }
+                return result;
+            }
+        }
+
+
 
     }
 }
