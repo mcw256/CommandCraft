@@ -24,7 +24,7 @@ namespace NameTranslationTests
 
             // DictUpdater.Go(@"E:\Grabcraft\AllBuildingsData", @"E:\Test\missingItems v2.txt");
 
-            DictUpdater.Go2(@"E:\Test\Creating stairs pattern3");
+            //DictUpdater.Go3(@"E:\Grabcraft\AllBuildingsData");
 
 
 

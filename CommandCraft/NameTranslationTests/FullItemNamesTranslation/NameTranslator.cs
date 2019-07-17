@@ -22,6 +22,13 @@ namespace NameTranslationTests.FullItemNamesTranslation
         {
             if (AreThereAnyAttributes(block))
             {
+                if (CutAtributes(block).Contains("Torch"))
+                    return HandleExceptionaryItems(block);
+
+                if (ExtractAttributesList(block).Contains("On The Floor") || ExtractAttributesList(block).Contains("Normal")
+                    || ExtractAttributesList(block).Contains("Inactive") || ExtractAttributesList(block).Contains("Unactive"))
+                    return TranslateName(CutAtributes(block));
+
                 var nameRes = TranslateName(CutAtributes(block));
                 var attRes = TranslateAtributes(ExtractAttributesList(block));
 
@@ -75,5 +82,38 @@ namespace NameTranslationTests.FullItemNamesTranslation
             return (false, result, "");
         }
 
+        private (bool isError, string output, string error) HandleExceptionaryItems(string block)
+        {
+            if (CutAtributes(block).Contains("Torch"))
+            {
+                if (ExtractAttributesList(block).Contains("Facing Up"))
+                    return TranslateName(CutAtributes(block));
+
+                else
+                {
+                    var nameRes = TranslateName(CutAtributes($"Wall {block}"));
+                    var attRes = TranslateAtributes(ExtractAttributesList(block));
+
+                    if (nameRes.isError == false && attRes.isError == false)
+                    {
+                        StringBuilder result = new StringBuilder();
+                        result.Append($"{nameRes.output}[");
+
+                        for (int i = 0; i <= attRes.output.Count - 2; i++)
+                        {
+                            result.Append($"{attRes.output[i]},");
+                        }
+                        result.Append($"{attRes.output[attRes.output.Count - 1]}]");
+
+                        return (false, result.ToString(), "");
+                    }
+                    else return (true, "", nameRes.isError ? $"Block name mismatch:{nameRes.error} in block:{block}" : $"Attribute name mismatch:{attRes.error} in block:{block}");
+                }
+            }
+
+            return (true, "", "Error in function HandleExceptionaryNames. Basically this should never be returned"); // i'm so ashamed of this code
+        }
+
     }
+
 }

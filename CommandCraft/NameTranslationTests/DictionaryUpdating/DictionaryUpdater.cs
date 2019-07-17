@@ -54,6 +54,8 @@ namespace NameTranslationTests.DictionaryUpdating
 
         public void Go2(string pathToContainingFolder)
         {
+            throw new Exception("not gonna use it no more");
+
             var fileNames = LoadListOfFileNames(pathToContainingFolder);
 
             List<string> temporary = new List<string>();
@@ -83,6 +85,29 @@ namespace NameTranslationTests.DictionaryUpdating
                 }
 
                 File.WriteAllLines($"{item.Substring(0, item.Length - 5)}.txt", temporary);
+            }
+        }
+
+        public void Go3(string pathToContainingFolder)
+        {
+            var fileNames = LoadListOfFileNames(pathToContainingFolder);
+
+            int i = 0;
+            foreach (var item in fileNames)
+            {
+                i++; if (i >= 100) break;
+                var rawData = LoadBuildingData(item);
+                var blocksData = ParseLayerMap(rawData.LayerMap);
+                var itemNames = ExtractItemNamesList(blocksData);
+
+
+                foreach (var x in itemNames)
+                {
+                    if (x.Contains("sign") || x.Contains("Sign"))
+                        Console.WriteLine(x);
+
+                    //File.WriteAllLines($"{item.Substring(0, item.Length - 5)}.txt", temporary);
+                }
             }
         }
 

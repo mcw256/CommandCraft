@@ -25,7 +25,7 @@ namespace NameTranslationTests.FullItemNamesTranslation.Utils
         {
             List<string> result = new List<string>();
 
-            foreach (var item in Regex.Matches(block, @"[\w\s-]+[,\)]"))
+            foreach (var item in Regex.Matches(block, @"[\w\s-/]+[,\)]"))
             {
                 string helper = item.ToString();
                 helper = Regex.Replace(helper, @"^\s", "");
