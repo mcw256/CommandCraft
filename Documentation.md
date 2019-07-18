@@ -111,7 +111,7 @@ Here is how will I refer to certain things in code.
 
 * **Building** - single project on grabcraft, *link to example building:* ```https://www.grabcraft.com/minecraft/pig-statue/farm-animals-1``` _Despite grabcrafts categorising it's projects into categoires like buildings, statues, working mechanisms etc. I will refer to all of them as buildings._
 
-* **LayerMap** - file/string/json containing raw/slightly edited building's layerMap.js data
+* **Layermap** - file/string/json containing raw/slightly edited building's layerMap.js data
 
 * **GBlock** - data structure that represents single minecraft object:
   * X
@@ -121,13 +121,13 @@ Here is how will I refer to certain things in code.
 
 * **MBlock** - _(derives Block)_ data structure that represents Block with normalized coords. And depending on additional property ```bool IsMismatch``` translated if false or non-translated if true - Info.
 
-* **GCoords** _(abstract)_ Blocks coordinates system used LayerMap
+* **GCoords** _(abstract)_ Blocks coordinates system used Layermap
 
 * **MCoords** _(abstract)_ normalized coordinates that can be used to produce minecraft function
 
 * **Coords Normalization** _(abstract)_ converting GCoords to MCoords
 
-* **BlockGInfo** - grabcraft's way of identyfing minecraft items in layerMap *example:* ```Spruce Fence Gate (Facing South, Closed)```
+* **BlockGInfo** - grabcraft's way of identyfing minecraft items in layermap *example:* ```Spruce Fence Gate (Facing South, Closed)```
 
 * **BlockGName** - part of BlockGInfo containing only name *example:* ```Spruce Fence Gate```
 

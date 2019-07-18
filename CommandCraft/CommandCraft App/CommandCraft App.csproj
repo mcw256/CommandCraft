@@ -64,38 +64,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Business Logic\Activities\DownloadWebSources.cs" />
-    <Compile Include="Business Logic\Activities\ExtractBlocksFromJsContent.cs" />
-    <Compile Include="Business Logic\Activities\ExtractBuildingName.cs" />
-    <Compile Include="Business Logic\Activities\ExtractDictFromItemsSource.cs" />
-    <Compile Include="Business Logic\Activities\FindTranslationParams.cs" />
-    <Compile Include="Business Logic\Activities\GenerateMinecraftFunction.cs" />
-    <Compile Include="Business Logic\Activities\TranslateBlocks.cs" />
-    <Compile Include="Business Logic\ProcessManager.cs" />
-    <Compile Include="Business Logic\DataTypes\Block.cs" />
-    <Compile Include="Business Logic\DataTypes\MyInt.cs" />
-    <Compile Include="Business Logic\DataTypes\MyString.cs" />
-    <Compile Include="Business Logic\FileActivities\LoadItemDictFromFile.cs" />
-    <Compile Include="Business Logic\FileActivities\SaveItemDictToFile.cs" />
-    <Compile Include="Business Logic\FileActivities\SaveMinecraftFunctionToFile.cs" />
-    <Compile Include="Business Logic\Utils\ImprovedWebClient.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Business Logic\Utils\RegexConfig.cs" />
-    <Compile Include="DBHandling\Building.cs" />
-    <Compile Include="DBHandling\DataAccess.cs" />
-    <Compile Include="DBHandling\Helper.cs" />
-    <Compile Include="Pages\downloadPage.xaml.cs">
+    <Compile Include="Model\DataTypes\Block.cs" />
+    <Compile Include="Model\DataTypes\BlockGInfo.cs" />
+    <Compile Include="Model\DataTypes\BlockInfo.cs" />
+    <Compile Include="Model\DataTypes\BlockMInfo.cs" />
+    <Compile Include="Model\DataTypes\GBlock.cs" />
+    <Compile Include="Model\DataTypes\HowToHandleMismatch.cs" />
+    <Compile Include="Model\DataTypes\MBlock.cs" />
+    <Compile Include="Model\DataTypes\UserConfig.cs" />
+    <Compile Include="Model\Downloaders\DownloadBuildingHtml.cs" />
+    <Compile Include="Model\Downloaders\DownloadLayermap.cs" />
+    <Compile Include="Model\FileOperations\Loaders\LoadBlockAttributesDictionary.cs" />
+    <Compile Include="Model\FileOperations\Loaders\LoadBlockNamesDictionary.cs" />
+    <Compile Include="Model\FileOperations\Loaders\LoadResources.cs" />
+    <Compile Include="Model\FileOperations\Loaders\LoadUserConfig.cs" />
+    <Compile Include="Model\FileOperations\Savers\SaveMFunction.cs" />
+    <Compile Include="Model\FileOperations\Savers\SaveUserConfig.cs" />
+    <Compile Include="Model\Processing\BlockInfosTranslator.cs" />
+    <Compile Include="Model\Processing\CoordsNormalizer.cs" />
+    <Compile Include="Model\Processing\LayermapParser.cs" />
+    <Compile Include="Model\Processing\MFunctionComposer.cs" />
+    <Compile Include="Model\Validators\ValidateBuildingURL.cs" />
+    <Compile Include="Model\Validators\ValidateLayermap.cs" />
+    <Compile Include="Model\Validators\ValidateMinecraftPath.cs" />
+    <Compile Include="Model\Validators\Validator.cs" />
+    <Compile Include="View\downloadPage.xaml.cs">
       <DependentUpon>downloadPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\searchPage.xaml.cs">
+    <Compile Include="View\searchPage.xaml.cs">
       <DependentUpon>searchPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\downloadPage.xaml">
+    <Page Include="View\downloadPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\homePage.xaml">
+    <Page Include="View\homePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -107,14 +110,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Pages\homePage.xaml.cs">
+    <Compile Include="View\homePage.xaml.cs">
       <DependentUpon>homePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\searchPage.xaml">
+    <Page Include="View\searchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -148,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
