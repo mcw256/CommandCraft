@@ -37,11 +37,17 @@
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.10.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.10\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.1.1345, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -64,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\ActionManager.cs" />
     <Compile Include="Model\DataTypes\Block.cs" />
     <Compile Include="Model\DataTypes\BlockGInfo.cs" />
     <Compile Include="Model\DataTypes\BlockInfo.cs" />
@@ -71,14 +78,21 @@
     <Compile Include="Model\DataTypes\GBlock.cs" />
     <Compile Include="Model\DataTypes\HowToHandleMismatch.cs" />
     <Compile Include="Model\DataTypes\MBlock.cs" />
+    <Compile Include="Model\DataTypes\MFunction.cs" />
+    <Compile Include="Model\DataTypes\Response.cs" />
     <Compile Include="Model\DataTypes\UserConfig.cs" />
     <Compile Include="Model\Downloaders\DownloadBuildingHtml.cs" />
+    <Compile Include="Model\Downloaders\Downloader.cs" />
     <Compile Include="Model\Downloaders\DownloadLayermap.cs" />
+    <Compile Include="Model\Downloaders\Utils\ImprovedWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\FileOperations\Loaders\LoadBlockAttributesDictionary.cs" />
     <Compile Include="Model\FileOperations\Loaders\LoadBlockNamesDictionary.cs" />
-    <Compile Include="Model\FileOperations\Loaders\LoadResources.cs" />
+    <Compile Include="Model\FileOperations\Loaders\Loader.cs" />
     <Compile Include="Model\FileOperations\Loaders\LoadUserConfig.cs" />
     <Compile Include="Model\FileOperations\Savers\SaveMFunction.cs" />
+    <Compile Include="Model\FileOperations\Savers\Saver.cs" />
     <Compile Include="Model\FileOperations\Savers\SaveUserConfig.cs" />
     <Compile Include="Model\Processing\BlockInfosTranslator.cs" />
     <Compile Include="Model\Processing\CoordsNormalizer.cs" />

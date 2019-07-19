@@ -9,6 +9,7 @@ using LayermapParser;
 using LayermapParser.DataTypes;
 using System.Text.RegularExpressions;
 using NameTranslationTests.DictionaryUpdating;
+using HtmlAgilityPack;
 
 namespace NameTranslationTests
 {
@@ -20,12 +21,25 @@ namespace NameTranslationTests
 
         static void Main(string[] args)
         {
-            DictionaryUpdater DictUpdater = new DictionaryUpdater(@"E:\Grabcraft\Dictionary\digminecraftdotcom manual edition 1.json");
+            //DictionaryUpdater DictUpdater = new DictionaryUpdater(@"E:\Grabcraft\Dictionary\digminecraftdotcom manual edition 1.json");
 
             // DictUpdater.Go(@"E:\Grabcraft\AllBuildingsData", @"E:\Test\missingItems v2.txt");
 
             //DictUpdater.Go3(@"E:\Grabcraft\AllBuildingsData");
 
+            // How to set realitve path
+            //string tekst = File.ReadAllText("hehe.txt");
+
+            //var lol = JsonConvert.DeserializeObject<Dictionary<string, string>>(tekst);
+
+            List<string> lista = new List<string>();
+
+            lista.Add("adam");
+            lista.Add("marina");
+            lista.Add("wtf");
+            lista.Add("janusz");
+
+            File.WriteAllText("XD.txt", "Hello ladies");
 
 
         }
