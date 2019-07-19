@@ -27,7 +27,7 @@ _example of how couple lines of LayerMap.js file may look like:_
 ```json
 var layerMap = {"1":[{"x":5,"y":631,"s":21,"h":"Black Wool","y1":305,"x2":211},{"x":5,"y":611,"s":21,"h":"Pink Wool","x2":211},{"x":5,"y":591,"s":21,"h":"Pink Wool","x2":211},{"x":5,"y":571,"s":21,"h":"Black Wool","x2":211},
 ```
-  *as you can see, just be cuting out* ```var layerMap = ``` *string you can obtain ```.json``` file that can be Deserialized*
+  *as you can see, just by cuting out* ```var layerMap = ``` *string you can obtain ```.json``` file that can be deserialized*
 
 4. Deserialize LayerMap json
 5. Using acquired data, generate string containing minecraft setblock commands separated by new line. *Very short example:*  
