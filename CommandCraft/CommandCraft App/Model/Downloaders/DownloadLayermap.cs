@@ -10,9 +10,9 @@ using HtmlAgilityPack;
 
 namespace CommandCraft_App.Model.Downloaders
 {
-    class DownloadLayermap : Downloader<string>
+    class DownloadLayermap : Downloader<string, string>
     {
-        public override string Output { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        public override string Output { get; protected set; }
 
         public override Response Download(string url)
         {

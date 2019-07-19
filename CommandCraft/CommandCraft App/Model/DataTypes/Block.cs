@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace CommandCraft_App.Model.DataTypes
 {
-    abstract class Block
+    abstract class Block<TInfo>
     {
         public int X { get; set; }
         public int Y { get; set; }
         public int Z { get; set; }
 
-        public abstract BlockInfo BlockInfo { get; set; } // TODO maybe this setter shouldnt be here
+        public TInfo Info { get; set; } 
     }
 }

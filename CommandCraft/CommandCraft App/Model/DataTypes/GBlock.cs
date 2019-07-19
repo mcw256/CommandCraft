@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CommandCraft_App.Model.DataTypes
 {
-    class GBlock : Block
+    class GBlock : Block<BlockGInfo>
     {
-        public override BlockInfo BlockInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
     }
 }

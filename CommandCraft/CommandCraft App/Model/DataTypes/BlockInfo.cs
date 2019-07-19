@@ -8,9 +8,9 @@ namespace CommandCraft_App.Model.DataTypes
 {
     abstract class BlockInfo
     {
-        public string Info { get; set; }
-        public abstract string Name { get; set; }
-        public abstract List<string> Attributes { get; set; }
+        public virtual string Info { get; protected set; }
+        public abstract string Name { get; protected set; }
+        public abstract List<string> Attributes { get; protected set; }
 
     }
 }

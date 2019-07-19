@@ -10,7 +10,7 @@ using HtmlAgilityPack;
 
 namespace CommandCraft_App.Model.Downloaders
 {
-    class DownloadBuildingHtml : Downloader<string>
+    class DownloadBuildingHtml : Downloader<string, string>
     {
         public override string Output { get; protected set; }
 

@@ -95,9 +95,11 @@
     <Compile Include="Model\FileOperations\Savers\Saver.cs" />
     <Compile Include="Model\FileOperations\Savers\SaveUserConfig.cs" />
     <Compile Include="Model\Processing\BlockInfosTranslator.cs" />
+    <Compile Include="Model\Processing\BlockInfosTranslatorUtils\Class1.cs" />
     <Compile Include="Model\Processing\CoordsNormalizer.cs" />
     <Compile Include="Model\Processing\LayermapParser.cs" />
     <Compile Include="Model\Processing\MFunctionComposer.cs" />
+    <Compile Include="Model\Processing\Processor.cs" />
     <Compile Include="Model\Validators\ValidateBuildingURL.cs" />
     <Compile Include="Model\Validators\ValidateLayermap.cs" />
     <Compile Include="Model\Validators\ValidateMinecraftPath.cs" />

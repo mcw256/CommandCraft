@@ -11,7 +11,7 @@ namespace NameTranslationTests.FullItemNamesTranslation.Utils
     {
         public static bool AreThereAnyAttributes(string block)
         {
-            if (Regex.IsMatch(block, @".+\(.+\)")) return true; //needs to be tested
+            if (Regex.IsMatch(block, @".+\(.+\)")) return true;
             else return false;
 
         }

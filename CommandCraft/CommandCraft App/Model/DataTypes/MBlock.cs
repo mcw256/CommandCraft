@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 
 namespace CommandCraft_App.Model.DataTypes
 {
-    class MBlock : Block
+    class MBlock : Block<BlockMInfo>
     {
-        public override BlockInfo BlockInfo { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public bool Mismatch { get; set; }
+        public MBlock(int x, int y, int z, BlockMInfo info)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+            Info = info;
+        }
 
     }
 }

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace CommandCraft_App.Model.Downloaders
 {
-    abstract class Downloader<T>
+    abstract class Downloader<TOutput, TInput>
     {
-        public abstract T Output { get; protected set; }
+        public abstract TOutput Output { get; protected set; }
 
-        public abstract Response Download(string);
+        public abstract Response Download(TInput a);
 
     }
 }
