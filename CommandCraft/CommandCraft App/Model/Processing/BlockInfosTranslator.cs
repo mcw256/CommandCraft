@@ -1,4 +1,5 @@
 ﻿using CommandCraft_App.Model.DataTypes;
+using CommandCraft_App.Model.Processing.BlockInfosTranslatorUtils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,77 +8,43 @@ using System.Threading.Tasks;
 
 namespace CommandCraft_App.Model.Processing
 {
-    class BlockInfosTranslator : Processor<List<MBlock>, List<GBlock>>
+    class BlockInfosTranslator : Processor<List<BlockMInfo>, List<BlockGInfo>>
     {
-        Dictionary<string, string> namesDictionary;
-        Dictionary<string, string> attributesDictionary;
-        
-        public override List<MBlock> Output { get; protected set; }
-
+        public override List<BlockMInfo> Output { get; protected set; }
         public BlockInfosTranslator(Dictionary<string, string> _namesDictionary, Dictionary<string, string> _attributesDictionary)
         {
-            namesDictionary = _namesDictionary;
-            attributesDictionary = _attributesDictionary;
+            SearchNamesDictionary.NamesDictionary = _namesDictionary;
+            SearchAttributesDictionary.AttributesDictionary = _attributesDictionary;
         }
 
-        public override Response Process(List<GBlock> gBlocks)
+        public override Response Process(List<BlockGInfo> blockGInfos)
         {
             try
             {
-                foreach (var item in gBlocks)
-                {
-                    if (item.Info.isValid == false || IsExceptional(item.Info))
+                foreach (var item in blockGInfos)
+                {     
+                    if (item.IsValid && item.HasAttributes)
+                        Utils.RemoveIgnoredAttributes(item.Attributes);
+
+                    if (SpecialTranslation.IsSpecialTranslationNeeded(item.Info) || item.IsValid == false)
                     {
-                        ServeExceptionalBlockInfos(item.Info, Output);
+                        Output.Add(TranslateExtraordinaryBlocks.Translate(item.Info));
                         continue;
                     }
-                    
-                    if(item.Info.Attributes.Count == 0)
-                    {
-                        var dic = new SearchNamesDictionary(namesDictionary)
 
-                        if (dic.Search(item.Info.Name) == false)
-                        {
-                            Output.Add(new MBlock(item.X, item.Y, item.Z, new BlockMInfo(item.Info.Name, new List<string>(), true)));
-                            continue;
-                        }
-                        else
-                        {
-                            Output.Add(new MBlock(item.X, item.Y, item.Z, new BlockMInfo(dic.Output, new List<string>())));
-                            continue;
-                        }
-                    }
-                    else
-                    {
-                        var ndic = SearchNamesDictionary(namesDictionary);
-                        var adic = SearchAttributesDictionary(attributesDictionary);
+                    BlockMInfo mInfo = new BlockMInfo("", new List<string>());
+                    Utils.TranslateName(mInfo, item.Name);
+                    if (item.HasAttributes) Utils.TranslateAttributes(mInfo, item.Attributes);
 
-                        if (ndic.Serach(item.Info.Name) == false)
-                        {
-                            Output.Add(new MBlock(item.X, item.Y, item.Z, new BlockMInfo(item.Info.Info, new List<string>(), true)));
-                            continue;
-                        }
-     
-                        if(adic.Serach(attributesDictionary) == false)
-                        {
-                            Output.Add(new MBlock(item.X, item.Y, item.Z, new BlockMInfo(item.Info.Info, new List<string>(), true)));
-                            continue;
-                        }
-                        else
-                        {
-                            Output.Add(new MBlock(item.X, item.Y, item.Z, new BlockMInfo(ndic.Output, adic.Output)));
-                            continue;
-                        }
-                    }
+                    Output.Add(mInfo);
                 }
             }
             catch (Exception)
             {
-
-                throw;
+                return new Response(true, "Error");
             }
-
             return new Response(false, "");
         }
+      
     }
 }

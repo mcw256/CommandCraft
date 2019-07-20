@@ -18,12 +18,12 @@ namespace CommandCraft_App.Model.DataTypes
         {
             get
             {
-                if (isValid == false) return ""; // well, I could throw exception but nah
+                if (IsValid == false) return ""; // well, I could throw exception but nah
 
                 return Regex.Replace(Info, @"\s\([\w\s\-,]+\)", "");
             }
 
-            protected set => Name = value; // obligatory code
+            set => Name = value; // obligatory code
 
         }
         public override List<string> Attributes
@@ -31,7 +31,7 @@ namespace CommandCraft_App.Model.DataTypes
             get
             {
                 List<string> result = new List<string>();
-                if (isValid == false) return result; // well, I could throw exception but nah
+                if (IsValid == false) return result; // well, I could throw exception but nah
 
                 foreach (var item in Regex.Matches(Info, @"[\w\s\-]+[,\)]"))
                 {
@@ -42,14 +42,23 @@ namespace CommandCraft_App.Model.DataTypes
                 }
                 return result;
             }
-            protected set => Attributes = value; // obligatory code
+            set => Attributes = value; // obligatory code
         }
 
-        public bool isValid
+        public bool IsValid
         {
             get
             {
                 return Regex.IsMatch(Info, @"^[\w\s']+\s(\([\w\s\-,]+\))?$");
+            }
+        }
+
+        public bool HasAttributes
+        {
+            get
+            {
+                if (Attributes.Count == 0) return false;
+                return true;
             }
         }
     }

@@ -31,12 +31,12 @@ namespace CommandCraft_App.Model.DataTypes
                 return result.ToString();
             }
 
-            protected set => Info = value; // obligatory code
+            set => Info = value; // obligatory code
         }
 
-        public override string Name { get; protected set; }
+        public override string Name { get; set; }
 
-        public override List<string> Attributes { get; protected set; }
+        public override List<string> Attributes { get; set; }
 
         public bool IsMismatched { get; set; }
     }

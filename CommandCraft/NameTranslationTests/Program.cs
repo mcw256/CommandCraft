@@ -32,15 +32,41 @@ namespace NameTranslationTests
 
             //var lol = JsonConvert.DeserializeObject<Dictionary<string, string>>(tekst);
 
-            List<string> lista = new List<string>();
+            //List<string> lista = new List<string>();
 
-            lista.Add("adam");
-            lista.Add("marina");
-            lista.Add("wtf");
-            lista.Add("janusz");
+            //lista.Add("adam");
+            //lista.Add("marina");
+            //lista.Add("wtf");
+            //lista.Add("janusz");
 
-            File.WriteAllText("XD.txt", "Hello ladies");
+            //File.WriteAllText("XD.txt", "Hello ladies");
 
+            //foreach (var item in Exceptionals.names)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //List<Car> samochody = new List<Car>();
+            //samochody.Add(new Car("Blue", 1992, "Mitsubishi"));
+            //samochody.Add(new Car("Red", 2001, "Audi"));
+            //samochody.Add(new Car("White", 2011, "Honda"));
+
+            //foreach (var item in samochody)
+            //{
+            //    Console.WriteLine(item.Color);
+            //}
+            //Console.WriteLine("------------------");
+
+            //List<string> kolory = samochody.Select(x => x.Color).ToList();
+            //for (int i = 0; i < kolory.Count; i++)
+            //{
+            //    kolory[i] = $"{i} - hehe";
+            //}
+
+            //foreach (var item in kolory)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
         }
 
@@ -88,4 +114,50 @@ namespace NameTranslationTests
         }
 
     }
+
+    static class Exceptionals
+    {
+        public static List<string> names = new List<string>
+        {
+           "dfd",
+           "dfd"
+        };
+        public static List<string> attributes = new List<string>
+        {
+           "dfd",
+           "dfd"
+        };
+
+        //public static bool IsExceptional(BlockGInfo info)
+        //{
+        //    if (names.Contains(info.Name))
+        //        return true;
+
+        //    foreach (var item in info.Attributes)
+        //    {
+        //        if (attributes.Contains(item))
+        //            return true;
+        //    }
+        //    return false;
+        //}
+
+    }
+
+    class Car
+    {
+        public Car(string color, int year, string name)
+        {
+            Color = color ?? throw new ArgumentNullException(nameof(color));
+            Year = year;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+        }
+
+        public string Color { get; set; }
+        public int Year { get; set; }
+        public string Name { get; set; }
+        
+    }
+
+
+
 }

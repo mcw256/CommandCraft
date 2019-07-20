@@ -8,10 +8,11 @@ namespace CommandCraft_App.Model.DataTypes
 {
     abstract class Block<TInfo>
     {
-        public int X { get; set; }
-        public int Y { get; set; }
-        public int Z { get; set; }
+        //public int X { get; set; }
+        //public int Y { get; set; }
+        //public int Z { get; set; }
 
+        public Coords Coords { get; set; }
         public TInfo Info { get; set; } 
     }
 }
