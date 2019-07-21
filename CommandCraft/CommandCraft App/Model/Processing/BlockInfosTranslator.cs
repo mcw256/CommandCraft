@@ -22,7 +22,9 @@ namespace CommandCraft_App.Model.Processing
             try
             {
                 foreach (var item in blockGInfos)
-                {     
+                {
+                    item.Info = Utils.RemovePrecedingSpace(item.Info);
+
                     if (item.IsValid && item.HasAttributes)
                         Utils.RemoveIgnoredAttributes(item.Attributes);
 

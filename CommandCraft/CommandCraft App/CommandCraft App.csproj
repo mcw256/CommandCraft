@@ -71,14 +71,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\ActionManager.cs" />
-    <Compile Include="Model\DataTypes\Block.cs" />
-    <Compile Include="Model\DataTypes\BlockGInfo.cs" />
-    <Compile Include="Model\DataTypes\BlockInfo.cs" />
-    <Compile Include="Model\DataTypes\BlockMInfo.cs" />
+    <Compile Include="Model\DataTypes\BlockRelated\Block.cs" />
+    <Compile Include="Model\DataTypes\BlockRelated\BlockGInfo.cs" />
+    <Compile Include="Model\DataTypes\BlockRelated\BlockInfo.cs" />
+    <Compile Include="Model\DataTypes\BlockRelated\BlockMInfo.cs" />
     <Compile Include="Model\DataTypes\Coords.cs" />
-    <Compile Include="Model\DataTypes\GBlock.cs" />
+    <Compile Include="Model\DataTypes\BlockRelated\GBlock.cs" />
+    <Compile Include="Model\DataTypes\CoordsListAndInterval.cs" />
     <Compile Include="Model\DataTypes\HowToHandleMismatch.cs" />
-    <Compile Include="Model\DataTypes\MBlock.cs" />
+    <Compile Include="Model\DataTypes\BlockRelated\MBlock.cs" />
     <Compile Include="Model\DataTypes\MFunction.cs" />
     <Compile Include="Model\DataTypes\Response.cs" />
     <Compile Include="Model\DataTypes\UserConfig.cs" />
@@ -88,6 +89,9 @@
     <Compile Include="Model\Downloaders\Utils\ImprovedWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Model\Extractors\ExtractBuildingName.cs" />
+    <Compile Include="Model\Extractors\ExtractLayermapURL.cs" />
+    <Compile Include="Model\Extractors\Extractor.cs" />
     <Compile Include="Model\FileOperations\Loaders\LoadBlockAttributesDictionary.cs" />
     <Compile Include="Model\FileOperations\Loaders\LoadBlockNamesDictionary.cs" />
     <Compile Include="Model\FileOperations\Loaders\Loader.cs" />
@@ -102,7 +106,11 @@
     <Compile Include="Model\Processing\BlockInfosTranslatorUtils\TranslateExtraordinaryBlocks.cs" />
     <Compile Include="Model\Processing\BlockInfosTranslatorUtils\Utils.cs" />
     <Compile Include="Model\Processing\CoordsNormalizer.cs" />
-    <Compile Include="Model\Processing\LayermapParser.cs" />
+    <Compile Include="Model\Processing\CoordsNormalizerUtils\Utils.cs" />
+    <Compile Include="Model\Processing\LayermapDeserializer.cs" />
+    <Compile Include="Model\Processing\LayermapDeserializerUtils\DataTypes\RawGBlock.cs" />
+    <Compile Include="Model\Processing\LayermapDeserializerUtils\Utils.cs" />
+    <Compile Include="Model\Processing\MBlocksGluer.cs" />
     <Compile Include="Model\Processing\MFunctionComposer.cs" />
     <Compile Include="Model\Processing\Processor.cs" />
     <Compile Include="Model\Validators\ValidateBuildingURL.cs" />

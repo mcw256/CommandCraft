@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CommandCraft_App.Model.Processing.BlockInfosTranslatorUtils
@@ -16,6 +17,11 @@ namespace CommandCraft_App.Model.Processing.BlockInfosTranslatorUtils
                 if (SpecialTranslation.ignoredAttributes.Contains(attributes[i]))
                     attributes.RemoveAt(i);
             }
+        }
+
+        public static string RemovePrecedingSpace(string info)
+        {
+            return Regex.Replace(info, @"^\s", "");
         }
 
         public static void TranslateName( BlockMInfo blockMInfo, string name)

@@ -10,23 +10,16 @@ using HtmlAgilityPack;
 
 namespace CommandCraft_App.Model.Downloaders
 {
-    class DownloadBuildingHtml : Downloader<string, string>
+    class DownloadBuildingHtml : Downloader<HtmlDocument, string>
     {
-        public override string Output { get; protected set; }
+        public override HtmlDocument Output { get; protected set; }
 
         public override Response Download(string url)
         {
             try
             {
                 HtmlWeb htmlWeb = new HtmlWeb();
-                HtmlDocument htmlDoc = htmlWeb.Load(url);
-
-                HtmlNode tabcontentsNode = htmlDoc.DocumentNode.Descendants("div").Where(x => x.Id == "tab-contents").First();
-                HtmlNode scriptNode = tabcontentsNode.Descendants("script")
-                                                     .Where(x => x.GetAttributeValue("src", "").EndsWith(".js") && x.GetAttributeValue("src", "").Contains("LayerMap"))
-                                                     .First();
-
-                Output = scriptNode.GetAttributeValue("src", "");
+                Output = htmlWeb.Load(url);
             }
             catch (WebException)
             {
