@@ -11,7 +11,7 @@ namespace CommandCraft_App.Model.FileOperations.Loaders
 {
     class LoadBlockAttributesDictionary : Loader<Dictionary<string, string>>
     {
-        public static readonly string fileName = "BlockGAttribute to BlockMAttribute dictionary.json";
+        public static readonly string fileName = "block attributes dictionary.json";
 
         public override Dictionary<string, string> Output { get; protected set; }
 

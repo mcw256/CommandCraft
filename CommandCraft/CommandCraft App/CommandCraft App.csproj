@@ -95,8 +95,10 @@
     <Compile Include="Model\FileOperations\Loaders\LoadBlockAttributesDictionary.cs" />
     <Compile Include="Model\FileOperations\Loaders\LoadBlockNamesDictionary.cs" />
     <Compile Include="Model\FileOperations\Loaders\Loader.cs" />
+    <Compile Include="Model\FileOperations\Loaders\LoadPlayerSavesList.cs" />
     <Compile Include="Model\FileOperations\Loaders\LoadUserConfig.cs" />
     <Compile Include="Model\FileOperations\Savers\SaveMFunction.cs" />
+    <Compile Include="Model\FileOperations\Savers\SaveMFunctionUtils\Utils.cs" />
     <Compile Include="Model\FileOperations\Savers\Saver.cs" />
     <Compile Include="Model\FileOperations\Savers\SaveUserConfig.cs" />
     <Compile Include="Model\Processing\BlockInfosTranslator.cs" />

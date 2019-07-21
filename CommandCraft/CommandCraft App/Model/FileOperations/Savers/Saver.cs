@@ -7,8 +7,19 @@ using System.Threading.Tasks;
 
 namespace CommandCraft_App.Model.FileOperations.Savers
 {
-    abstract class Saver<Resource>
+    abstract class Saver<TInput1>
     {
-        public abstract Response Save(Resource a, string path);  
+        public abstract Response Save(TInput1 a);  
     }
+
+    abstract class Saver<TInput1, TInput2>
+    {
+        public abstract Response Save(TInput1 a, TInput2 b);
+    }
+
+    abstract class Saver<TInput1, TInput2, TInput3>
+    {
+        public abstract Response Save(TInput1 a, TInput2 b, TInput3 c);
+    }
+
 }

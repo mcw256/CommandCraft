@@ -21,52 +21,21 @@ namespace NameTranslationTests
 
         static void Main(string[] args)
         {
-            //DictionaryUpdater DictUpdater = new DictionaryUpdater(@"E:\Grabcraft\Dictionary\digminecraftdotcom manual edition 1.json");
+            //string line =  $@"setblock ~{0} ~{0} ~{0} minecraft:oak_sign" + @"{Text1:""{\""text\"":\""" + $"Jakis tekst" + @"\""}""} replace";
+            //Console.WriteLine(line);
 
-            // DictUpdater.Go(@"E:\Grabcraft\AllBuildingsData", @"E:\Test\missingItems v2.txt");
 
-            //DictUpdater.Go3(@"E:\Grabcraft\AllBuildingsData");
+            //string minecraftPath = @"C:\Users\rivae\AppData\Roaming\.minecraft";
+            //var list = Directory.GetDirectories(@"C:\Users\rivae\Desktop\abcd").Select(Path.GetFileName).ToList();
 
-            // How to set realitve path
-            //string tekst = File.ReadAllText("hehe.txt");
+            //var list = Directory.GetFiles(@"C:\Users\rivae\AppData\Roaming\.minecraft\saves\New World\datapacks\kek").Select(Path.GetFileName);
 
-            //var lol = JsonConvert.DeserializeObject<Dictionary<string, string>>(tekst);
-
-            //List<string> lista = new List<string>();
-
-            //lista.Add("adam");
-            //lista.Add("marina");
-            //lista.Add("wtf");
-            //lista.Add("janusz");
-
-            //File.WriteAllText("XD.txt", "Hello ladies");
-
-            //foreach (var item in Exceptionals.names)
+            //foreach (var item in list)
             //{
             //    Console.WriteLine(item);
             //}
 
-            //List<Car> samochody = new List<Car>();
-            //samochody.Add(new Car("Blue", 1992, "Mitsubishi"));
-            //samochody.Add(new Car("Red", 2001, "Audi"));
-            //samochody.Add(new Car("White", 2011, "Honda"));
-
-            //foreach (var item in samochody)
-            //{
-            //    Console.WriteLine(item.Color);
-            //}
-            //Console.WriteLine("------------------");
-
-            //List<string> kolory = samochody.Select(x => x.Color).ToList();
-            //for (int i = 0; i < kolory.Count; i++)
-            //{
-            //    kolory[i] = $"{i} - hehe";
-            //}
-
-            //foreach (var item in kolory)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            CreatePackmcmetaFile(@"E:\Test");
 
         }
 
@@ -111,6 +80,18 @@ namespace NameTranslationTests
             {
                 Console.WriteLine(item);
             }
+        }
+
+        static void CreatePackmcmetaFile(string path)
+        {
+            string content = @" {
+           ""pack"": {
+           ""pack_format"": 3,
+           ""description"": ""Test""
+            }
+            }";
+
+            File.WriteAllText(path, content);
         }
 
     }

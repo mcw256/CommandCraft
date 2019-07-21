@@ -52,14 +52,5 @@ namespace CommandCraft_App.Model.DataTypes
                 return Regex.IsMatch(Info, @"^[\w\s']+\s(\([\w\s\-,]+\))?$");
             }
         }
-
-        public bool HasAttributes
-        {
-            get
-            {
-                if (Attributes.Count == 0) return false;
-                return true;
-            }
-        }
     }
 }

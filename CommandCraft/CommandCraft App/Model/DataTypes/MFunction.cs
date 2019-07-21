@@ -8,7 +8,7 @@ namespace CommandCraft_App.Model.DataTypes
 {
     class MFunction
     {
-        public string Name { get; set; }
+        public string Name { get => $"{Name}.mcfunction"; set => Name = value; }
 
         public List<string> Content { get; set; }
 

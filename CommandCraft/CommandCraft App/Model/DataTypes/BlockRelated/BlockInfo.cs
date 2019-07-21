@@ -11,6 +11,7 @@ namespace CommandCraft_App.Model.DataTypes
         public virtual string Info { get; set; }
         public abstract string Name { get; set; }
         public abstract List<string> Attributes { get; set; }
+        public virtual bool HasAttributes { get => (Attributes.Count == 0) ? false : true; }
 
     }
 }

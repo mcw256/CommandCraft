@@ -12,12 +12,12 @@ namespace CommandCraft_App.Model.FileOperations.Savers
 {
     class SaveUserConfig : Saver<UserConfig>
     {
-        public override Response Save(UserConfig userConfig, string path = "")
+        public override Response Save(UserConfig userConfig)
         {  
             try
             {
                 string serializedConfig = JsonConvert.SerializeObject(userConfig); 
-                File.WriteAllText(path == "" ? LoadUserConfig.fileName : $@"{path}\{LoadUserConfig.fileName}", serializedConfig);
+                File.WriteAllText(LoadUserConfig.fileName, serializedConfig); //LoadUserConfig.fileName is a static readonly resource.
             }
             catch (DirectoryNotFoundException)
             {

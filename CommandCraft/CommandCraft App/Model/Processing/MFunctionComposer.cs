@@ -15,17 +15,52 @@ namespace CommandCraft_App.Model.Processing
         {
             try
             {
+                Output.Name = buildingName != "" ? buildingName : throw new Exception();
 
+                foreach (var item in mBlocks)
+                {
+                    string line;
+                    if (item.Info.IsMismatched)
+                    {
+                        switch (howToHandleMismatch)
+                        {
+                            case HowToHandleMismatch.Ignore:
+                                break;
+                            case HowToHandleMismatch.Red_Wool:
+                                line = $"setblock ~{item.Coords.X} ~{item.Coords.Z} ~{item.Coords.Y} minecraft:red_wool replace";
+                                Output.Content.Add(line);
+                                break;
+                            case HowToHandleMismatch.Sign_with_text:
+                                line = $@"setblock ~{item.Coords.X} ~{item.Coords.Z} ~{item.Coords.Y} minecraft:oak_sign" + @"{Text1:""{\""text\"":\""" + $"{item.Info.Info}" + @"\""}""} replace";
+                                Output.Content.Add(line);
+                                break;
 
+                            default:
+                                throw new Exception();
 
+                        }
+                    }
+                    else
+                    {
+                        StringBuilder helper = new StringBuilder($@"setblock ~{item.Coords.X} ~{item.Coords.Z} ~{item.Coords.Y} {item.Info.Name}");
+                        if (item.Info.HasAttributes)
+                        {
+                            helper.Append("[");
+                            for (int i = 0; i <= item.Info.Attributes.Count - 2; i++)
+                                helper.Append($"{item.Info.Attributes[i]},");
 
+                            helper.Append($"{item.Info.Attributes[item.Info.Attributes.Count - 1]}]");
+                            Output.Content.Add(helper.ToString());
+                        }
+                        else
+                            Output.Content.Add(helper.ToString());
+                    }
+                }
             }
             catch (Exception)
             {
                 return new Response(true, "Error");
             }
-
-
             return new Response(false, "");
         }
     }

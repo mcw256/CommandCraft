@@ -12,7 +12,7 @@ namespace CommandCraft_App.Model.FileOperations.Loaders
 
     class LoadBlockNamesDictionary : Loader<Dictionary<string, string>>
     {
-        public static readonly string fileName = "BlockGName to BlockMName dictionary.json";
+        public static readonly string fileName = "block names dictionary.json";
 
         public override Dictionary<string, string> Output { get; protected set; }
 
