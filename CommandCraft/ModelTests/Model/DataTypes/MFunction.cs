@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CommandCraft_App.Model.DataTypes
@@ -13,7 +14,14 @@ namespace CommandCraft_App.Model.DataTypes
         private string _name;
         public string Name
         {
-            get { return $"{_name}.mcfunction"; }
+            get
+            {
+                string result = _name.ToLower();
+                result = Regex.Replace(_name, @"\s", "_");
+                //result = Regex.Replace(_name, @"[^a-z_0-9]", "");
+
+                return $"{result}.mcfunction";
+            }
             set { _name = value; }
         }
 

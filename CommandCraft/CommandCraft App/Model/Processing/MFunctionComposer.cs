@@ -50,10 +50,9 @@ namespace CommandCraft_App.Model.Processing
                                 helper.Append($"{item.Info.Attributes[i]},");
 
                             helper.Append($"{item.Info.Attributes[item.Info.Attributes.Count - 1]}]");
-                            Output.Content.Add(helper.ToString());
                         }
-                        else
-                            Output.Content.Add(helper.ToString());
+                        helper.Append(" replace");
+                        Output.Content.Add(helper.ToString());
                     }
                 }
             }

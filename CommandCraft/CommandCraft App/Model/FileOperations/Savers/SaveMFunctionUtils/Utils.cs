@@ -18,7 +18,10 @@ namespace CommandCraft_App.Model.FileOperations.Savers.SaveMFunctionUtils
             }
             }";
 
-            File.WriteAllText(path, content);
+            File.WriteAllText($@"{path}\pack.mcmeta", content);
         }
+
+
+
     }
 }

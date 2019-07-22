@@ -22,6 +22,7 @@ namespace CommandCraft_App.Model.FileOperations.Loaders
                 if (result.Count == 0)
                     return new Response(true, "Can't find any game saves!");
 
+                Output = result;
             }
             catch (UnauthorizedAccessException)
             {

@@ -7,7 +7,9 @@ using CommandCraft_App.Model.DataTypes;
 using CommandCraft_App.Model.Downloaders;
 using CommandCraft_App.Model.Extractors;
 using CommandCraft_App.Model.FileOperations.Loaders;
+using CommandCraft_App.Model.FileOperations.Savers;
 using CommandCraft_App.Model.Processing;
+using CommandCraft_App.Model.Validators;
 
 namespace ModelTests
 {
@@ -17,7 +19,8 @@ namespace ModelTests
         {
             #region Download Html
             var downloadHtml = new DownloadBuildingHtml();
-            string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/classy-city-park/parks";
+            //string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/classy-city-park/parks";
+            string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/steampunk-fantasy-tower-house-2/other-193";
             
             Response response = downloadHtml.Download(downloadHtmlInput);
 
@@ -185,24 +188,103 @@ namespace ModelTests
 
             Console.WriteLine($"{mFunctionComposer.ToString()} | {response.IsError} | {response.ErrorMsg}");
 
-            foreach (var item in mFunctionComposer.Output.Content)
-            {
-                Console.WriteLine(item);
-            }
+            //foreach (var item in mFunctionComposer.Output.Content)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             #endregion
 
             // -------------------------------------------------
 
-            #region Load Block Attributes Dictionary
+            #region Validate Layermap
 
-            //var loadBlockAttributesDictionary = new LoadBlockAttributesDictionary();
+            var validateLayermap = new ValidateLayermap();
 
-            //response = loadBlockAttributesDictionary.Load();
+            response = validateLayermap.Validate(downloadLayermap.Output);
 
-            //Console.WriteLine($"{loadBlockAttributesDictionary.ToString()} | {response.IsError} | {response.ErrorMsg}");
+            Console.WriteLine($"{validateLayermap.ToString()} | {response.IsError} | {response.ErrorMsg}");
 
             #endregion
+
+
+            // -------------------------------------------------
+
+            #region Validate Building Url
+
+            var validateBuildingURL = new ValidateBuildingURL();
+
+            response = validateBuildingURL.Validate(downloadHtmlInput);
+
+            Console.WriteLine($"{validateBuildingURL.ToString()} | {response.IsError} | {response.ErrorMsg}");
+
+            #endregion
+
+            // -------------------------------------------------
+
+            #region Load Player Saves List
+
+            var loadPlayerSavesList = new LoadPlayerSavesList();
+
+            response = loadPlayerSavesList.Load(@"C:\Users\rivae\AppData\Roaming\.minecraft");
+
+            Console.WriteLine($"{loadPlayerSavesList.ToString()} | {response.IsError} | {response.ErrorMsg}");
+
+            //foreach (var item in loadPlayerSavesList.Output)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            // -------------------------------------------------
+
+            #region Save User Config
+
+            var saveUserConfig = new SaveUserConfig();
+
+            var myUserConfig = new UserConfig();
+            myUserConfig.DefaultGameSave = "ddfdfd";
+            myUserConfig.DefaultMismatchOption = HowToHandleMismatch.Red_Wool;
+            myUserConfig.MinecraftPath = @"C:\Users\rivae\AppData\Roaming\.minecraft";
+
+            response = saveUserConfig.Save(myUserConfig);
+
+            Console.WriteLine($"{saveUserConfig.ToString()} | {response.IsError} | {response.ErrorMsg}");
+
+            #endregion
+
+            // -------------------------------------------------
+
+            #region Load User Config
+
+            var loadUserConfig = new LoadUserConfig();
+
+            response = loadUserConfig.Load();
+
+            Console.WriteLine($"{loadUserConfig.ToString()} | {response.IsError} | {response.ErrorMsg}");
+
+            var loadedUserConfig = loadUserConfig.Output;
+
+            //Console.WriteLine(loadedUserConfig.MinecraftPath);
+            //Console.WriteLine(loadedUserConfig.DefaultMismatchOption);
+            //Console.WriteLine(loadedUserConfig.DefaultGameSave);
+
+            #endregion
+
+            // -------------------------------------------------
+
+            #region Save MFunction
+
+            var saveMFunction = new SaveMFunction();
+
+            response = saveMFunction.Save(mFunctionComposer.Output, myUserConfig.MinecraftPath, myUserConfig.DefaultGameSave);
+
+            Console.WriteLine($"{saveMFunction.ToString()} | {response.IsError} | {response.ErrorMsg}");
+
+            #endregion
+
+            Console.Read();
 
         }
 

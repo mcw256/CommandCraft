@@ -75,7 +75,7 @@ namespace CommandCraft_App.Model.FileOperations.Savers
                     }
                 }
                 currentPath.Append(@"\functions");
-                File.WriteAllText($@"{currentPath.ToString()}\{mFunction.Name}", mFunction.Content.ToString());
+                File.WriteAllText($@"{currentPath.ToString()}\{mFunction.Name}", mFunction.ToString());
 
 
             }
