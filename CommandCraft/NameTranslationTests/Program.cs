@@ -21,21 +21,9 @@ namespace NameTranslationTests
 
         static void Main(string[] args)
         {
-            //string line =  $@"setblock ~{0} ~{0} ~{0} minecraft:oak_sign" + @"{Text1:""{\""text\"":\""" + $"Jakis tekst" + @"\""}""} replace";
-            //Console.WriteLine(line);
+            Cat Tom = new Cat();
 
-
-            //string minecraftPath = @"C:\Users\rivae\AppData\Roaming\.minecraft";
-            //var list = Directory.GetDirectories(@"C:\Users\rivae\Desktop\abcd").Select(Path.GetFileName).ToList();
-
-            //var list = Directory.GetFiles(@"C:\Users\rivae\AppData\Roaming\.minecraft\saves\New World\datapacks\kek").Select(Path.GetFileName);
-
-            //foreach (var item in list)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-            CreatePackmcmetaFile(@"E:\Test");
+            Console.WriteLine(Tom.CatsMouse.name);
 
         }
 
@@ -139,6 +127,20 @@ namespace NameTranslationTests
         
     }
 
+    class Cat
+    {
+        public Mouse CatsMouse { get; set; }
+
+    }
+
+    class Mouse
+    {
+        public Mouse()
+        {
+            name = "Jerry";
+        }
+        public string name { get; set; }
+    }
 
 
 }
