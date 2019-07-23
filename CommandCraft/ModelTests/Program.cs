@@ -20,7 +20,20 @@ namespace ModelTests
             #region Download Html
             var downloadHtml = new DownloadBuildingHtml();
             //string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/classy-city-park/parks";
-            string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/steampunk-fantasy-tower-house-2/other-193";
+            //string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/steampunk-fantasy-tower-house-2/other-193";
+
+            //string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/bloodelf-tower/towers";
+
+            //string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/modern-supermarket-1/miscellaneous-162";
+
+            //string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/modern-police-station-2/miscellaneous-162";
+
+            //string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/mage-tower-under-construction-4/other-193";
+
+            //string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/industrial-silo/miscellaneous-162";
+
+            string downloadHtmlInput = @"https://www.grabcraft.com/minecraft/khrushchyovka-soviet-apartment-building-2/modern-houses";
+
             
             Response response = downloadHtml.Download(downloadHtmlInput);
 
@@ -184,7 +197,7 @@ namespace ModelTests
 
             var mFunctionComposer = new MFunctionComposer();
 
-            response = mFunctionComposer.Process(mBlocksGluer.Output, HowToHandleMismatch.Red_Wool, extractBuildingName.Output);
+            response = mFunctionComposer.Process(mBlocksGluer.Output, HowToHandleMismatch.Sign_with_text, extractBuildingName.Output);
 
             Console.WriteLine($"{mFunctionComposer.ToString()} | {response.IsError} | {response.ErrorMsg}");
 
@@ -283,8 +296,6 @@ namespace ModelTests
             Console.WriteLine($"{saveMFunction.ToString()} | {response.IsError} | {response.ErrorMsg}");
 
             #endregion
-
-            Console.Read();
 
         }
 

@@ -23,8 +23,14 @@ namespace CommandCraft_App.Model.Processing.BlockInfosTranslatorUtils
 
         public static bool IsSpecialTranslationNeeded(string info)
         {
-            if (specialStrings.Contains(info))
-                return true;
+            //if (specialStrings.Contains(info))
+            //    return true;
+
+            foreach (var item in specialStrings)
+            {
+                if(info.Contains(item))
+                    return true;
+            }
 
             return false;
         }

@@ -54,6 +54,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Additional\DownloadBuildingHtml.cs" />
+    <Compile Include="Additional\ExtractBuildingName.cs" />
+    <Compile Include="Additional\Response.cs" />
     <Compile Include="DictionaryUpdating\DictionaryUpdater.cs" />
     <Compile Include="DownloadDictionary.cs" />
     <Compile Include="FullItemNamesTranslation\NameTranslator.cs" />

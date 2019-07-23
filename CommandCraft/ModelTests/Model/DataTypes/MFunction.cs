@@ -17,8 +17,8 @@ namespace CommandCraft_App.Model.DataTypes
             get
             {
                 string result = _name.ToLower();
-                result = Regex.Replace(_name, @"\s", "_");
-                //result = Regex.Replace(_name, @"[^a-z_0-9]", "");
+                result = Regex.Replace(result, @"\s", "_");
+                result = Regex.Replace(result, @"[^a-z_0-9]", "");
 
                 return $"{result}.mcfunction";
             }

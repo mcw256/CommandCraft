@@ -28,6 +28,7 @@ namespace CommandCraft_App.Model.Processing
 
                     if (item.IsValid && item.HasAttributes)
                         Utils.RemoveIgnoredAttributes(item.Attributes);
+    
 
                     if (SpecialTranslation.IsSpecialTranslationNeeded(item.Info) || item.IsValid == false)
                     {

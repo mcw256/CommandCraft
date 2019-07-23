@@ -127,6 +127,8 @@ Here is how will I refer to certain things in code.
 
 * **Coords Normalization** _(abstract)_ converting GCoords to MCoords
 
+* **Interval** - integer containing interval of blocks in that building (represents decremented "s" variable in json)
+
 * **BlockGInfo** - grabcraft's way of identyfing minecraft items in layermap *example:* ```Spruce Fence Gate (Facing South, Closed)```
 
 * **BlockGName** - part of BlockGInfo containing only name *example:* ```Spruce Fence Gate```
