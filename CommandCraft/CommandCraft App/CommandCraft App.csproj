@@ -7,7 +7,7 @@
     <ProjectGuid>{243C1F1F-F7DD-42A5-93C8-ECED5DAAEFAE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CommandCraft_App</RootNamespace>
-    <AssemblyName>CommandCraft App</AssemblyName>
+    <AssemblyName>CommandCraft</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.1.50.2\lib\net45\Dapper.dll</HintPath>
-    </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.11.10.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <HintPath>..\packages\HtmlAgilityPack.1.11.10\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
@@ -118,21 +115,7 @@
     <Compile Include="Model\Validators\ValidateLayermap.cs" />
     <Compile Include="Model\Validators\ValidateMinecraftPath.cs" />
     <Compile Include="Model\Validators\Validator.cs" />
-    <Compile Include="View\downloadPage.xaml.cs">
-      <DependentUpon>downloadPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\searchPage.xaml.cs">
-      <DependentUpon>searchPage.xaml</DependentUpon>
-    </Compile>
-    <Page Include="View\downloadPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\homePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -140,17 +123,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\homePage.xaml.cs">
-      <DependentUpon>homePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\searchPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -178,9 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModel\" />

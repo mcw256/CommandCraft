@@ -10,6 +10,7 @@
     Width="700"
     Height="450"
     Loaded="Window_Loaded"
+    WindowStyle="None"
     mc:Ignorable="d">
 
     <Grid>
@@ -26,8 +27,7 @@
                 Width="50"
                 Height="50"
                 Margin="0,0,0,1"
-                Padding="0"
-                Click="BtnHome_Click">
+                Padding="0">
                 <materialDesign:PackIcon
                     Width="25"
                     Height="25"
@@ -39,8 +39,7 @@
                 Width="50"
                 Height="50"
                 Margin="0,0,0,1"
-                Padding="0"
-                Click="BtnDownload_Click">
+                Padding="0">
                 <materialDesign:PackIcon
                     Width="25"
                     Height="25"
@@ -52,8 +51,7 @@
                 Width="50"
                 Height="50"
                 Margin="0,0,0,1"
-                Padding="0"
-                Click="BtnSearch_Click">
+                Padding="0">
                 <materialDesign:PackIcon
                     Width="25"
                     Height="25"
