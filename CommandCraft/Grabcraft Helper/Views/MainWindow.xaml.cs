@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Grabcraft_Helper.View
+namespace Grabcraft_Helper.Views
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class MainWindow : Window
     {
-        public HomePage()
+        public MainWindow()
         {
             InitializeComponent();
         }
