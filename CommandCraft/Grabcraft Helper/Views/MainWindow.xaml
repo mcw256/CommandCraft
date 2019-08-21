@@ -56,7 +56,7 @@
                 Panel.ZIndex="99"
                 Orientation="Horizontal">
 
-                <Button Style="{StaticResource WinNavMinButton}" />
+                <Button Style="{StaticResource WinNavMinButton}" Content="Minus" />
                 <Button Style="{StaticResource WinNavMaxButton}" />
                 <Button Style="{StaticResource WinNavCloseButton}" />
 
@@ -69,7 +69,7 @@
             Background="{StaticResource MyDarkerGrayBackground}"
             >
 
-            <Button Style="{StaticResource SideMenuHomeButton}"  />
+            <Button Style="{StaticResource SideMenuHomeButton}" Template="{DynamicResource ButtonControlTemplate1}"  />
             <Button Style="{StaticResource SideMenuInfoButton}"  />
         </StackPanel>
         
