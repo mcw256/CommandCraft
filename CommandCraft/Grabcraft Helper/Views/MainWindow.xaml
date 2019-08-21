@@ -34,7 +34,10 @@
             Grid.Row="0"
             Grid.ColumnSpan="2"
             Height="50"
-            Background="{StaticResource PrimaryHueDarkBrush}">
+            Background="{StaticResource PrimaryHueDarkBrush}"
+            MouseDown="Grid_MouseDown"
+            >
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
@@ -56,9 +59,15 @@
                 Panel.ZIndex="99"
                 Orientation="Horizontal">
 
-                <Button Style="{StaticResource WinNavMinButton}" Content="Minus" />
-                <Button Style="{StaticResource WinNavMaxButton}" />
-                <Button Style="{StaticResource WinNavCloseButton}" />
+                <Button x:Name="WinNavMinBtn" Style="{StaticResource WinNavButton}" Click="WinNavMinBtn_Click">
+                    <materialDesign:PackIcon Kind="Minus" Style="{StaticResource WinNavButtonIcon}" />
+                </Button>
+                <Button x:Name="WinNavMaxBtn" Style="{StaticResource WinNavButton}" Click="WinNavMaxBtn_Click">
+                    <materialDesign:PackIcon Kind="Crop54" Style="{StaticResource WinNavButtonIcon}" />
+                </Button>
+                <Button x:Name="WinNavCloseBtn" Style="{StaticResource WinNavButton}" Click="WinNavCloseBtn_Click">
+                    <materialDesign:PackIcon Kind="Close" Style="{StaticResource WinNavButtonIcon}" />
+                </Button>
 
             </StackPanel>
         </Grid>
@@ -66,21 +75,26 @@
         <StackPanel
             Grid.Row="1"
             Grid.Column="0"
-            Background="{StaticResource MyDarkerGrayBackground}"
-            >
+            Background="{StaticResource MyDarkerGrayBackground}">
 
-            <Button Style="{StaticResource SideMenuHomeButton}" Template="{DynamicResource ButtonControlTemplate1}"  />
-            <Button Style="{StaticResource SideMenuInfoButton}"  />
+
+            <Button Style="{StaticResource SideMenuButton}">
+                <materialDesign:PackIcon Kind="HomeOutline" Style="{StaticResource SideMenuButtonIcon}" />
+            </Button>
+            <Button Style="{StaticResource SideMenuButton}">
+                <materialDesign:PackIcon Kind="InfoOutline" Style="{StaticResource SideMenuButtonIcon}" />
+            </Button>
+            
         </StackPanel>
-        
-        
+
+
         <!--<Frame
             x:Name="contentFrame"
             Grid.Row="1"
             Grid.Column="1"
             NavigationUIVisibility="Hidden" />-->
 
-        
+
 
 
 

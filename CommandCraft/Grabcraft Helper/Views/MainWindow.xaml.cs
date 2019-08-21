@@ -23,6 +23,38 @@ namespace Grabcraft_Helper.Views
         public MainWindow()
         {
             InitializeComponent();
+            MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+            
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+                if (e.ChangedButton == MouseButton.Left)
+                    DragMove();
+        }
+
+        private void WinNavCloseBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void WinNavMaxBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+                this.BorderThickness = new System.Windows.Thickness(0);
+            }
+            else
+            {
+                WindowState = WindowState.Maximized;
+                this.BorderThickness = new System.Windows.Thickness(7);
+            }
+        }
+
+        private void WinNavMinBtn_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

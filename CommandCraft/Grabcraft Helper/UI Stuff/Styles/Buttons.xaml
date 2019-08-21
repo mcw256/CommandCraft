@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
 
-    <Style x:Key="WinNavMinButton" TargetType="{x:Type Button}">
+    <!--<Style x:Key="WinNavMinButton" TargetType="{x:Type Button}">
         <Setter Property="Height" Value="31" />
         <Setter Property="Width" Value="31" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -201,8 +201,107 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>-->
+
+
+    <Style x:Key="SideMenuButton" TargetType="{x:Type Button}">
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="Background" Value="{StaticResource MyDarkerGrayBackground}" />
+        <Setter Property="Foreground" Value="{StaticResource MyGrayBackground}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="{StaticResource MyLighterGrayBackground}" />
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <Trigger Property="Tag" Value="active">
+                            <Setter Property="Foreground" Value="{StaticResource MyLighterGrayBackground}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SideMenuButtonIcon" TargetType="materialDesign:PackIcon">
+        <Setter Property="Width" Value="35" />
+        <Setter Property="Height" Value="35" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}}" />
+        <!--<Setter Property="Padding" Value="5" />-->
     </Style>
 
 
+    <Style x:Key="WinNavButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="{StaticResource MyGreenBackground}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Foreground" Value="{StaticResource MyDimmedWhiteForeground}" />
+        <Setter Property="Width" Value="31" />
+        <Setter Property="Height" Value="31" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="True">
+                            <Setter Property="Foreground" Value="{StaticResource MyDimmedWhiteForeground}" />
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="{StaticResource MyFullWhiteForeground}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="WinNavButtonIcon" TargetType="materialDesign:PackIcon">
+        <!--<Setter Property="Width" Value="31" />
+        <Setter Property="Height" Value="31" />-->
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="{Binding Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Button}}}" />
+    </Style>
 
 </ResourceDictionary>
