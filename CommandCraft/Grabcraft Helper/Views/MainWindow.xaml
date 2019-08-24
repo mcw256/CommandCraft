@@ -31,13 +31,13 @@
         </Grid.ColumnDefinitions>
 
         <Grid
+            x:Name="TopBar"
             Grid.Row="0"
             Grid.ColumnSpan="2"
             Height="50"
             Background="{StaticResource PrimaryHueDarkBrush}"
-            MouseDown="Grid_MouseDown"
-            >
-            
+            MouseDown="TopBar_MouseDown">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
@@ -59,13 +59,22 @@
                 Panel.ZIndex="99"
                 Orientation="Horizontal">
 
-                <Button x:Name="WinNavMinBtn" Style="{StaticResource WinNavButton}" Click="WinNavMinBtn_Click">
+                <Button
+                    x:Name="WinNavMinBtn"
+                    Click="WinNavMinBtn_Click"
+                    Style="{StaticResource WinNavButton}">
                     <materialDesign:PackIcon Kind="Minus" Style="{StaticResource WinNavButtonIcon}" />
                 </Button>
-                <Button x:Name="WinNavMaxBtn" Style="{StaticResource WinNavButton}" Click="WinNavMaxBtn_Click">
+                <Button
+                    x:Name="WinNavMaxBtn"
+                    Click="WinNavMaxBtn_Click"
+                    Style="{StaticResource WinNavButton}">
                     <materialDesign:PackIcon Kind="Crop54" Style="{StaticResource WinNavButtonIcon}" />
                 </Button>
-                <Button x:Name="WinNavCloseBtn" Style="{StaticResource WinNavButton}" Click="WinNavCloseBtn_Click">
+                <Button
+                    x:Name="WinNavCloseBtn"
+                    Click="WinNavCloseBtn_Click"
+                    Style="{StaticResource WinNavButton}">
                     <materialDesign:PackIcon Kind="Close" Style="{StaticResource WinNavButtonIcon}" />
                 </Button>
 
@@ -84,7 +93,7 @@
             <Button Style="{StaticResource SideMenuButton}">
                 <materialDesign:PackIcon Kind="InfoOutline" Style="{StaticResource SideMenuButtonIcon}" />
             </Button>
-            
+
         </StackPanel>
 
 
@@ -94,7 +103,7 @@
             Grid.Column="1"
             NavigationUIVisibility="Hidden" />-->
 
-
+        <ContentControl Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" />
 
 
 

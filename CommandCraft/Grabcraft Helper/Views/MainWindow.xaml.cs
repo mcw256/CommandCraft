@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grabcraft_Helper.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,10 +25,10 @@ namespace Grabcraft_Helper.Views
         {
             InitializeComponent();
             MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
-            
+            DataContext = new MainWindowViewModel();
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        private void TopBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
                 if (e.ChangedButton == MouseButton.Left)
                     DragMove();
