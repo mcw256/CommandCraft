@@ -87,10 +87,18 @@
             Background="{StaticResource MyDarkerGrayBackground}">
 
 
-            <Button Style="{StaticResource SideMenuButton}">
+            <Button
+                x:Name="btnHome"
+                Command="{Binding HomeBtnClicked}"
+                IsEnabled="{Binding IsHomeBtnEnabled, UpdateSourceTrigger=PropertyChanged}"
+                Style="{StaticResource SideMenuButton}">
                 <materialDesign:PackIcon Kind="HomeOutline" Style="{StaticResource SideMenuButtonIcon}" />
             </Button>
-            <Button Style="{StaticResource SideMenuButton}">
+            <Button
+                x:Name="btnInfo"
+                Command="{Binding InfoBtnClicked}"
+                IsEnabled="{Binding IsInfoBtnEnabled, UpdateSourceTrigger=PropertyChanged}"
+                Style="{StaticResource SideMenuButton}">
                 <materialDesign:PackIcon Kind="InfoOutline" Style="{StaticResource SideMenuButtonIcon}" />
             </Button>
 
@@ -103,7 +111,10 @@
             Grid.Column="1"
             NavigationUIVisibility="Hidden" />-->
 
-        <ContentControl Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" />
+        <ContentControl
+            Grid.Row="1"
+            Grid.Column="1"
+            Content="{Binding CurrentPage, UpdateSourceTrigger=PropertyChanged}" />
 
 
 

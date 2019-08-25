@@ -4,9 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Grabcraft_Helper.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             mc:Ignorable="d" d:DesignHeight="450"
+    d:DesignWidth="600"
+    Background="{StaticResource MyGrayBackground}"
+    FontFamily="{StaticResource Font SpaceMono Regular}"
+    Foreground="{StaticResource MyDimmedWhiteForeground}">
+    <Border Padding="5" BorderThickness="0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock FontSize="25">Minecraft function creator</TextBlock>
+            <TextBlock FontSize="22">Step 3/3</TextBlock>
+
             
-    </Grid>
+            <WrapPanel
+                Margin="0,20,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <TextBlock FontSize="22" Text="Successfully saved " />
+                <TextBlock FontSize="22" Text="Building_name " />
+                <TextBlock FontSize="22" Text="to " />
+                <TextBlock FontSize="22" Text="path_name" />
+            </WrapPanel>
+
+            <Button Content="Ok" MaxWidth="70" Margin="15" />
+        </StackPanel>
+        
+
+
+
+
+    </Border>
 </UserControl>
