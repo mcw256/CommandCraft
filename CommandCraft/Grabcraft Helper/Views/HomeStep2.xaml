@@ -39,15 +39,12 @@
                     FontSize="15"
                     Text="Couldn't match following blocks:" />
                 <TextBox
-                    Height="100"
-                    
-                    AcceptsReturn="True"
-                    Style="{StaticResource MaterialDesignTextBox}"
+                    Height="100"       
+                    AcceptsReturn="True"      
                     BorderThickness="1"
-                    
-                    
                     VerticalScrollBarVisibility="Auto" 
                     Text="whatever"
+                    Style="{StaticResource MismatchesTextBox}"
                     />
                 <!--Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"-->
 

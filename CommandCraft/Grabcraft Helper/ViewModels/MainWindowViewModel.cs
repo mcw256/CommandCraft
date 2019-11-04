@@ -24,7 +24,7 @@ namespace Grabcraft_Helper.ViewModels
                 {"Info", new Info() },
             };
 
-            CurrentPage = Pages["HomeStep3"];
+            CurrentPage = Pages["HomeStep2"];
 
             IsHomeBtnEnabled = false;
             IsInfoBtnEnabled = true;

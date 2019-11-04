@@ -51,13 +51,6 @@ namespace Grabcraft_Helper.ViewModels
         } // TODO enum binding
 
 
-
-
-
-
-
-
-
         private void SaveButtonClicked(object obj)
         {
             //do some model code
