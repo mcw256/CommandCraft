@@ -106,7 +106,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CommonDataTypes\HowToHandleMismatch.cs" />
     <Compile Include="Handlers\RelayCommand.cs" />
+    <Compile Include="ValueConverters\ListToStringConverter.cs" />
     <Compile Include="ViewModels\HomeStep1ViewModel.cs" />
     <Compile Include="ViewModels\HomeStep2ViewModel.cs" />
     <Compile Include="ViewModels\HomeStep3ViewModel.cs" />

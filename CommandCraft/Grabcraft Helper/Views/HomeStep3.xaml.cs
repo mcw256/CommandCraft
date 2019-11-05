@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grabcraft_Helper.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Grabcraft_Helper.Views
         public HomeStep3()
         {
             InitializeComponent();
+            DataContext = new HomeStep3ViewModel();
         }
     }
 }

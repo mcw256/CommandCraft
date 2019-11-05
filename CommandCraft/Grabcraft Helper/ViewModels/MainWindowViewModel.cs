@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Grabcraft_Helper.ViewModels
@@ -37,7 +38,6 @@ namespace Grabcraft_Helper.ViewModels
 
         #region Properties
         private bool _isHomeBtnEnabled;
-
         public bool IsHomeBtnEnabled
         {
             get
@@ -55,9 +55,7 @@ namespace Grabcraft_Helper.ViewModels
             }
         }
 
-
         private bool _isInfoBtnEnabled;
-
         public bool IsInfoBtnEnabled
         {
             get
@@ -73,7 +71,6 @@ namespace Grabcraft_Helper.ViewModels
                 OnPropertyChanged();
             }
         }
-
 
         private UserControl _currentPage;
         public UserControl CurrentPage
@@ -114,6 +111,7 @@ namespace Grabcraft_Helper.ViewModels
             CurrentPage = Pages["Info"];
             IsHomeBtnEnabled = true;
             IsInfoBtnEnabled = false;
+            MessageBox.Show("Whatever");
         }
 
         #endregion
