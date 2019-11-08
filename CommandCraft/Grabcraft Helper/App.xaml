@@ -12,7 +12,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Green.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Green.xaml" />
-                   
+
                 <ResourceDictionary Source="UI Stuff/Styles/Colors.xaml" />
                 <ResourceDictionary Source="UI Stuff/Styles/Fonts.xaml" />
                 <ResourceDictionary Source="UI Stuff/Styles/Buttons.xaml" />
@@ -20,11 +20,14 @@
 
             </ResourceDictionary.MergedDictionaries>
 
-            <valueConverters:ListToStringConverter x:Key="ListToStringConverter" />
             
-            
+            <valueConverters:CollectionToStringConverter x:Key="CollectionToStringConverter" />
+            <valueConverters:StringToEnumConverter x:Key="StringToEnumConverter" />
+
+
+
         </ResourceDictionary>
-        
+
 
 
 

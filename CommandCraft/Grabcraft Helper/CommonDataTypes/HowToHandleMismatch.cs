@@ -3,7 +3,7 @@
     enum HowToHandleMismatch//TODO this enum shouldnt be here. It should be in the place thats common for model and viewmodel
     {
         Ignore,
-        Red_Wool,
+        Red_wool,
         Sign_with_text
     }
 }

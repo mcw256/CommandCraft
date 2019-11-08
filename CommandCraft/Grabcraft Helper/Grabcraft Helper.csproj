@@ -108,7 +108,9 @@
     </Compile>
     <Compile Include="CommonDataTypes\HowToHandleMismatch.cs" />
     <Compile Include="Handlers\RelayCommand.cs" />
-    <Compile Include="ValueConverters\ListToStringConverter.cs" />
+    <Compile Include="ValueConverters\CollectionToStringConverter.cs" />
+    <Compile Include="ValueConverters\StringToEnumConverter.cs" />
+    <Compile Include="ViewModels\MyObservableCollection.cs" />
     <Compile Include="ViewModels\HomeStep1ViewModel.cs" />
     <Compile Include="ViewModels\HomeStep2ViewModel.cs" />
     <Compile Include="ViewModels\HomeStep3ViewModel.cs" />

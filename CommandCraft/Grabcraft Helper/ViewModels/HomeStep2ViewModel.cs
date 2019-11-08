@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Grabcraft_Helper.CommonDataTypes;
 using System.Windows;
+using System.Collections.Specialized;
 
 namespace Grabcraft_Helper.ViewModels
 {
@@ -16,21 +17,14 @@ namespace Grabcraft_Helper.ViewModels
         public HomeStep2ViewModel()
         {
             SaveBtnClicked = new RelayCommand<object>(SaveButton);
-
-            Mismatches = new ObservableCollection<string>();
-            Mismatches.Add("12dkfsdfg9234jef");
-            
-
-            Mismatches2 = Mismatches;
-
-            BuildingName = "ergifgj23904tjfbms90b0er9gm,09ergj09ergj\ndnf203f903m2f9023mf";
+            Mismatches2 = new MyObservableCollection<string>(nameof(Mismatches2), OnPropertyChanged);
+            HowToHandleMismatch = HowToHandleMismatch.Ignore;
         }
         #endregion
 
         #region Properties
-        
-        private string _buildingName;
 
+        private string _buildingName;
         public string BuildingName
         {
             get
@@ -47,37 +41,34 @@ namespace Grabcraft_Helper.ViewModels
             }
         }
 
-        public ObservableCollection<string> Mismatches;
-
-        private ObservableCollection<string> _mismatches2;
-
-        public ObservableCollection<string> Mismatches2
+        private MyObservableCollection<string> _mismatches2;
+        public MyObservableCollection<string> Mismatches2
         {
             get { return _mismatches2; }
             set
             {
                 _mismatches2 = value;
                 OnPropertyChanged();
+                
             }
         }
 
-
-        private HowToHandleMismatch _mismatchAlternative;
-        public HowToHandleMismatch MismatchAlternative
+        private HowToHandleMismatch _howToHandleMismatch;
+        public HowToHandleMismatch HowToHandleMismatch
         {
             get
             {
-                return _mismatchAlternative;
+                return _howToHandleMismatch;
             }
             set
             {
-                if (_mismatchAlternative == value)
+                if (_howToHandleMismatch == value)
                     return;
 
-                _mismatchAlternative = value;
+                _howToHandleMismatch = value;
                 OnPropertyChanged();
             }
-        } // TODO enum binding
+        }
 
         public RelayCommand<object> SaveBtnClicked { get; set; }
 
@@ -87,14 +78,12 @@ namespace Grabcraft_Helper.ViewModels
 
         private void SaveButton(object obj)
         {
-            Mismatches2.Add("12341dfgndf89gj43");
-            
-            //do some model code
-            //change view
-
+           //save stuff here
         }
 
         #endregion Commands
+
+
 
     }
 }

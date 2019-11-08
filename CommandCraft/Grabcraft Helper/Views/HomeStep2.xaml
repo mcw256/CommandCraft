@@ -3,9 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dataTypes="clr-namespace:Grabcraft_Helper.CommonDataTypes"
     xmlns:local="clr-namespace:Grabcraft_Helper.Views"
-    xmlns:valueConverters="clr-namespace:Grabcraft_Helper.ValueConverters"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:valueConverters="clr-namespace:Grabcraft_Helper.ValueConverters"
     d:DesignHeight="450"
     d:DesignWidth="600"
     Background="{StaticResource MyGrayBackground}"
@@ -25,15 +26,6 @@
                 <TextBlock FontSize="22" Text="Building_name" />
             </StackPanel>
 
-            <!--<ListBox MaxHeight="80">
-                    <ListBoxItem Content="hehe" />
-                    <ListBoxItem Content="hehe2" />
-                    <ListBoxItem Content="hehe3" />
-                    <ListBoxItem Content="hehe3" />
-                    <ListBoxItem Content="hehe4" />
-                    <ListBoxItem Content="hehe4" />
-                    <ListBoxItem Content="hehe4" />
-                </ListBox>-->
             <StackPanel Visibility="Visible">
                 <TextBlock
                     Margin="10"
@@ -41,13 +33,13 @@
                     Text="Couldn't match following blocks:" />
                 <TextBox
                     Height="100"
+                    VerticalContentAlignment="Top"
                     AcceptsReturn="True"
                     BorderThickness="1"
-                    Style="{StaticResource MismatchesTextBox}"
-                    Text="{Binding Mismatches2, UpdateSourceTrigger = PropertyChanged, Converter={StaticResource ListToStringConverter}}"
+                    IsReadOnly="False"
+                    Style="{StaticResource MaterialDesignTextBox}"
+                    Text="{Binding Mismatches2, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CollectionToStringConverter}}"
                     VerticalScrollBarVisibility="Auto" />
-                <!--  Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"  -->
-
 
                 <TextBlock
                     Margin="0,30,0,0"
@@ -59,15 +51,20 @@
                         <RadioButton
                             Margin="10"
                             Content="Ignore"
-                            GroupName="Group1" />
+                            GroupName="Group1"
+                            IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Ignore}}" />
                         <RadioButton
                             Margin="10"
                             Content="Replace with red wool"
-                            GroupName="Group1" />
+                            GroupName="Group1"
+                            IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Red_wool}}" />
+
                         <RadioButton
                             Margin="10"
                             Content="Replace with text sign"
-                            GroupName="Group1" />
+                            GroupName="Group1"
+                            IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Sign_with_text}}" />
+
                     </WrapPanel>
                 </StackPanel>
             </StackPanel>
@@ -76,8 +73,8 @@
                 MinWidth="75"
                 Margin="50,20,0,0"
                 HorizontalAlignment="Right"
-                Content="Save"
-                Command="{Binding SaveBtnClicked}"/>
+                Command="{Binding SaveBtnClicked}"
+                Content="Save" />
         </StackPanel>
 
 

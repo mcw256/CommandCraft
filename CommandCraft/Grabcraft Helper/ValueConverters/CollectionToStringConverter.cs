@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grabcraft_Helper.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
@@ -9,13 +10,15 @@ using System.Windows.Data;
 
 namespace Grabcraft_Helper.ValueConverters
 {
-    class ListToStringConverter : IValueConverter
+    class CollectionToStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             StringBuilder output = new StringBuilder();
 
-            foreach (var item in value as ObservableCollection<string>)
+            if (value == null) return "";
+
+            foreach (var item in value as ICollection<string>)
                 output.Append(item + "\n");
             
             return output.ToString();
@@ -23,7 +26,7 @@ namespace Grabcraft_Helper.ValueConverters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            return null;
         }
     }
 }

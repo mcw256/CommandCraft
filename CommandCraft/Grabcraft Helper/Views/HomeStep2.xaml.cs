@@ -26,5 +26,10 @@ namespace Grabcraft_Helper.Views
             InitializeComponent();
             DataContext = new HomeStep2ViewModel();
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

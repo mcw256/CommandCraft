@@ -25,7 +25,7 @@ namespace Grabcraft_Helper.ViewModels
                 {"Info", new Info() },
             };
 
-            CurrentPage = Pages["HomeStep2"];
+            CurrentPage = Pages["HomeStep1"];
 
             IsHomeBtnEnabled = false;
             IsInfoBtnEnabled = true;
@@ -108,10 +108,10 @@ namespace Grabcraft_Helper.ViewModels
 
         private void InfoButton(object obj)
         {
-            CurrentPage = Pages["Info"];
+            CurrentPage = Pages["HomeStep2"];
             IsHomeBtnEnabled = true;
             IsInfoBtnEnabled = false;
-            MessageBox.Show("Whatever");
+            //MessageBox.Show("Whatever");
         }
 
         #endregion

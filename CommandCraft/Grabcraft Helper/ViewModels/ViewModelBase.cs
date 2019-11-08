@@ -15,6 +15,7 @@ namespace Grabcraft_Helper.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(memberName));
         }
 
+      
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }
