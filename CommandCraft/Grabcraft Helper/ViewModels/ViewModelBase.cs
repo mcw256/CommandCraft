@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Grabcraft_Helper.ViewModels
 {
-    class ViewModelBase : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
         protected void OnPropertyChanged([CallerMemberName] string memberName = null)
         {

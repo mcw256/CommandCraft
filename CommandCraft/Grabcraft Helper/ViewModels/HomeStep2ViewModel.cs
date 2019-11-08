@@ -15,15 +15,17 @@ namespace Grabcraft_Helper.ViewModels
     class HomeStep2ViewModel : ViewModelBase
     {
         #region Constructor
-        public HomeStep2ViewModel()
+        public HomeStep2ViewModel(MainWindowViewModel mainWindowViewModel)
         {
-            SaveBtnClicked = new RelayCommand<object>(SaveButton);
+            _mainWindowViewModel = mainWindowViewModel;
+            SaveBtnClicked = new RelayCommand<object>(SaveButtonClicked);
             Mismatches2 = new MyObservableCollection<string>(nameof(Mismatches2), OnPropertyChanged);
             HowToHandleMismatch = HowToHandleMismatch.Ignore;
         }
         #endregion
 
         #region Properties
+        private MainWindowViewModel _mainWindowViewModel;
 
         private string _buildingName;
         public string BuildingName
@@ -76,10 +78,9 @@ namespace Grabcraft_Helper.ViewModels
         #endregion Properties
 
         #region Commands
-
-        private void SaveButton(object obj)
+        private void SaveButtonClicked(object obj)
         {
-           //save stuff here
+            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep3"];
         }
 
         #endregion Commands

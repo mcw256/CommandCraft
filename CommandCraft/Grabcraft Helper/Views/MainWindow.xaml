@@ -90,14 +90,14 @@
             <Button
                 x:Name="btnHome"
                 Command="{Binding HomeBtnClicked}"
-                IsEnabled="{Binding IsHomeBtnEnabled, UpdateSourceTrigger=PropertyChanged}"
+                IsEnabled="{Binding IsHomeBtnDimmed, UpdateSourceTrigger=PropertyChanged}"
                 Style="{StaticResource SideMenuButton}">
                 <materialDesign:PackIcon Kind="HomeOutline" Style="{StaticResource SideMenuButtonIcon}" />
             </Button>
             <Button
                 x:Name="btnInfo"
                 Command="{Binding InfoBtnClicked}"
-                IsEnabled="{Binding IsInfoBtnEnabled, UpdateSourceTrigger=PropertyChanged}"
+                IsEnabled="{Binding IsInfoBtnDimmed, UpdateSourceTrigger=PropertyChanged}"
                 Style="{StaticResource SideMenuButton}">
                 <materialDesign:PackIcon Kind="InfoOutline" Style="{StaticResource SideMenuButtonIcon}" />
             </Button>

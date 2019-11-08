@@ -13,62 +13,59 @@ using System.Windows.Controls;
 
 namespace Grabcraft_Helper.ViewModels
 {
-    class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
         #region Constructor
         public MainWindowViewModel()
         {
             Pages = new Dictionary<string, UserControl>
             {
-                {"HomeStep1", new HomeStep1() },
-                {"HomeStep2", new HomeStep2() },
-                {"HomeStep3", new HomeStep3() },
+                {"HomeStep1", new HomeStep1(this) },
+                {"HomeStep2", new HomeStep2(this) },
+                {"HomeStep3", new HomeStep3(this) },
                 {"Info", new Info() },
             };
 
             CurrentPage = Pages["HomeStep1"];
-
-            IsHomeBtnEnabled = false;
-            IsInfoBtnEnabled = true;
+            IsInfoBtnDimmed = true;
 
             HomeBtnClicked = new RelayCommand<object>(HomeButton);
             InfoBtnClicked = new RelayCommand<object>(InfoButton);
-
         }
         #endregion
 
         #region Properties
-        private bool _isHomeBtnEnabled;
-        public bool IsHomeBtnEnabled
+        private bool _isHomeBtnDimmed;
+        public bool IsHomeBtnDimmed
         {
             get
             {
-                return _isHomeBtnEnabled;
+                return _isHomeBtnDimmed;
             }
             set
             {
-                if (_isHomeBtnEnabled == value)
+                if (_isHomeBtnDimmed == value)
                     return;
 
 
-                _isHomeBtnEnabled = value;
+                _isHomeBtnDimmed = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _isInfoBtnEnabled;
-        public bool IsInfoBtnEnabled
+        private bool _isInfoBtnDimmed;
+        public bool IsInfoBtnDimmed
         {
             get
             {
-                return _isInfoBtnEnabled;
+                return _isInfoBtnDimmed;
             }
             set
             {
-                if (_isInfoBtnEnabled == value)
+                if (_isInfoBtnDimmed == value)
                     return;
 
-                _isInfoBtnEnabled = value;
+                _isInfoBtnDimmed = value;
                 OnPropertyChanged();
             }
         }
@@ -102,16 +99,16 @@ namespace Grabcraft_Helper.ViewModels
         private void HomeButton(object obj)
         {
             CurrentPage = Pages["HomeStep1"];
-            IsHomeBtnEnabled = false;
-            IsInfoBtnEnabled = true;
+            IsHomeBtnDimmed = false;
+            IsInfoBtnDimmed = true;
 
         }
 
         private void InfoButton(object obj)
         {
-            CurrentPage = Pages["HomeStep2"];
-            IsHomeBtnEnabled = true;
-            IsInfoBtnEnabled = false;
+            CurrentPage = Pages["Info"];
+            IsHomeBtnDimmed = true;
+            IsInfoBtnDimmed = false;
             //MessageBox.Show("Whatever");
         }
 

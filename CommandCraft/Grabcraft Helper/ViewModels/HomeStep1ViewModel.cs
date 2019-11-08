@@ -10,12 +10,17 @@ namespace Grabcraft_Helper.ViewModels
 {
     class HomeStep1ViewModel : ViewModelBase
     {
-        public HomeStep1ViewModel()
+        #region Constructor
+        public HomeStep1ViewModel(MainWindowViewModel mainWindowViewModel)
         {
+            _mainWindowViewModel = mainWindowViewModel;
             GoBtnClicked = new RelayCommand<object>(GoButtonClicked);
+
         }
+        #endregion
 
-
+        #region Properties
+        private MainWindowViewModel _mainWindowViewModel;
         public RelayCommand<object> GoBtnClicked { get; set; }
 
         private string _buildingURL;
@@ -35,15 +40,15 @@ namespace Grabcraft_Helper.ViewModels
                 OnPropertyChanged();
             }
         }
+        #endregion
 
-
+        #region Commands
         private void GoButtonClicked(object obj)
         {
-            //run some model code
-            //change page
+            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep2"];
 
         }
-
+        #endregion
 
 
     }

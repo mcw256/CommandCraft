@@ -1,0 +1,4 @@
+﻿1. Home Button i Info Button powinny należeć do jakiejś kolekcji w której tylko jeden może ustawiony na true. W cpp były chyba union do czegoś takiego. 
+2. Zobaczyć jak ustawiony jest trigger enabled w ich stylach, tak by disabled element był ciemny a enabled jasny
+3. Ustawić tak styl TextBoxa, by znikało podkreślenie u dołu
+4. Stworzyć nową kontrolkę z powiadomieniami, ew. wystylizować textboxa.

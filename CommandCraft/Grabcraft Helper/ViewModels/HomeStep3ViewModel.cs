@@ -10,17 +10,19 @@ namespace Grabcraft_Helper.ViewModels
 {
     class HomeStep3ViewModel : ViewModelBase
     {
-        public HomeStep3ViewModel()
+        #region Constructor
+        public HomeStep3ViewModel(MainWindowViewModel mainWindowViewModel)
         {
+            _mainWindowViewModel = mainWindowViewModel;
             OkBtnClicked = new RelayCommand<object>(OkButtonClicked);
         }
+        #endregion
 
-
+        #region Properties
+        private MainWindowViewModel _mainWindowViewModel;
         public RelayCommand<object> OkBtnClicked { get; set; }
 
-
         private string _buildingName;
-
         public string BuildingName
         {
             get
@@ -36,12 +38,13 @@ namespace Grabcraft_Helper.ViewModels
                 OnPropertyChanged();
             }
         }
+        #endregion
 
-
+        #region Commands
         public void OkButtonClicked(object obj)
         {
-            //change page
+            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep1"];
         }
-
+        #endregion
     }
 }

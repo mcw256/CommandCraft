@@ -25,7 +25,7 @@
                 <TextBlock FontSize="22" Text="path_name" />
             </WrapPanel>
 
-            <Button Content="Ok" MaxWidth="70" Margin="15" />
+            <Button Content="Ok" MaxWidth="70" Margin="15" Command="{Binding OkBtnClicked}" />
         </StackPanel>
         
 

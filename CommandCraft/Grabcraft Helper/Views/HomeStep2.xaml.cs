@@ -21,15 +21,10 @@ namespace Grabcraft_Helper.Views
     /// </summary>
     public partial class HomeStep2 : UserControl
     {
-        public HomeStep2()
+        public HomeStep2(MainWindowViewModel mainWindowViewModel)
         {
             InitializeComponent();
-            DataContext = new HomeStep2ViewModel();
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
+            DataContext = new HomeStep2ViewModel(mainWindowViewModel);
         }
     }
 }

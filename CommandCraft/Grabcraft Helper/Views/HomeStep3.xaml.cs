@@ -21,10 +21,10 @@ namespace Grabcraft_Helper.Views
     /// </summary>
     public partial class HomeStep3 : UserControl
     {
-        public HomeStep3()
+        public HomeStep3(MainWindowViewModel mainWindowViewModel)
         {
             InitializeComponent();
-            DataContext = new HomeStep3ViewModel();
+            DataContext = new HomeStep3ViewModel(mainWindowViewModel);
         }
     }
 }

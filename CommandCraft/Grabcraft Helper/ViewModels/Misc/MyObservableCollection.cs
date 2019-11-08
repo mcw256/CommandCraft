@@ -14,10 +14,6 @@ namespace Grabcraft_Helper.ViewModels.Misc
 
     public class MyObservableCollection<T> : ICollection<T>
     {
-        ICollection<T> _items;
-        public event OnCollectionChange OnCollectionChange;
-        private string _instanceName;
-
         #region Constructor
         public MyObservableCollection(string instanceName, OnCollectionChange onPropertyChange)
         {
@@ -28,6 +24,10 @@ namespace Grabcraft_Helper.ViewModels.Misc
         #endregion
 
         #region Properties
+        ICollection<T> _items;
+        public event OnCollectionChange OnCollectionChange;
+        private string _instanceName;
+
         public int Count
         {
             get { return _items.Count; }
