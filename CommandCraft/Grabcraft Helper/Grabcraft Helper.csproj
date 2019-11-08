@@ -66,19 +66,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="UI Stuff\Styles\Buttons.xaml">
+    <Page Include="Views\Styles\Buttons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI Stuff\Styles\Colors.xaml">
+    <Page Include="Views\Styles\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI Stuff\Styles\Fonts.xaml">
+    <Page Include="Views\Styles\Fonts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UI Stuff\Styles\Misc.xaml">
+    <Page Include="Views\Styles\Misc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,11 +106,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CommonDataTypes\HowToHandleMismatch.cs" />
-    <Compile Include="Handlers\RelayCommand.cs" />
-    <Compile Include="ValueConverters\CollectionToStringConverter.cs" />
-    <Compile Include="ValueConverters\StringToEnumConverter.cs" />
-    <Compile Include="ViewModels\MyObservableCollection.cs" />
+    <Compile Include="DataTypes\HowToHandleMismatch.cs" />
+    <Compile Include="ViewModels\Misc\RelayCommand.cs" />
+    <Compile Include="Views\ValueConverters\CollectionToStringConverter.cs" />
+    <Compile Include="Views\ValueConverters\StringToEnumConverter.cs" />
+    <Compile Include="ViewModels\Misc\MyObservableCollection.cs" />
     <Compile Include="ViewModels\HomeStep1ViewModel.cs" />
     <Compile Include="ViewModels\HomeStep2ViewModel.cs" />
     <Compile Include="ViewModels\HomeStep3ViewModel.cs" />

@@ -1,4 +1,5 @@
-﻿using Grabcraft_Helper.Handlers;
+﻿using Grabcraft_Helper;
+using Grabcraft_Helper.ViewModels.Misc;
 using Grabcraft_Helper.Views;
 using System;
 using System.Collections.Generic;

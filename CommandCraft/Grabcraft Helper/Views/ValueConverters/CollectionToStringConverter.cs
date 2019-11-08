@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Grabcraft_Helper.ValueConverters
+namespace Grabcraft_Helper.Views.ValueConverters
 {
     class CollectionToStringConverter : IValueConverter
     {

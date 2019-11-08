@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grabcraft_Helper.ViewModels
+namespace Grabcraft_Helper.ViewModels.Misc
 {
     public delegate void OnCollectionChange(string a);
 
