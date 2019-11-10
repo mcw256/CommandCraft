@@ -1,4 +1,5 @@
-﻿using Grabcraft_Helper.Model.DataTypes;
+﻿using Grabcraft_Helper.DataTypes;
+using Grabcraft_Helper.Model.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

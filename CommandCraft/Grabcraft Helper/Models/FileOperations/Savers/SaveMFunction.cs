@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Grabcraft_Helper.DataTypes;
 using Grabcraft_Helper.Model.DataTypes;
 using Grabcraft_Helper.Model.FileOperations.Savers.SaveMFunctionUtils;
 
@@ -26,6 +27,7 @@ namespace Grabcraft_Helper.Model.FileOperations.Savers
                 /*
                  * Let the Spaghetti ifs begin!
                  * :DDDD
+                 * All this code below, basically checks whether minecraft save dir is correct, and fixes it(creates folders or files) if it isnt
                 */
 
                 currentPath.Append(@"\datapacks"); 

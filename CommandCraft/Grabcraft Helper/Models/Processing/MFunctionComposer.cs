@@ -1,4 +1,5 @@
-﻿using Grabcraft_Helper.Model.DataTypes;
+﻿using Grabcraft_Helper.DataTypes;
+using Grabcraft_Helper.Model.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace Grabcraft_Helper.Model.Processing
                         {
                             case HowToHandleMismatch.Ignore:
                                 break;
-                            case HowToHandleMismatch.Red_Wool:
+                            case HowToHandleMismatch.Red_wool:
                                 line = $"setblock ~{item.Coords.X} ~{item.Coords.Z} ~{item.Coords.Y} minecraft:red_wool replace";
                                 Output.Content.Add(line);
                                 break;

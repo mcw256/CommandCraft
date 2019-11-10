@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grabcraft_Helper.Model.DataTypes
+namespace Grabcraft_Helper.DataTypes
 {
     /// <summary>
-    /// immutable
+    /// immutable models response
     /// </summary>
     class Response
     {

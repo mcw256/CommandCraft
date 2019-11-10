@@ -1,10 +1,13 @@
 ﻿using Grabcraft_Helper;
+using Grabcraft_Helper.DataTypes;
+using Grabcraft_Helper.Model;
 using Grabcraft_Helper.ViewModels.Misc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Grabcraft_Helper.ViewModels
 {
@@ -16,6 +19,8 @@ namespace Grabcraft_Helper.ViewModels
             _mainWindowViewModel = mainWindowViewModel;
             GoBtnClicked = new RelayCommand<object>(GoButtonClicked);
 
+            var response = ActionManager.LoadDictionaries();
+            if(response.IsError) MessageBox.Show(response.ErrorMsg);
         }
         #endregion
 
@@ -47,6 +52,8 @@ namespace Grabcraft_Helper.ViewModels
         {
             _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep2"];
 
+            var response = ActionManager.DownloadAndProcessBuilding(BuildingURL);
+            if(response.IsError) MessageBox.Show(response.ErrorMsg);
         }
         #endregion
 

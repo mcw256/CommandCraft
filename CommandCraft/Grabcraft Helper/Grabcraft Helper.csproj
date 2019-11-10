@@ -116,9 +116,8 @@
     <Compile Include="Models\DataTypes\BlockRelated\MBlock.cs" />
     <Compile Include="Models\DataTypes\Coords.cs" />
     <Compile Include="Models\DataTypes\DeserializedLayermap.cs" />
-    <Compile Include="Models\DataTypes\HowToHandleMismatch.cs" />
     <Compile Include="Models\DataTypes\MFunction.cs" />
-    <Compile Include="Models\DataTypes\Response.cs" />
+    <Compile Include="DataTypes\Response.cs" />
     <Compile Include="Models\DataTypes\UserConfig.cs" />
     <Compile Include="Models\Downloaders\DownloadBuildingHtml.cs" />
     <Compile Include="Models\Downloaders\Downloader.cs" />

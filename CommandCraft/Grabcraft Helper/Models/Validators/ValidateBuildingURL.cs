@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Grabcraft_Helper.DataTypes;
 using Grabcraft_Helper.Model.DataTypes;
 
 namespace Grabcraft_Helper.Model.Validators

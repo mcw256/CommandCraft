@@ -9,6 +9,7 @@ using Grabcraft_Helper.DataTypes;
 using System.Windows;
 using System.Collections.Specialized;
 using Grabcraft_Helper.ViewModels.Misc;
+using Grabcraft_Helper.Model;
 
 namespace Grabcraft_Helper.ViewModels
 {
@@ -19,13 +20,24 @@ namespace Grabcraft_Helper.ViewModels
         {
             _mainWindowViewModel = mainWindowViewModel;
             SaveBtnClicked = new RelayCommand<object>(SaveButtonClicked);
-            Mismatches2 = new MyObservableCollection<string>(nameof(Mismatches2), OnPropertyChanged);
+            MismatchesList = new MyObservableCollection<string>(nameof(MismatchesList), OnPropertyChanged);
             HowToHandleMismatch = HowToHandleMismatch.Ignore;
+
+            AreThereMismatches = ActionManager.AreThereMismatches;
+            if(AreThereMismatches)
+            {
+                foreach (var item in ActionManager.MismatchesList)
+                    MismatchesList.Add(item);
+            }
+
+            
+
         }
         #endregion
 
         #region Properties
         private MainWindowViewModel _mainWindowViewModel;
+        public RelayCommand<object> SaveBtnClicked { get; set; }
 
         private string _buildingName;
         public string BuildingName
@@ -44,13 +56,13 @@ namespace Grabcraft_Helper.ViewModels
             }
         }
 
-        private MyObservableCollection<string> _mismatches2;
-        public MyObservableCollection<string> Mismatches2
+        private MyObservableCollection<string> _mismatchesList;
+        public MyObservableCollection<string> MismatchesList
         {
-            get { return _mismatches2; }
+            get { return _mismatchesList; }
             set
             {
-                _mismatches2 = value;
+                _mismatchesList = value;
                 OnPropertyChanged();
                 
             }
@@ -73,7 +85,23 @@ namespace Grabcraft_Helper.ViewModels
             }
         }
 
-        public RelayCommand<object> SaveBtnClicked { get; set; }
+        private bool _areThereMismatches;
+
+        public bool AreThereMismatches
+        {
+            get
+            {
+                return _areThereMismatches;
+            }
+            set
+            {
+                if (value == _areThereMismatches) return;
+
+                _areThereMismatches = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         #endregion Properties
 
@@ -81,6 +109,9 @@ namespace Grabcraft_Helper.ViewModels
         private void SaveButtonClicked(object obj)
         {
             _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep3"];
+
+
+
         }
 
         #endregion Commands

@@ -1,4 +1,5 @@
-﻿using Grabcraft_Helper.Model.DataTypes;
+﻿using Grabcraft_Helper.DataTypes;
+using Grabcraft_Helper.Model.DataTypes;
 using Grabcraft_Helper.Model.Processing.LayermapDeserializerUtils;
 using Grabcraft_Helper.Model.Processing.LayermapDeserializerUtils.DataTypes;
 using Newtonsoft.Json;
