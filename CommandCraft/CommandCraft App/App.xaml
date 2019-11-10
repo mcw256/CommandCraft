@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="CommandCraft_App.App"
+    x:Class="Grabcraft_Helper.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:CommandCraft_App"
+    xmlns:local="clr-namespace:Grabcraft_Helper"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

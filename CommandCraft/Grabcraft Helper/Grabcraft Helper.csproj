@@ -107,6 +107,54 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataTypes\HowToHandleMismatch.cs" />
+    <Compile Include="Models\ActionManager.cs" />
+    <Compile Include="Models\DataTypes\BlockRelated\Block.cs" />
+    <Compile Include="Models\DataTypes\BlockRelated\BlockGInfo.cs" />
+    <Compile Include="Models\DataTypes\BlockRelated\BlockInfo.cs" />
+    <Compile Include="Models\DataTypes\BlockRelated\BlockMInfo.cs" />
+    <Compile Include="Models\DataTypes\BlockRelated\GBlock.cs" />
+    <Compile Include="Models\DataTypes\BlockRelated\MBlock.cs" />
+    <Compile Include="Models\DataTypes\Coords.cs" />
+    <Compile Include="Models\DataTypes\DeserializedLayermap.cs" />
+    <Compile Include="Models\DataTypes\HowToHandleMismatch.cs" />
+    <Compile Include="Models\DataTypes\MFunction.cs" />
+    <Compile Include="Models\DataTypes\Response.cs" />
+    <Compile Include="Models\DataTypes\UserConfig.cs" />
+    <Compile Include="Models\Downloaders\DownloadBuildingHtml.cs" />
+    <Compile Include="Models\Downloaders\Downloader.cs" />
+    <Compile Include="Models\Downloaders\DownloadLayermap.cs" />
+    <Compile Include="Models\Downloaders\Utils\ImprovedWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Extractors\ExtractBuildingName.cs" />
+    <Compile Include="Models\Extractors\ExtractLayermapURL.cs" />
+    <Compile Include="Models\Extractors\Extractor.cs" />
+    <Compile Include="Models\FileOperations\Loaders\LoadBlockAttributesDictionary.cs" />
+    <Compile Include="Models\FileOperations\Loaders\LoadBlockNamesDictionary.cs" />
+    <Compile Include="Models\FileOperations\Loaders\Loader.cs" />
+    <Compile Include="Models\FileOperations\Loaders\LoadPlayerSavesList.cs" />
+    <Compile Include="Models\FileOperations\Loaders\LoadUserConfig.cs" />
+    <Compile Include="Models\FileOperations\Savers\SaveMFunction.cs" />
+    <Compile Include="Models\FileOperations\Savers\SaveMFunctionUtils\Utils.cs" />
+    <Compile Include="Models\FileOperations\Savers\Saver.cs" />
+    <Compile Include="Models\FileOperations\Savers\SaveUserConfig.cs" />
+    <Compile Include="Models\Processing\BlockInfosTranslator.cs" />
+    <Compile Include="Models\Processing\BlockInfosTranslatorUtils\SearchAttributesDictionary.cs" />
+    <Compile Include="Models\Processing\BlockInfosTranslatorUtils\SearchNamesDictionary.cs" />
+    <Compile Include="Models\Processing\BlockInfosTranslatorUtils\SpecialTranslation.cs" />
+    <Compile Include="Models\Processing\BlockInfosTranslatorUtils\TranslateExtraordinaryBlocks.cs" />
+    <Compile Include="Models\Processing\BlockInfosTranslatorUtils\Utils.cs" />
+    <Compile Include="Models\Processing\CoordsNormalizer.cs" />
+    <Compile Include="Models\Processing\CoordsNormalizerUtils\Utils.cs" />
+    <Compile Include="Models\Processing\LayermapDeserializer.cs" />
+    <Compile Include="Models\Processing\LayermapDeserializerUtils\DataTypes\RawGBlock.cs" />
+    <Compile Include="Models\Processing\MBlocksGluer.cs" />
+    <Compile Include="Models\Processing\MFunctionComposer.cs" />
+    <Compile Include="Models\Processing\Processor.cs" />
+    <Compile Include="Models\Validators\ValidateBuildingURL.cs" />
+    <Compile Include="Models\Validators\ValidateLayermap.cs" />
+    <Compile Include="Models\Validators\ValidateMinecraftPath.cs" />
+    <Compile Include="Models\Validators\Validator.cs" />
     <Compile Include="ViewModels\Misc\RelayCommand.cs" />
     <Compile Include="Views\ValueConverters\CollectionToStringConverter.cs" />
     <Compile Include="Views\ValueConverters\StringToEnumConverter.cs" />
@@ -165,9 +213,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="TODO.txt" />
   </ItemGroup>

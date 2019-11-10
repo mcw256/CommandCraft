@@ -50,6 +50,5 @@ namespace Grabcraft_Helper.ViewModels
         }
         #endregion
 
-
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CommandCraft_App.Properties {
+namespace Grabcraft_Helper.Properties {
     using System;
     
     

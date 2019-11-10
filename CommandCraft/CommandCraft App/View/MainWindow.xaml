@@ -1,9 +1,9 @@
 ﻿<Window
-    x:Class="CommandCraft_App.MainWindow"
+    x:Class="Grabcraft_Helper.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:CommandCraft_App"
+    xmlns:local="clr-namespace:Grabcraft_Helper"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="CommandCraft"

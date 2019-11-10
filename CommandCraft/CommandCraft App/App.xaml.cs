@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace CommandCraft_App
+namespace Grabcraft_Helper
 {
     /// <summary>
     /// Interaction logic for App.xaml

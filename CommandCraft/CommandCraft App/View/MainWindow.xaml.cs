@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CommandCraft_App
+namespace Grabcraft_Helper
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
