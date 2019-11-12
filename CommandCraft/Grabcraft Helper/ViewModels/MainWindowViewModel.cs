@@ -49,6 +49,9 @@ namespace Grabcraft_Helper.ViewModels
 
 
                 _isHomeBtnDimmed = value;
+                if (value == false)
+                    IsInfoBtnDimmed = true;
+
                 OnPropertyChanged();
             }
         }
@@ -66,6 +69,9 @@ namespace Grabcraft_Helper.ViewModels
                     return;
 
                 _isInfoBtnDimmed = value;
+                if (value == false)
+                    IsHomeBtnDimmed = true;
+
                 OnPropertyChanged();
             }
         }
@@ -100,16 +106,12 @@ namespace Grabcraft_Helper.ViewModels
         {
             CurrentPage = Pages["HomeStep1"];
             IsHomeBtnDimmed = false;
-            IsInfoBtnDimmed = true;
-
         }
 
         private void InfoButton(object obj)
         {
             CurrentPage = Pages["Info"];
-            IsHomeBtnDimmed = true;
             IsInfoBtnDimmed = false;
-            //MessageBox.Show("Whatever");
         }
 
         #endregion

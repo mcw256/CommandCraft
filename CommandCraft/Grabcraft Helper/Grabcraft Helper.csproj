@@ -134,6 +134,7 @@
     <Compile Include="Models\FileOperations\Loaders\LoadPlayerSavesList.cs" />
     <Compile Include="Models\FileOperations\Loaders\LoadUserConfig.cs" />
     <Compile Include="Models\FileOperations\Savers\SaveMFunction.cs" />
+    <Compile Include="Models\FileOperations\Savers\SaveMFunctionToMinecraft.cs" />
     <Compile Include="Models\FileOperations\Savers\SaveMFunctionUtils\Utils.cs" />
     <Compile Include="Models\FileOperations\Savers\Saver.cs" />
     <Compile Include="Models\FileOperations\Savers\SaveUserConfig.cs" />

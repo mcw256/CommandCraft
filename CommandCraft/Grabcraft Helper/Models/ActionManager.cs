@@ -5,6 +5,7 @@ using Grabcraft_Helper.Model.Extractors;
 using Grabcraft_Helper.Model.FileOperations.Loaders;
 using Grabcraft_Helper.Model.FileOperations.Savers;
 using Grabcraft_Helper.Model.Processing;
+using Grabcraft_Helper.Models.FileOperations.Savers;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Grabcraft_Helper.Model
     /// </summary>
     static class ActionManager
     {
-        static DataContainer data;
+        static DataContainer data = new DataContainer();
         
         /// <summary>
         /// Loads necessary dictionaries
@@ -124,7 +125,8 @@ namespace Grabcraft_Helper.Model
             if (response.IsError) return response;
             data.MFunctionComposerOutput = mFunctionComposer.Output;
 
-            //TODO
+            response = saveMFunction.Save(data.MFunctionComposerOutput);
+            if (response.IsError) return response;
 
             return new Response(false, "");
         }
@@ -134,7 +136,7 @@ namespace Grabcraft_Helper.Model
             Response response;
             var mBlocksGluer = new MBlocksGluer();
             var mFunctionComposer = new MFunctionComposer();
-            var saveMFunction = new SaveMFunction();
+            var saveMFunctionToMinecraft = new SaveMFunctionToMinecraft();
 
             response = mBlocksGluer.Process(data.CoordsNormalizerOutput, data.BlockInfosTranslatorOutput);
             if (response.IsError) return response;
@@ -144,7 +146,10 @@ namespace Grabcraft_Helper.Model
             if (response.IsError) return response;
             data.MFunctionComposerOutput = mFunctionComposer.Output;
 
-            //TODO
+
+            // TODO, user config needs to be implemented for this to work
+            //response = saveMFunctionToMinecraft.Save(data.MFunctionComposerOutput, "", "" );
+           // if (response.IsError) return response;
 
             return new Response(false, "");
         }
@@ -174,7 +179,7 @@ namespace Grabcraft_Helper.Model
 
         public static void ResetData()
         {
-            //todo
+            data = new DataContainer();
         }
     }
 

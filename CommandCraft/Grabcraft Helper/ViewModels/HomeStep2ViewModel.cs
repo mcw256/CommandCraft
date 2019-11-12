@@ -20,6 +20,8 @@ namespace Grabcraft_Helper.ViewModels
         {
             _mainWindowViewModel = mainWindowViewModel;
             SaveBtnClicked = new RelayCommand<object>(SaveButtonClicked);
+            SaveToMinecraftBtnClicked = new RelayCommand<object>(SaveToMinecraftButtonClicked);
+
             MismatchesList = new MyObservableCollection<string>(nameof(MismatchesList), OnPropertyChanged);
             HowToHandleMismatch = HowToHandleMismatch.Ignore;
 
@@ -38,7 +40,8 @@ namespace Grabcraft_Helper.ViewModels
         #region Properties
         private MainWindowViewModel _mainWindowViewModel;
         public RelayCommand<object> SaveBtnClicked { get; set; }
-
+        public RelayCommand<object> SaveToMinecraftBtnClicked { get; set; }
+        
         private string _buildingName;
         public string BuildingName
         {
@@ -106,10 +109,19 @@ namespace Grabcraft_Helper.ViewModels
         #endregion Properties
 
         #region Commands
-        private void SaveButtonClicked(object obj)
+        private void SaveToMinecraftButtonClicked(object obj)
         {
+            MessageBox.Show($"{this.GetType().Name} Right now I do nothin");
             _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep3"];
 
+
+
+        }
+
+        private void SaveButtonClicked(object obj)
+        {
+            ActionManager.AssembleMFunctionAndSave(HowToHandleMismatch);
+            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep3"];
 
 
         }

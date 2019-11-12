@@ -36,8 +36,8 @@
                     VerticalContentAlignment="Top"
                     AcceptsReturn="True"
                     BorderThickness="1"
-                    IsReadOnly="False"
-                    Style="{StaticResource MaterialDesignTextBox}"
+                    IsReadOnly="True"
+                    Style="{StaticResource MismatchesTextBox}"
                     Text="{Binding Mismatches2, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CollectionToStringConverter}}"
                     VerticalScrollBarVisibility="Auto" />
 
@@ -69,12 +69,22 @@
                 </StackPanel>
             </StackPanel>
 
-            <Button
-                MinWidth="75"
-                Margin="50,20,0,0"
-                HorizontalAlignment="Right"
-                Command="{Binding SaveBtnClicked}"
-                Content="Save" />
+            <Grid Margin="0 20 0 0">
+                <Button
+                    MinWidth="75"
+                    HorizontalAlignment="Left"
+                    Command="{Binding SaveToMinecraftBtnClicked}"
+                    Content="Save to minecraft" />
+
+                <Button
+                    MinWidth="75"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Right"
+                    Command="{Binding SaveBtnClicked}"
+                    Content="Save" />
+
+            </Grid>
+
         </StackPanel>
 
 

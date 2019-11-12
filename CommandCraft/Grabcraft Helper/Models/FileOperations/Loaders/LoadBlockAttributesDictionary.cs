@@ -12,7 +12,7 @@ namespace Grabcraft_Helper.Model.FileOperations.Loaders
 {
     class LoadBlockAttributesDictionary : Loader<Dictionary<string, string>>
     {
-        public static readonly string fileName = "block attributes dictionary.json";
+        public static readonly string fileName = "block_attributes_dictionary.json";
 
         public override Dictionary<string, string> Output { get; protected set; } = new Dictionary<string, string>();
 
@@ -24,7 +24,7 @@ namespace Grabcraft_Helper.Model.FileOperations.Loaders
         {
             try
             {
-                string rawJson = File.ReadAllText(fileName);
+                string rawJson = File.ReadAllText($@"programdata\{fileName}");
                 Output = JsonConvert.DeserializeObject<Dictionary<string, string>>(rawJson);
 
             }
