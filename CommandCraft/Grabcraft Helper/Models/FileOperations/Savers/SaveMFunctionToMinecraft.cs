@@ -77,7 +77,7 @@ namespace Grabcraft_Helper.Model.FileOperations.Savers
                     }
                 }
                 currentPath.Append(@"\functions");
-                File.WriteAllText($@"{currentPath.ToString()}\{mFunction.Name}", mFunction.ToString());
+                File.WriteAllText($@"{currentPath.ToString()}\{mFunction.Name}.mcfunction", mFunction.ToString());
 
 
             }

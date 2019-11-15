@@ -27,7 +27,7 @@ namespace Grabcraft_Helper.ViewModels
             };
 
             CurrentPage = Pages["HomeStep1"];
-            IsInfoBtnDimmed = true;
+            IsHomeBtnActive = true;
 
             HomeBtnClicked = new RelayCommand<object>(HomeButton);
             InfoBtnClicked = new RelayCommand<object>(InfoButton);
@@ -35,43 +35,51 @@ namespace Grabcraft_Helper.ViewModels
         #endregion
 
         #region Properties
-        private bool _isHomeBtnDimmed;
-        public bool IsHomeBtnDimmed
+        private bool _isHomeBtnActive;
+        public bool IsHomeBtnActive // when its active, xamls enable prop is meant to be set on false, thats why this code gets little bit confusing
         {
             get
             {
-                return _isHomeBtnDimmed;
+                return _isHomeBtnActive;
             }
             set
             {
-                if (_isHomeBtnDimmed == value)
+                if (value == true) //set all the others
+                {
+                    IsInfoBtnActive = false;
+
+                }
+
+                if (_isHomeBtnActive == !value)
                     return;
 
-
-                _isHomeBtnDimmed = value;
-                if (value == false)
-                    IsInfoBtnDimmed = true;
+                _isHomeBtnActive = !value; // this one exclamation mark i
+                if (value == true)
+                    IsInfoBtnActive = false;
 
                 OnPropertyChanged();
             }
         }
 
-        private bool _isInfoBtnDimmed;
-        public bool IsInfoBtnDimmed
+        private bool _isInfoBtnActive;
+        public bool IsInfoBtnActive
         {
             get
             {
-                return _isInfoBtnDimmed;
+                return _isInfoBtnActive;
             }
             set
             {
-                if (_isInfoBtnDimmed == value)
+                if (value == true)//set all the others on false
+                {
+                    IsHomeBtnActive = false;
+
+                }
+                if (_isInfoBtnActive == !value)
                     return;
 
-                _isInfoBtnDimmed = value;
-                if (value == false)
-                    IsHomeBtnDimmed = true;
-
+                _isInfoBtnActive = !value;
+                
                 OnPropertyChanged();
             }
         }
@@ -105,13 +113,13 @@ namespace Grabcraft_Helper.ViewModels
         private void HomeButton(object obj)
         {
             CurrentPage = Pages["HomeStep1"];
-            IsHomeBtnDimmed = false;
+            IsHomeBtnActive = true;
         }
 
         private void InfoButton(object obj)
         {
             CurrentPage = Pages["Info"];
-            IsInfoBtnDimmed = false;
+            IsInfoBtnActive = true;
         }
 
         #endregion

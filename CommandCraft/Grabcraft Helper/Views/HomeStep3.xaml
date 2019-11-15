@@ -20,9 +20,9 @@
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
                 <TextBlock FontSize="22" Text="Successfully saved " />
-                <TextBlock FontSize="22" Text="Building_name " />
-                <TextBlock FontSize="22" Text="to " />
-                <TextBlock FontSize="22" Text="path_name" />
+                <TextBlock FontSize="22" Text="{Binding BuildingName, Mode=OneWay}" />
+                <!--<TextBlock FontSize="22" Text="to " />
+                <TextBlock FontSize="22" Text="path_name" />-->
             </WrapPanel>
 
             <Button Content="Ok" MaxWidth="70" Margin="15" Command="{Binding OkBtnClicked}" />

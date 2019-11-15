@@ -23,6 +23,7 @@
 
             <valueConverters:CollectionToStringConverter x:Key="CollectionToStringConverter" />
             <valueConverters:StringToEnumConverter x:Key="StringToEnumConverter" />
+            <valueConverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
 
 

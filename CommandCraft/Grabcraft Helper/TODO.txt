@@ -1,9 +1,14 @@
-﻿1. Home Button i Info Button powinny należeć do jakiejś kolekcji w której tylko jeden może ustawiony na true. W cpp były chyba union do czegoś takiego. 
-2. Zobaczyć jak ustawiony jest trigger enabled w ich stylach, tak by disabled element był ciemny a enabled jasny
-3. Ustawić tak styl TextBoxa, by znikało podkreślenie u dołu
-4. Stworzyć nową kontrolkę z powiadomieniami/errorami, ew. wystylizować textboxa.
-5. Dopisać funkcję do zwykłego zapisu
-6. Dodać guzik do zapisu w minecrafcie
+﻿1. Stworzyć nową kontrolkę z powiadomieniami/errorami, ew. wystylizować textboxa.
+
+2. Schować mismatch textboxa jesli nie jest potrzebny.
+
+3. Dodać obsługę wyjątków usera
+
+4. Zrobić tak, że jeżeli jest error, to nie przechodzi do nastepnego okna
+
+5. Dodać wątki, by UI się nie zwieszało, wręcz przeciwnie, niech jest animacja na guziku, że program myśli. Trza poczytać o tym na cezarywalenciuk blog
+
+6. Are there mismatches musi byc ustawiane w event handlerze dla load window
 
 
 

@@ -25,6 +25,7 @@ namespace Grabcraft_Helper.ViewModels
             MismatchesList = new MyObservableCollection<string>(nameof(MismatchesList), OnPropertyChanged);
             HowToHandleMismatch = HowToHandleMismatch.Ignore;
 
+            //TODO this also should be in loaded event handler otherwise mismatches detection fails, because this starts at the fkin begning
             AreThereMismatches = ActionManager.AreThereMismatches;
             if(AreThereMismatches)
             {
@@ -127,8 +128,6 @@ namespace Grabcraft_Helper.ViewModels
         }
 
         #endregion Commands
-
-
 
     }
 }

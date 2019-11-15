@@ -19,14 +19,15 @@ namespace Grabcraft_Helper.ViewModels
             _mainWindowViewModel = mainWindowViewModel;
             GoBtnClicked = new RelayCommand<object>(GoButtonClicked);
 
-            var response = ActionManager.LoadDictionaries();
-            if(response.IsError) MessageBox.Show(response.ErrorMsg);
         }
+
+
         #endregion
 
         #region Properties
         private MainWindowViewModel _mainWindowViewModel;
         public RelayCommand<object> GoBtnClicked { get; set; }
+
 
         private string _buildingURL;
 
@@ -52,9 +53,18 @@ namespace Grabcraft_Helper.ViewModels
         {
             _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep2"];
 
-            var response = ActionManager.DownloadAndProcessBuilding(BuildingURL);
-            if(response.IsError) MessageBox.Show(response.ErrorMsg);
+            // TODO this should be in loaded handler, which i dont know how to call right now
+            var response = ActionManager.LoadDictionaries();
+            if (response.IsError)
+                MessageBox.Show(response.ErrorMsg);
+            // >
+
+            response = ActionManager.DownloadAndProcessBuilding(BuildingURL);
+            if (response.IsError)
+                MessageBox.Show(response.ErrorMsg);
         }
+
+
         #endregion
 
     }

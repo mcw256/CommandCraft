@@ -20,7 +20,7 @@ namespace Grabcraft_Helper.Model.DataTypes
                 result = Regex.Replace(result, @"\s", "_");
                 result = Regex.Replace(result, @"[^a-z_0-9]", "");
 
-                return $"{result}.mcfunction";
+                return result;
             }
             set { _name = value; }
         }

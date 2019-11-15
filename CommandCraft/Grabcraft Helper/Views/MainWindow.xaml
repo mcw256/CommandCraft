@@ -86,18 +86,17 @@
             Grid.Column="0"
             Background="{StaticResource MyDarkerGrayBackground}">
 
-
             <Button
                 x:Name="btnHome"
                 Command="{Binding HomeBtnClicked}"
-                IsEnabled="{Binding IsHomeBtnDimmed, UpdateSourceTrigger=PropertyChanged}"
+                IsEnabled="{Binding IsHomeBtnActive, UpdateSourceTrigger=PropertyChanged}"
                 Style="{StaticResource SideMenuButton}">
                 <materialDesign:PackIcon Kind="HomeOutline" Style="{StaticResource SideMenuButtonIcon}" />
             </Button>
             <Button
                 x:Name="btnInfo"
                 Command="{Binding InfoBtnClicked}"
-                IsEnabled="{Binding IsInfoBtnDimmed, UpdateSourceTrigger=PropertyChanged}"
+                IsEnabled="{Binding IsInfoBtnActive, UpdateSourceTrigger=PropertyChanged}"
                 Style="{StaticResource SideMenuButton}">
                 <materialDesign:PackIcon Kind="InfoOutline" Style="{StaticResource SideMenuButtonIcon}" />
             </Button>

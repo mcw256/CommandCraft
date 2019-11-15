@@ -23,10 +23,10 @@
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
                 <TextBlock FontSize="22" Text="Loaded " />
-                <TextBlock FontSize="22" Text="Building_name" />
+                <TextBlock FontSize="22" Text="{Binding BuildingName, Mode=OneWay}" />
             </StackPanel>
 
-            <StackPanel Visibility="Visible">
+            <StackPanel Visibility="{Binding AreThereMismatches, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                 <TextBlock
                     Margin="10"
                     FontSize="15"
@@ -38,7 +38,7 @@
                     BorderThickness="1"
                     IsReadOnly="True"
                     Style="{StaticResource MismatchesTextBox}"
-                    Text="{Binding Mismatches2, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CollectionToStringConverter}}"
+                    Text="{Binding Mismatches2, Mode=OneWay, Converter={StaticResource CollectionToStringConverter}}"
                     VerticalScrollBarVisibility="Auto" />
 
                 <TextBlock

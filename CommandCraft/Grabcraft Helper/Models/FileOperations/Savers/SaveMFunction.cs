@@ -18,8 +18,7 @@ namespace Grabcraft_Helper.Models.FileOperations.Savers
             try
             {
                 SaveFileDialog saveDialog = new SaveFileDialog();
-                saveDialog.FileName = $"{mFunction.Name}.mfunction"; 
-                saveDialog.DefaultExt = ".mfunction"; 
+                saveDialog.FileName = $"{mFunction.Name}"; 
                 saveDialog.Filter = "Minecraft Function File(.mfunction)|*.mfunction|Text Document(.txt)|*.txt"; 
 
                 Nullable<bool> result = saveDialog.ShowDialog();
@@ -27,11 +26,11 @@ namespace Grabcraft_Helper.Models.FileOperations.Savers
                 if (result == true)
                 {
                     if (saveDialog.FilterIndex == 1)
-                        File.WriteAllText($@"{saveDialog.FileName}.mfunction", mFunction.ToString()); //TODO, this needs to be tested
+                        File.WriteAllText($@"{saveDialog.FileName}", mFunction.ToString()); //TODO, this needs to be tested
                     
 
                     if (saveDialog.FilterIndex == 2)
-                        File.WriteAllText($@"{saveDialog.FileName}.txt", mFunction.ToString());
+                        File.WriteAllText($@"{saveDialog.FileName}", mFunction.ToString());
                     
                 }
 
