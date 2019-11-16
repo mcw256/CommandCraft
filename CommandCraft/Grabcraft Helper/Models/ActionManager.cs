@@ -176,6 +176,10 @@ namespace Grabcraft_Helper.Model
             }
         }
 
+        public static string BuildingName
+        {
+            get { return data.ExtractBuildingNameOutput; }
+        }
 
         public static void ResetData()
         {

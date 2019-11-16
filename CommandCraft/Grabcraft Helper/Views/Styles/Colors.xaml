@@ -4,12 +4,19 @@
     xmlns:local="clr-namespace:Grabcraft_Helper.UI_Stuff.Styles">
 
 
+
     <SolidColorBrush x:Key="MyLighterGrayBackground" Color="#606060" />
     <SolidColorBrush x:Key="MyGrayBackground" Color="#303030" />
     <SolidColorBrush x:Key="MyDarkerGrayBackground" Color="#222222" />
+
     <SolidColorBrush x:Key="MyGreenBackground" Color="#398E3D" />
+
     <SolidColorBrush x:Key="MyDimmedWhiteForeground" Color="#D3D3D3" />
     <SolidColorBrush x:Key="MyFullWhiteForeground" Color="#ffffff" />
+
+
+    <SolidColorBrush x:Key="ControlsGreen" Color="#8CDD28" />
+    <SolidColorBrush x:Key="ControlsRed" Color="#EA6972" />
 
 
 </ResourceDictionary>

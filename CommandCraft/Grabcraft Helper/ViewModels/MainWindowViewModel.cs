@@ -25,64 +25,21 @@ namespace Grabcraft_Helper.ViewModels
                 {"HomeStep3", new HomeStep3(this) },
                 {"Info", new Info() },
             };
-
             CurrentPage = Pages["HomeStep1"];
-            IsHomeBtnActive = true;
 
-            HomeBtnClicked = new RelayCommand<object>(HomeButton);
-            InfoBtnClicked = new RelayCommand<object>(InfoButton);
+            HomeButtonClicked = new RelayCommand<object>(HomeButtonClickedHandler);
+            InfoButtonClicked = new RelayCommand<object>(InfoButtonClickedHandler);  
+            IsHomeButtonActive = true;
         }
         #endregion
 
         #region Properties
-        private bool _isHomeBtnActive;
-        public bool IsHomeBtnActive // when its active, xamls enable prop is meant to be set on false, thats why this code gets little bit confusing
-        {
-            get
-            {
-                return _isHomeBtnActive;
-            }
-            set
-            {
-                if (value == true) //set all the others
-                {
-                    IsInfoBtnActive = false;
+        //Commands
+        public RelayCommand<object> HomeButtonClicked { get; set; }
+        public RelayCommand<object> InfoButtonClicked { get; set; }
 
-                }
-
-                if (_isHomeBtnActive == !value)
-                    return;
-
-                _isHomeBtnActive = !value; // this one exclamation mark i
-                if (value == true)
-                    IsInfoBtnActive = false;
-
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _isInfoBtnActive;
-        public bool IsInfoBtnActive
-        {
-            get
-            {
-                return _isInfoBtnActive;
-            }
-            set
-            {
-                if (value == true)//set all the others on false
-                {
-                    IsHomeBtnActive = false;
-
-                }
-                if (_isInfoBtnActive == !value)
-                    return;
-
-                _isInfoBtnActive = !value;
-                
-                OnPropertyChanged();
-            }
-        }
+        //Actual properties
+        public Dictionary<string, UserControl> Pages { get; }
 
         private UserControl _currentPage;
         public UserControl CurrentPage
@@ -101,30 +58,69 @@ namespace Grabcraft_Helper.ViewModels
             }
         }
 
-        public Dictionary<string, UserControl> Pages { get; }
+        private bool _isHomeButtonActive;
+        public bool IsHomeButtonActive // when its active, xamls enable prop is meant to be set on false, thats why this code gets little bit confusing
+        {
+            get
+            {
+                return _isHomeButtonActive;
+            }
+            set
+            {
+                if (value == true) //set all the others
+                {
+                    IsInfoButtonActive = false;
 
-        public RelayCommand<object> HomeBtnClicked { get; set; }
+                }
 
-        public RelayCommand<object> InfoBtnClicked { get; set; }
+                if (_isHomeButtonActive == !value)
+                    return;
 
+                _isHomeButtonActive = !value; // this one exclamation mark i
+                if (value == true)
+                    IsInfoButtonActive = false;
+
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isInfoButtonActive;
+        public bool IsInfoButtonActive
+        {
+            get
+            {
+                return _isInfoButtonActive;
+            }
+            set
+            {
+                if (value == true)//set all the others on false
+                {
+                    IsHomeButtonActive = false;
+
+                }
+                if (_isInfoButtonActive == !value)
+                    return;
+
+                _isInfoButtonActive = !value;
+                
+                OnPropertyChanged();
+            }
+        } 
         #endregion
 
-        #region Commands
-        private void HomeButton(object obj)
+        #region Command Handlers
+        private void HomeButtonClickedHandler(object obj)
         {
             CurrentPage = Pages["HomeStep1"];
-            IsHomeBtnActive = true;
+            IsHomeButtonActive = true;
         }
 
-        private void InfoButton(object obj)
+        private void InfoButtonClickedHandler(object obj)
         {
             CurrentPage = Pages["Info"];
-            IsInfoBtnActive = true;
+            IsInfoButtonActive = true;
         }
 
         #endregion
-
-
-
     }
 }

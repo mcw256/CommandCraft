@@ -1,12 +1,16 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Grabcraft_Helper.UI_Stuff.Styles">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <FontFamily x:Key="Font SpaceMono Regular">pack://appliction;,,,/Resources/Fonts/spacemono/#Space Mono Regular</FontFamily>
+    <FontFamily x:Key="Font SpaceMono">pack://appliction;,,,/Resources/Fonts/spacemono/#Space Mono Regular</FontFamily>
     <FontFamily x:Key="Font SpaceMono Italic">pack://appliction;,,,/Resources/Fonts/spacemono/#Space Mono Italic</FontFamily>
     <FontFamily x:Key="Font SpaceMono Bold">pack://appliction;,,,/Resources/Fonts/spacemono/#Space Mono Bold</FontFamily>
     <FontFamily x:Key="Font SpaceMono BoldItalic">pack://appliction;,,,/Resources/Fonts/spacemono/#Space Mono BoldItalic</FontFamily>
+
     <FontFamily x:Key="Font Montserrat">pack://appliction;,,,/Resources/Fonts/Montserrat/#Montserrat Regular</FontFamily>
+
+    <FontFamily x:Key="Londrina Solid">pack://appliction;,,,/Resources/Fonts/Londrina Solid/#Londrina Solid Regular</FontFamily>
+    <FontFamily x:Key="Londrina Solid Thin">pack://appliction;,,,/Resources/Fonts/Londrina Solid/#Londrina Solid Thin</FontFamily>
+    <FontFamily x:Key="Londrina Solid Light">pack://appliction;,,,/Resources/Fonts/Londrina Solid/#Londrina Solid Light</FontFamily>
+    <FontFamily x:Key="Londrina Solid Black">pack://appliction;,,,/Resources/Fonts/Londrina Solid/#Londrina Solid Black</FontFamily>
 
 
 </ResourceDictionary>

@@ -209,6 +209,10 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Black.ttf" />
+    <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Light.ttf" />
+    <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Thin.ttf" />
     <Resource Include="Resources\Fonts\Montserrat\Montserrat-Regular.ttf" />
     <Resource Include="Resources\Fonts\spacemono\SpaceMono-Bold.ttf" />
     <Resource Include="Resources\Fonts\spacemono\SpaceMono-BoldItalic.ttf" />

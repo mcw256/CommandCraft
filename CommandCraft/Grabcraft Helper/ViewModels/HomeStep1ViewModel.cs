@@ -14,23 +14,23 @@ namespace Grabcraft_Helper.ViewModels
     class HomeStep1ViewModel : ViewModelBase
     {
         #region Constructor
-        public HomeStep1ViewModel(MainWindowViewModel mainWindowViewModel)
+        public HomeStep1ViewModel(MainWindowViewModel _mainWindowViewModel)
         {
-            _mainWindowViewModel = mainWindowViewModel;
-            GoBtnClicked = new RelayCommand<object>(GoButtonClicked);
-
+            this.mainWindowViewModel = _mainWindowViewModel;
+            GoButtonClicked = new RelayCommand<object>(GoButtonClickedHandler);
         }
+        #endregion
 
-
+        #region Fields
+        private MainWindowViewModel mainWindowViewModel;
         #endregion
 
         #region Properties
-        private MainWindowViewModel _mainWindowViewModel;
-        public RelayCommand<object> GoBtnClicked { get; set; }
-
-
+        // Commands
+        public RelayCommand<object> GoButtonClicked { get; set; }
+        
+        //Actual properties
         private string _buildingURL;
-
         public string BuildingURL
         {
             get
@@ -48,11 +48,9 @@ namespace Grabcraft_Helper.ViewModels
         }
         #endregion
 
-        #region Commands
-        private void GoButtonClicked(object obj)
+        #region Command Handlers
+        private void GoButtonClickedHandler(object obj)
         {
-            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep2"];
-
             // TODO this should be in loaded handler, which i dont know how to call right now
             var response = ActionManager.LoadDictionaries();
             if (response.IsError)
@@ -61,11 +59,12 @@ namespace Grabcraft_Helper.ViewModels
 
             response = ActionManager.DownloadAndProcessBuilding(BuildingURL);
             if (response.IsError)
+            {
                 MessageBox.Show(response.ErrorMsg);
+                return;
+            }
+            mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep2"];
         }
-
-
         #endregion
-
     }
 }

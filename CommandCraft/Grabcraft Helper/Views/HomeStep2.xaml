@@ -10,7 +10,7 @@
     d:DesignHeight="450"
     d:DesignWidth="600"
     Background="{StaticResource MyGrayBackground}"
-    FontFamily="{StaticResource Font SpaceMono Regular}"
+    FontFamily="{StaticResource Font SpaceMono}"
     Foreground="{StaticResource MyDimmedWhiteForeground}"
     mc:Ignorable="d">
     <Border Padding="5" BorderThickness="0">
@@ -38,7 +38,7 @@
                     BorderThickness="1"
                     IsReadOnly="True"
                     Style="{StaticResource MismatchesTextBox}"
-                    Text="{Binding Mismatches2, Mode=OneWay, Converter={StaticResource CollectionToStringConverter}}"
+                    Text="{Binding MismatchesList, Mode=OneWay, Converter={StaticResource CollectionToStringConverter}}"
                     VerticalScrollBarVisibility="Auto" />
 
                 <TextBlock
@@ -69,18 +69,18 @@
                 </StackPanel>
             </StackPanel>
 
-            <Grid Margin="0 20 0 0">
+            <Grid Margin="0,20,0,0">
                 <Button
                     MinWidth="75"
                     HorizontalAlignment="Left"
-                    Command="{Binding SaveToMinecraftBtnClicked}"
+                    Command="{Binding SaveToMinecraftButtonClicked}"
                     Content="Save to minecraft" />
 
                 <Button
                     MinWidth="75"
                     Margin="0,0,0,0"
                     HorizontalAlignment="Right"
-                    Command="{Binding SaveBtnClicked}"
+                    Command="{Binding SaveButtonClicked}"
                     Content="Save" />
 
             </Grid>

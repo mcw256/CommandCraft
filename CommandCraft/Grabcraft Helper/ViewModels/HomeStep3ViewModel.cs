@@ -1,4 +1,5 @@
 ﻿using Grabcraft_Helper;
+using Grabcraft_Helper.Model;
 using Grabcraft_Helper.ViewModels.Misc;
 using System;
 using System.Collections.Generic;
@@ -11,17 +12,24 @@ namespace Grabcraft_Helper.ViewModels
     class HomeStep3ViewModel : ViewModelBase
     {
         #region Constructor
-        public HomeStep3ViewModel(MainWindowViewModel mainWindowViewModel)
+        public HomeStep3ViewModel(MainWindowViewModel _mainWindowViewModel)
         {
-            _mainWindowViewModel = mainWindowViewModel;
-            OkBtnClicked = new RelayCommand<object>(OkButtonClicked);
+            this.mainWindowViewModel = _mainWindowViewModel;
+            OkButtonClicked = new RelayCommand<object>(OkButtonClickedHandler);
+
+            BuildingName = ActionManager.BuildingName;
         }
         #endregion
 
-        #region Properties
-        private MainWindowViewModel _mainWindowViewModel;
-        public RelayCommand<object> OkBtnClicked { get; set; }
+        #region Fields
+        private MainWindowViewModel mainWindowViewModel;
+        #endregion
 
+        #region Properties
+        //Commands
+        public RelayCommand<object> OkButtonClicked { get; set; }
+
+        //Actual properties
         private string _buildingName;
         public string BuildingName
         {
@@ -40,10 +48,10 @@ namespace Grabcraft_Helper.ViewModels
         }
         #endregion
 
-        #region Commands
-        public void OkButtonClicked(object obj)
+        #region Command Handlers
+        public void OkButtonClickedHandler(object obj)
         {
-            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep1"];
+            mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep1"];
         }
         #endregion
     }

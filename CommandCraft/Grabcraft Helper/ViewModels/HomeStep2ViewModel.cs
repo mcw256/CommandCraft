@@ -16,33 +16,36 @@ namespace Grabcraft_Helper.ViewModels
     class HomeStep2ViewModel : ViewModelBase
     {
         #region Constructor
-        public HomeStep2ViewModel(MainWindowViewModel mainWindowViewModel)
+        public HomeStep2ViewModel(MainWindowViewModel _mainWindowViewModel)
         {
-            _mainWindowViewModel = mainWindowViewModel;
-            SaveBtnClicked = new RelayCommand<object>(SaveButtonClicked);
-            SaveToMinecraftBtnClicked = new RelayCommand<object>(SaveToMinecraftButtonClicked);
-
+            this.mainWindowViewModel = _mainWindowViewModel;
+            SaveButtonClicked = new RelayCommand<object>(SaveButtonClickedHandler);
+            SaveToMinecraftButtonClicked = new RelayCommand<object>(SaveToMinecraftButtonClickedHandler);
             MismatchesList = new MyObservableCollection<string>(nameof(MismatchesList), OnPropertyChanged);
-            HowToHandleMismatch = HowToHandleMismatch.Ignore;
 
+            HowToHandleMismatch = HowToHandleMismatch.Ignore;
             //TODO this also should be in loaded event handler otherwise mismatches detection fails, because this starts at the fkin begning
             AreThereMismatches = ActionManager.AreThereMismatches;
-            if(AreThereMismatches)
+            if (AreThereMismatches)
             {
                 foreach (var item in ActionManager.MismatchesList)
                     MismatchesList.Add(item);
             }
-
-            
-
+            //haha, jokes on me, it needs to be in loaded handler
+            BuildingName = ActionManager.BuildingName;
         }
         #endregion
 
+        #region Fields
+        private MainWindowViewModel mainWindowViewModel;
+        #endregion
+
         #region Properties
-        private MainWindowViewModel _mainWindowViewModel;
-        public RelayCommand<object> SaveBtnClicked { get; set; }
-        public RelayCommand<object> SaveToMinecraftBtnClicked { get; set; }
+        // Commands
+        public RelayCommand<object> SaveButtonClicked { get; set; }
+        public RelayCommand<object> SaveToMinecraftButtonClicked { get; set; }
         
+        // Actual properties
         private string _buildingName;
         public string BuildingName
         {
@@ -90,7 +93,6 @@ namespace Grabcraft_Helper.ViewModels
         }
 
         private bool _areThereMismatches;
-
         public bool AreThereMismatches
         {
             get
@@ -105,29 +107,26 @@ namespace Grabcraft_Helper.ViewModels
                 OnPropertyChanged();
             }
         }
-
-
         #endregion Properties
 
-        #region Commands
-        private void SaveToMinecraftButtonClicked(object obj)
+        #region Command Handlers
+        private void SaveToMinecraftButtonClickedHandler(object obj)
         {
             MessageBox.Show($"{this.GetType().Name} Right now I do nothin");
-            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep3"];
-
-
-
+            mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
+            //TODO, write internals
         }
 
-        private void SaveButtonClicked(object obj)
+        private void SaveButtonClickedHandler(object obj)
         {
-            ActionManager.AssembleMFunctionAndSave(HowToHandleMismatch);
-            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep3"];
-
-
+            var response = ActionManager.AssembleMFunctionAndSave(HowToHandleMismatch);
+            if(response.IsError)
+            {
+                //show some notification
+                return;
+            }
+            mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
         }
-
-        #endregion Commands
-
+        #endregion
     }
 }
