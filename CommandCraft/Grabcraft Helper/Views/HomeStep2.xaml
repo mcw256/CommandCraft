@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dataTypes="clr-namespace:Grabcraft_Helper.DataTypes"
     xmlns:local="clr-namespace:Grabcraft_Helper.Views"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:valueConverters="clr-namespace:Grabcraft_Helper.Views.ValueConverters"
     d:DesignHeight="450"
@@ -22,75 +23,128 @@
 
     <Border Padding="5" BorderThickness="0">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock FontSize="25">Minecraft function creator</TextBlock>
-            <TextBlock FontSize="22">Step 2/3</TextBlock>
-            <TextBlock Margin="0,10,0,0" FontSize="15">Save function</TextBlock>
-            <StackPanel
-                Margin="0,20,0,0"
-                HorizontalAlignment="Center"
-                Orientation="Horizontal">
-                <TextBlock FontSize="22" Text="Loaded " />
-                <TextBlock FontSize="22" Text="{Binding BuildingName, Mode=OneWay}" />
-            </StackPanel>
 
-            <StackPanel Visibility="{Binding AreThereMismatches, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                <TextBlock
-                    Margin="10"
-                    FontSize="15"
-                    Text="Couldn't match following blocks:" />
-                <TextBox
-                    Height="100"
-                    VerticalContentAlignment="Top"
-                    AcceptsReturn="True"
-                    BorderThickness="1"
-                    IsReadOnly="True"
-                    Style="{StaticResource MismatchesTextBox}"
-                    Text="{Binding MismatchesList, Mode=OneWay, Converter={StaticResource CollectionToStringConverter}}"
-                    VerticalScrollBarVisibility="Auto" />
+            <UserControl Style="{StaticResource ErrorMsg}" Tag="Error" />
 
-                <TextBlock
-                    Margin="0,30,0,0"
-                    FontFamily="{StaticResource Font SpaceMono Italic}"
-                    FontSize="15"
-                    Text="How to handle them?" />
-                <StackPanel Orientation="Horizontal">
-                    <WrapPanel MaxWidth="350">
-                        <RadioButton
-                            Margin="10"
-                            Content="Ignore"
-                            GroupName="Group1"
-                            IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Ignore}}" />
-                        <RadioButton
-                            Margin="10"
-                            Content="Replace with red wool"
-                            GroupName="Group1"
-                            IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Red_wool}}" />
+            <Border Style="{StaticResource MainBorderWrapper}" MinWidth="509">
 
-                        <RadioButton
-                            Margin="10"
-                            Content="Replace with text sign"
-                            GroupName="Group1"
-                            IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Sign_with_text}}" />
+                <StackPanel>
+                    <ProgressBar
+                        Height="10"
+                        Margin="0,0,0,5"
+                        Value="66" />
 
-                    </WrapPanel>
+                    <TextBlock Margin="0,10,0,0" FontSize="15" />
+                    <StackPanel
+                        Margin="0,20,0,0"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Width="400">
+                        <TextBlock FontSize="18" Text="Loaded " />
+                        <TextBlock
+                            MaxWidth="60"
+                            FontSize="18"
+                            Text="{Binding BuildingName, Mode=OneWay}" />
+                    </StackPanel>
+
+
+                    <StackPanel Visibility="{Binding AreThereMismatches, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <Border Style="{StaticResource MainBorderWrapper}">
+                            <Border.Background>
+                                <SolidColorBrush Color="OrangeRed" Opacity="0.2" />
+                            </Border.Background>
+                            <Border.BorderBrush>
+                                <SolidColorBrush Color="OrangeRed" Opacity="0.5" />
+                            </Border.BorderBrush>
+                            <StackPanel>
+                                <StackPanel
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Orientation="Horizontal">
+                                    <materialDesign:PackIcon
+                                        Width="26"
+                                        Height="26"
+                                        Foreground="OrangeRed"
+                                        Kind="ErrorOutline" />
+                                    <TextBlock
+                                        Margin="4,0,0,0"
+                                        VerticalAlignment="Center"
+                                        FontFamily="Arial Bold"
+                                        FontSize="14"
+                                        Foreground="OrangeRed"
+                                        Text="Couldn't match following blocks" />
+                                </StackPanel>
+                               
+                                <TextBox
+                                    Height="100"
+                                    VerticalContentAlignment="Top"
+                                    AcceptsReturn="True"
+                                    Margin="0 9 0 0"
+                                    BorderThickness="1"
+                                    IsReadOnly="True"
+                                    Style="{StaticResource MismatchesTextBox}"
+                                    Text="{Binding MismatchesList, Mode=OneWay, Converter={StaticResource CollectionToStringConverter}}"
+                                    VerticalScrollBarVisibility="Auto" />
+
+                                <TextBlock
+                                    Margin="0,10,0,0"
+                                    FontFamily="Arial Bold"
+                                    FontSize="14"
+                                    Foreground="OrangeRed"
+                                    Text="How to handle them?" />
+                                <StackPanel Orientation="Horizontal">
+                                    <WrapPanel MaxWidth="350">
+                                        <RadioButton
+                                            Margin="10"
+                                            Content="Ignore"
+                                            FontFamily="Arial"
+                                    FontSize="14"
+                                    Foreground="OrangeRed"
+                                            GroupName="Group1"
+                                            IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Ignore}}" />
+                                        <RadioButton
+                                            Margin="10"
+                                            Content="Replace with red wool"
+                                            FontFamily="Arial"
+                                    FontSize="14"
+                                    Foreground="OrangeRed"
+                                            GroupName="Group1"
+                                            IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Red_wool}}" />
+
+                                        <RadioButton
+                                            Margin="10"
+                                            Content="Replace with text sign"
+                                            FontFamily="Arial"
+                                    FontSize="14"
+                                    Foreground="OrangeRed"
+                                            GroupName="Group1"
+                                            IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Sign_with_text}}" />
+
+                                    </WrapPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                    </StackPanel>
+
+                    <Grid Margin="0,20,0,0">
+                        <Button
+                            MinWidth="75"
+                            HorizontalAlignment="Left"
+                            Command="{Binding SaveToMinecraftButtonClicked}"
+                            Content="Save to minecraft" />
+
+                        <Button
+                            MinWidth="75"
+                            Margin="0,0,0,0"
+                            HorizontalAlignment="Right"
+                            Command="{Binding SaveButtonClicked}"
+                            Content="Save" />
+
+                    </Grid>
+
                 </StackPanel>
-            </StackPanel>
-
-            <Grid Margin="0,20,0,0">
-                <Button
-                    MinWidth="75"
-                    HorizontalAlignment="Left"
-                    Command="{Binding SaveToMinecraftButtonClicked}"
-                    Content="Save to minecraft" />
-
-                <Button
-                    MinWidth="75"
-                    Margin="0,0,0,0"
-                    HorizontalAlignment="Right"
-                    Command="{Binding SaveButtonClicked}"
-                    Content="Save" />
-
-            </Grid>
+            </Border>
 
         </StackPanel>
 

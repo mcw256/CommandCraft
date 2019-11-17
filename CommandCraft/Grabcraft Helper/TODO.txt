@@ -13,3 +13,5 @@
 11. Replace abstract with intrefaces
 
 12. Dodać data triggera przy elementach menu
+
+13. Implement async in populating mismatching collection

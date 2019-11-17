@@ -4,8 +4,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
 
-    <Style
-        x:Key="MismatchesTextBox"
+    <Style x:Key="MismatchesTextBox"
         BasedOn="{StaticResource MaterialDesignTextBox}"
         TargetType="{x:Type TextBox}">
         <Setter Property="BorderThickness" Value="1" />
@@ -13,27 +12,16 @@
 
     </Style>
 
-    <Style
-        x:Key="MyMaterialDesignTextBox"
-        BasedOn="{StaticResource MaterialDesignTextBox}"
-        TargetType="{x:Type TextBox}">
-        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesignTextBoxBorder}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="wpf:TextFieldAssist.TextBoxViewMargin" Value="1" />
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="VerticalContentAlignment" Value="Top" />
-        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="AllowDrop" Value="true" />
-        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
-        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False" />
-        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource MaterialDesignValidationErrorTemplate}" />
-        <Setter Property="wpf:TextFieldAssist.UnderlineBrush" Value="{DynamicResource PrimaryHueMidBrush}" />
-        <Setter Property="wpf:HintAssist.Foreground" Value="{DynamicResource PrimaryHueMidBrush}" />
+    <Style x:Key="MainBorderWrapper" TargetType="{x:Type Border}" >
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Background" Value="{StaticResource MyDarkerGrayBackground}"/>
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <SolidColorBrush Color="Black" Opacity="0.5" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CornerRadius" Value="5" />
     </Style>
 
     <Style x:Key="ErrorMsg" TargetType="{x:Type UserControl}">

@@ -12,7 +12,6 @@
     d:DesignHeight="450"
     d:DesignWidth="600"
     Background="{StaticResource MyGrayBackground}"
-    FontFamily="{StaticResource Font SpaceMono}"
     Foreground="{StaticResource MyDimmedWhiteForeground}"
     mc:Ignorable="d">
     <behaviors:Interaction.Triggers>
@@ -24,29 +23,37 @@
 
     <Border Padding="5" BorderThickness="0">
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock FontSize="25">Minecraft function creator</TextBlock>
-            <TextBlock FontSize="22">Step 1/3</TextBlock>
 
+            <UserControl Style="{StaticResource ErrorMsg}" Tag="Error" />
 
-            <UserControl Tag="tekst" Style="{StaticResource ErrorMsg}" />
-            
+            <Border Style="{StaticResource MainBorderWrapper}" >
 
-            <TextBlock Margin="0,50,0,0" FontSize="15">Paste Building URL</TextBlock>
-            <StackPanel Orientation="Horizontal">
-                <TextBox Width="400" Text="{Binding BuildingURL, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" />
-                <Button
-                    MinWidth="75"
-                    Margin="10,0,0,0"
-                    Command="{Binding GoButtonClicked}"
-                    Content="Go" />
-            </StackPanel>
-            <TextBlock Margin="0,10,0,0" FontFamily="{StaticResource Font SpaceMono Italic}">example: https://www.grabcraft.com/minecraft/pig-statue/farm-animals-1</TextBlock>
+                <StackPanel Margin="0,10,0,0" >
+                    <ProgressBar
+                        Height="10"
+                        Margin="0 0 0 5"
+                        Value="33" />
 
+                    <TextBlock
+                        Margin="0,15,0,5"
+                        HorizontalAlignment="Center"
+                        FontSize="15">
+                        Paste building URL
+                    </TextBlock>
 
-            <Border>
-                <Label>
-                    t
-                </Label>
+                    <WrapPanel Margin="0,0,0,0" Orientation="Horizontal">
+                        <TextBox MinWidth="400" Text="{Binding BuildingURL, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" />
+                        <Button
+                            MinWidth="75"
+                            Margin="10,10,0,0"
+                            FontSize="15"
+                            
+                            Command="{Binding GoButtonClicked}"
+                            Content="Go" />
+                    </WrapPanel>
+                    <TextBlock Margin="0,10,0,0" FontFamily="{StaticResource Font SpaceMono Italic}">example: https://www.grabcraft.com/minecraft/pig-statue/farm-animals-1</TextBlock>
+
+                </StackPanel>
             </Border>
 
         </StackPanel>
