@@ -25,11 +25,9 @@ namespace Grabcraft_Helper.ViewModels
                 {"HomeStep3", new HomeStep3(this) },
                 {"Info", new Info() },
             };
-            CurrentPage = Pages["HomeStep1"];
-
             HomeButtonClicked = new RelayCommand<object>(HomeButtonClickedHandler);
-            InfoButtonClicked = new RelayCommand<object>(InfoButtonClickedHandler);  
-            IsHomeButtonActive = true;
+            InfoButtonClicked = new RelayCommand<object>(InfoButtonClickedHandler);
+            Loaded = new RelayCommand<object>(LoadedHandler);
         }
         #endregion
 
@@ -37,6 +35,7 @@ namespace Grabcraft_Helper.ViewModels
         //Commands
         public RelayCommand<object> HomeButtonClicked { get; set; }
         public RelayCommand<object> InfoButtonClicked { get; set; }
+        public RelayCommand<object> Loaded { get; set; }
 
         //Actual properties
         public Dictionary<string, UserControl> Pages { get; }
@@ -119,6 +118,12 @@ namespace Grabcraft_Helper.ViewModels
         {
             CurrentPage = Pages["Info"];
             IsInfoButtonActive = true;
+        }
+
+        private void LoadedHandler(object obj)
+        {
+            CurrentPage = Pages["HomeStep1"];
+            IsHomeButtonActive = true;
         }
 
         #endregion

@@ -1,14 +1,15 @@
 ﻿1. Stworzyć nową kontrolkę z powiadomieniami/errorami, ew. wystylizować textboxa.
 
+2.  Wystylizowac gui w tym by textbox sie nie rozjedzal poza nie itd.
+
 2. Schować mismatch textboxa jesli nie jest potrzebny.
 
-3. Dodać obsługę wyjątków usera
+7. Zmienić nazwy private fieldow na _field w viewmodelach
 
-4. Zrobić tak, że jeżeli jest error, to nie przechodzi do nastepnego okna
+8. Add icon
 
-5. Dodać wątki, by UI się nie zwieszało, wręcz przeciwnie, niech jest animacja na guziku, że program myśli. Trza poczytać o tym na cezarywalenciuk blog
+10. Make comments in actionmanager
 
-6. Are there mismatches musi byc ustawiane w event handlerze dla load window
+11. Replace abstract with intrefaces
 
-
-
+12. Dodać data triggera przy elementach menu

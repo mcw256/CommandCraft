@@ -21,18 +21,8 @@ namespace Grabcraft_Helper.ViewModels
             this.mainWindowViewModel = _mainWindowViewModel;
             SaveButtonClicked = new RelayCommand<object>(SaveButtonClickedHandler);
             SaveToMinecraftButtonClicked = new RelayCommand<object>(SaveToMinecraftButtonClickedHandler);
-            MismatchesList = new MyObservableCollection<string>(nameof(MismatchesList), OnPropertyChanged);
-
-            HowToHandleMismatch = HowToHandleMismatch.Ignore;
-            //TODO this also should be in loaded event handler otherwise mismatches detection fails, because this starts at the fkin begning
-            AreThereMismatches = ActionManager.AreThereMismatches;
-            if (AreThereMismatches)
-            {
-                foreach (var item in ActionManager.MismatchesList)
-                    MismatchesList.Add(item);
-            }
-            //haha, jokes on me, it needs to be in loaded handler
-            BuildingName = ActionManager.BuildingName;
+            Loaded = new RelayCommand<object>(LoadedHandler);
+            MismatchesList = new MyObservableCollection<string>(nameof(MismatchesList), OnPropertyChanged);   
         }
         #endregion
 
@@ -44,6 +34,7 @@ namespace Grabcraft_Helper.ViewModels
         // Commands
         public RelayCommand<object> SaveButtonClicked { get; set; }
         public RelayCommand<object> SaveToMinecraftButtonClicked { get; set; }
+        public RelayCommand<object> Loaded { get; set; }
         
         // Actual properties
         private string _buildingName;
@@ -115,17 +106,31 @@ namespace Grabcraft_Helper.ViewModels
             MessageBox.Show($"{this.GetType().Name} Right now I do nothin");
             mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
             //TODO, write internals
-        }
+        } // TODO make it async
 
-        private void SaveButtonClickedHandler(object obj)
+        private async void SaveButtonClickedHandler(object obj)
         {
-            var response = ActionManager.AssembleMFunctionAndSave(HowToHandleMismatch);
+            var response =  await ActionManager.AssembleMFunctionAndSave(HowToHandleMismatch);
             if(response.IsError)
             {
-                //show some notification
+                //TODO guierror
                 return;
             }
             mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
+        }
+
+        private void LoadedHandler(object obj)
+        {
+            HowToHandleMismatch = HowToHandleMismatch.Ignore;
+            
+            AreThereMismatches = ActionManager.AreThereMismatches;
+            if (AreThereMismatches)
+            {
+                foreach (var item in ActionManager.MismatchesList)
+                    MismatchesList.Add(item);
+            }
+            
+            BuildingName = ActionManager.BuildingName;
         }
         #endregion
     }

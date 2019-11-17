@@ -16,8 +16,9 @@ namespace Grabcraft_Helper.ViewModels
         {
             this.mainWindowViewModel = _mainWindowViewModel;
             OkButtonClicked = new RelayCommand<object>(OkButtonClickedHandler);
+            Loaded = new RelayCommand<object>(LoadedHandler);
 
-            BuildingName = ActionManager.BuildingName;
+            
         }
         #endregion
 
@@ -28,6 +29,7 @@ namespace Grabcraft_Helper.ViewModels
         #region Properties
         //Commands
         public RelayCommand<object> OkButtonClicked { get; set; }
+        public RelayCommand<object> Loaded { get; set; }
 
         //Actual properties
         private string _buildingName;
@@ -49,10 +51,16 @@ namespace Grabcraft_Helper.ViewModels
         #endregion
 
         #region Command Handlers
-        public void OkButtonClickedHandler(object obj)
+        private void OkButtonClickedHandler(object obj)
         {
             mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep1"];
         }
+
+        private void LoadedHandler(object obj)
+        {
+            BuildingName = ActionManager.BuildingName;
+        }
+
         #endregion
     }
 }

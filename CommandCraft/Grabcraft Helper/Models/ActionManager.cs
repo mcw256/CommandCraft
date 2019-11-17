@@ -21,32 +21,35 @@ namespace Grabcraft_Helper.Model
     static class ActionManager
     {
         static DataContainer data = new DataContainer();
-        
+
         /// <summary>
         /// Loads necessary dictionaries
         /// </summary>
         /// <returns></returns>
-        public static Response LoadDictionaries()
-        {    
-            Response response;
-            //initialize actions classes
-            var loadBlockNamesDictionary = new LoadBlockNamesDictionary();
-            var loadBlockAttributesDictionary = new LoadBlockAttributesDictionary();
+        public static async Task<Response> LoadDictionaries()
+        {
+            return await Task.Run(() =>
+           {
+               Response response;
+               //initialize actions classes
+               var loadBlockNamesDictionary = new LoadBlockNamesDictionary();
+               var loadBlockAttributesDictionary = new LoadBlockAttributesDictionary();
 
-            // - - - - - - - - - - - - -
+               // - - - - - - - - - - - - -
 
-            //load block names dictionary
-            response = loadBlockNamesDictionary.Load(); //get resposnse
-            if (response.IsError) return response;
-            data.LoadBlockNamesDictionaryOutput = loadBlockNamesDictionary.Output;
+               //load block names dictionary
+               response = loadBlockNamesDictionary.Load(); //get resposnse
+               if (response.IsError) return response;
+               data.LoadBlockNamesDictionaryOutput = loadBlockNamesDictionary.Output;
 
-            //load block attributes dictionary
-            response = loadBlockAttributesDictionary.Load();
-            if (response.IsError) return response;
-            data.LoadBlockAttributesDictionaryOutput = loadBlockAttributesDictionary.Output;
+               //load block attributes dictionary
+               response = loadBlockAttributesDictionary.Load();
+               if (response.IsError) return response;
+               data.LoadBlockAttributesDictionaryOutput = loadBlockAttributesDictionary.Output;
 
 
-            return new Response(false, "");
+               return new Response(false, "");
+           });
         }
 
         /// <summary>
@@ -54,107 +57,118 @@ namespace Grabcraft_Helper.Model
         /// </summary>
         /// <param name="buildingURL"></param>
         /// <returns></returns>
-        public static Response DownloadAndProcessBuilding(string buildingURL)
+        public static async Task<Response> DownloadAndProcessBuilding(string buildingURL)
         {
-            //check whether the dictionaries has been set
-            if (data.LoadBlockAttributesDictionaryOutput == null) return new Response(true, "Attributes dictionary not set");
-            if (data.LoadBlockNamesDictionaryOutput == null) return new Response(true, "Names dictionary not set");
+            return await Task.Run(() =>
+            {
+                //check whether the dictionaries has been set
+                if (data.LoadBlockAttributesDictionaryOutput == null) return new Response(true, "Attributes dictionary not set");
+                if (data.LoadBlockNamesDictionaryOutput == null) return new Response(true, "Names dictionary not set");
 
-            Response response;
+                Response response;
 
-            //initialize action classes
-            var downloadBuildingHtml = new DownloadBuildingHtml();
-            var extractBuildingName = new ExtractBuildingName();
-            var extractLayermapUrl = new ExtractLayermapURL();
-            var downloadLayermap = new DownloadLayermap();
-            var layermapDeserializer = new LayermapDeserializer();
-            var coordsNormalizer = new CoordsNormalizer();
-            var blockInfosTranslator = new BlockInfosTranslator(data.LoadBlockNamesDictionaryOutput, data.LoadBlockAttributesDictionaryOutput);
+                //initialize action classes
+                var downloadBuildingHtml = new DownloadBuildingHtml();
+                var extractBuildingName = new ExtractBuildingName();
+                var extractLayermapUrl = new ExtractLayermapURL();
+                var downloadLayermap = new DownloadLayermap();
+                var layermapDeserializer = new LayermapDeserializer();
+                var coordsNormalizer = new CoordsNormalizer();
+                var blockInfosTranslator = new BlockInfosTranslator(data.LoadBlockNamesDictionaryOutput, data.LoadBlockAttributesDictionaryOutput);
 
-            //download building html, using passed building url
-            response = downloadBuildingHtml.Download(buildingURL);
-            if (response.IsError) return response;
-            data.DownloadBuildingHtmlOutput = downloadBuildingHtml.Output;
+                //download building html, using passed building url
+                response = downloadBuildingHtml.Download(buildingURL);
+                if (response.IsError) return response;
+                data.DownloadBuildingHtmlOutput = downloadBuildingHtml.Output;
 
-            //extract building name from /\ html output
-            response = extractBuildingName.Extract(data.DownloadBuildingHtmlOutput);
-            if (response.IsError) return response;
-            data.ExtractBuildingNameOutput = extractBuildingName.Output;
+                //extract building name from /\ html output
+                response = extractBuildingName.Extract(data.DownloadBuildingHtmlOutput);
+                if (response.IsError) return response;
+                data.ExtractBuildingNameOutput = extractBuildingName.Output;
 
-            //extract layermapUrl from //\\ html output
-            response = extractLayermapUrl.Extract(data.DownloadBuildingHtmlOutput);
-            if (response.IsError) return response;
-            data.ExtractLayermapURLOutput = extractLayermapUrl.Output;
+                //extract layermapUrl from //\\ html output
+                response = extractLayermapUrl.Extract(data.DownloadBuildingHtmlOutput);
+                if (response.IsError) return response;
+                data.ExtractLayermapURLOutput = extractLayermapUrl.Output;
 
-            //download layermap from /\ layermapUrl 
-            response = downloadLayermap.Download(data.ExtractLayermapURLOutput);
-            if (response.IsError) return response;
-            data.DownloadLayermapOutput = downloadLayermap.Output;
+                //download layermap from /\ layermapUrl 
+                response = downloadLayermap.Download(data.ExtractLayermapURLOutput);
+                if (response.IsError) return response;
+                data.DownloadLayermapOutput = downloadLayermap.Output;
 
-            //deserialize /\ layermap
-            response = layermapDeserializer.Process(data.DownloadLayermapOutput);
-            if (response.IsError) return response;
-            data.LayermapDeserializerOutput = layermapDeserializer.Output;
+                //deserialize /\ layermap
+                response = layermapDeserializer.Process(data.DownloadLayermapOutput);
+                if (response.IsError) return response;
+                data.LayermapDeserializerOutput = layermapDeserializer.Output;
 
-            //translate coords from GBlocks(this /\ deserialzed layermap)
-            response = coordsNormalizer.Process(data.LayermapDeserializerOutput.GBlocks.Select(x => x.Coords).ToList<Coords>(), data.LayermapDeserializerOutput.Interval);
-            if (response.IsError) return response;
-            data.CoordsNormalizerOutput = coordsNormalizer.Output;
+                //translate coords from GBlocks(this /\ deserialzed layermap)
+                response = coordsNormalizer.Process(data.LayermapDeserializerOutput.GBlocks.Select(x => x.Coords).ToList<Coords>(), data.LayermapDeserializerOutput.Interval);
+                if (response.IsError) return response;
+                data.CoordsNormalizerOutput = coordsNormalizer.Output;
 
-            //translate GInfos from GBlocks( //\\ deserialzed layermap)
-            response = blockInfosTranslator.Process(data.LayermapDeserializerOutput.GBlocks.Select(x => x.Info).ToList());
-            if (response.IsError) return response;
-            data.BlockInfosTranslatorOutput = blockInfosTranslator.Output;
+                //translate GInfos from GBlocks( //\\ deserialzed layermap)
+                response = blockInfosTranslator.Process(data.LayermapDeserializerOutput.GBlocks.Select(x => x.Info).ToList());
+                if (response.IsError) return response;
+                data.BlockInfosTranslatorOutput = blockInfosTranslator.Output;
 
 
-            return new Response(false, "");
+                return new Response(false, "");
+
+            });
         }
 
-        public static Response AssembleMFunctionAndSave(HowToHandleMismatch howToHandleMismatch)
+
+        public static async Task<Response> AssembleMFunctionAndSave(HowToHandleMismatch howToHandleMismatch)
         {
-            Response response;
-            var mBlocksGluer = new MBlocksGluer();
-            var mFunctionComposer = new MFunctionComposer();
-            var saveMFunction = new SaveMFunction();
+            return await Task.Run(() =>
+            {
+                Response response;
+                var mBlocksGluer = new MBlocksGluer();
+                var mFunctionComposer = new MFunctionComposer();
+                var saveMFunction = new SaveMFunction();
 
-            response = mBlocksGluer.Process(data.CoordsNormalizerOutput, data.BlockInfosTranslatorOutput);
-            if(response.IsError) return response;
-            data.MBlocksGluerOutput = mBlocksGluer.Output;
+                response = mBlocksGluer.Process(data.CoordsNormalizerOutput, data.BlockInfosTranslatorOutput);
+                if (response.IsError) return response;
+                data.MBlocksGluerOutput = mBlocksGluer.Output;
 
-            response = mFunctionComposer.Process(data.MBlocksGluerOutput, howToHandleMismatch, data.ExtractBuildingNameOutput);
-            if (response.IsError) return response;
-            data.MFunctionComposerOutput = mFunctionComposer.Output;
+                response = mFunctionComposer.Process(data.MBlocksGluerOutput, howToHandleMismatch, data.ExtractBuildingNameOutput);
+                if (response.IsError) return response;
+                data.MFunctionComposerOutput = mFunctionComposer.Output;
 
-            response = saveMFunction.Save(data.MFunctionComposerOutput);
-            if (response.IsError) return response;
+                response = saveMFunction.Save(data.MFunctionComposerOutput);
+                if (response.IsError) return response;
 
-            return new Response(false, "");
+                return new Response(false, "");
+            });
         }
 
-        public static Response AssembleMFunctionAndSaveToMinecraft(HowToHandleMismatch howToHandleMismatch)
+        public static async Task<Response> AssembleMFunctionAndSaveToMinecraft(HowToHandleMismatch howToHandleMismatch)
         {
-            Response response;
-            var mBlocksGluer = new MBlocksGluer();
-            var mFunctionComposer = new MFunctionComposer();
-            var saveMFunctionToMinecraft = new SaveMFunctionToMinecraft();
+            return await Task.Run(() =>
+            {
+                Response response;
+                var mBlocksGluer = new MBlocksGluer();
+                var mFunctionComposer = new MFunctionComposer();
+                var saveMFunctionToMinecraft = new SaveMFunctionToMinecraft();
 
-            response = mBlocksGluer.Process(data.CoordsNormalizerOutput, data.BlockInfosTranslatorOutput);
-            if (response.IsError) return response;
-            data.MBlocksGluerOutput = mBlocksGluer.Output;
+                response = mBlocksGluer.Process(data.CoordsNormalizerOutput, data.BlockInfosTranslatorOutput);
+                if (response.IsError) return response;
+                data.MBlocksGluerOutput = mBlocksGluer.Output;
 
-            response = mFunctionComposer.Process(data.MBlocksGluerOutput, howToHandleMismatch, data.ExtractBuildingNameOutput);
-            if (response.IsError) return response;
-            data.MFunctionComposerOutput = mFunctionComposer.Output;
+                response = mFunctionComposer.Process(data.MBlocksGluerOutput, howToHandleMismatch, data.ExtractBuildingNameOutput);
+                if (response.IsError) return response;
+                data.MFunctionComposerOutput = mFunctionComposer.Output;
 
 
-            // TODO, user config needs to be implemented for this to work
-            //response = saveMFunctionToMinecraft.Save(data.MFunctionComposerOutput, "", "" );
-           // if (response.IsError) return response;
+                // TODO, user config needs to be implemented for this to work
+                //response = saveMFunctionToMinecraft.Save(data.MFunctionComposerOutput, "", "" );
+                // if (response.IsError) return response;
 
-            return new Response(false, "");
+                return new Response(false, "");
+            });
         }
 
-        
+
         public static bool AreThereMismatches
         {
             get
@@ -172,7 +186,7 @@ namespace Grabcraft_Helper.Model
         {
             get
             {
-                return data.BlockInfosTranslatorOutput.Where(x => x.IsMismatched == true).Select(x => x.Info).ToList();
+                return data.BlockInfosTranslatorOutput.Where(x => x.IsMismatched == true).Select(x => x.Info).Distinct().ToList();
             }
         }
 
@@ -189,7 +203,7 @@ namespace Grabcraft_Helper.Model
 
     class DataContainer
     {
-        
+
         public Dictionary<string, string> LoadBlockNamesDictionaryOutput { get; set; }
         public Dictionary<string, string> LoadBlockAttributesDictionaryOutput { get; set; }
         public HtmlDocument DownloadBuildingHtmlOutput { get; set; }

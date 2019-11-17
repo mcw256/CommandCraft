@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -18,6 +19,7 @@ namespace Grabcraft_Helper.ViewModels
         {
             this.mainWindowViewModel = _mainWindowViewModel;
             GoButtonClicked = new RelayCommand<object>(GoButtonClickedHandler);
+            Loaded = new RelayCommand<object>(LoadedHandler);
         }
         #endregion
 
@@ -28,6 +30,8 @@ namespace Grabcraft_Helper.ViewModels
         #region Properties
         // Commands
         public RelayCommand<object> GoButtonClicked { get; set; }
+        public RelayCommand<object> Loaded { get; set; }
+        
         
         //Actual properties
         private string _buildingURL;
@@ -49,21 +53,25 @@ namespace Grabcraft_Helper.ViewModels
         #endregion
 
         #region Command Handlers
-        private void GoButtonClickedHandler(object obj)
+        private async void GoButtonClickedHandler(object obj)
         {
-            // TODO this should be in loaded handler, which i dont know how to call right now
-            var response = ActionManager.LoadDictionaries();
-            if (response.IsError)
-                MessageBox.Show(response.ErrorMsg);
-            // >
-
-            response = ActionManager.DownloadAndProcessBuilding(BuildingURL);
+            var response = await ActionManager.DownloadAndProcessBuilding(BuildingURL);
             if (response.IsError)
             {
-                MessageBox.Show(response.ErrorMsg);
+                //TODO guierror
                 return;
             }
             mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep2"];
+        }
+
+        private async void LoadedHandler(object obj)
+        {
+            var response = await ActionManager.LoadDictionaries();
+            if (response.IsError)
+            {
+                // TODO guierror
+                return;
+            }
         }
         #endregion
     }
