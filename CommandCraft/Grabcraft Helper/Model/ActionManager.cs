@@ -34,6 +34,8 @@ namespace Grabcraft_Helper.Model
                //initialize actions classes
                var loadBlockNamesDictionary = new LoadBlockNamesDictionary();
                var loadBlockAttributesDictionary = new LoadBlockAttributesDictionary();
+               var loadUserDefinedBlockInfosDictionary = new LoadUserDefinedBlockInfosDictionary();
+               var loadUserConfig = new LoadUserConfig();
 
                // - - - - - - - - - - - - -
 
@@ -47,6 +49,15 @@ namespace Grabcraft_Helper.Model
                if (response.IsError) return response;
                data.LoadBlockAttributesDictionaryOutput = loadBlockAttributesDictionary.Output;
 
+               //load user block infos dictionary
+               response = loadUserDefinedBlockInfosDictionary.Load();
+               if (response.IsError) return response;
+               data.LoadUserDefinedBlockInfosDictionary = loadUserDefinedBlockInfosDictionary.Output;
+
+               //load user config
+               response = loadUserConfig.Load();
+               if (response.IsError) return response;
+               data.LoadUserConfigOutput = loadUserConfig.Output;
 
                return new Response(false, "");
            });
@@ -64,7 +75,7 @@ namespace Grabcraft_Helper.Model
                 //check whether the dictionaries has been set
                 if (data.LoadBlockAttributesDictionaryOutput == null) return new Response(true, "Attributes dictionary not set");
                 if (data.LoadBlockNamesDictionaryOutput == null) return new Response(true, "Names dictionary not set");
-
+                
                 Response response;
 
                 //initialize action classes
@@ -117,7 +128,6 @@ namespace Grabcraft_Helper.Model
             });
         }
 
-
         public static async Task<Response> AssembleMFunctionAndSave(HowToHandleMismatch howToHandleMismatch)
         {
             return await Task.Run(() =>
@@ -137,6 +147,9 @@ namespace Grabcraft_Helper.Model
 
                 response = saveMFunction.Save(data.MFunctionComposerOutput);
                 if (response.IsError) return response;
+
+                if (response.IsError == false && response.ErrorMsg == "user canceled")
+                    return response;
 
                 return new Response(false, "");
             });
@@ -168,6 +181,10 @@ namespace Grabcraft_Helper.Model
             });
         }
 
+        public static void SaveUserConfig(HowToHandleMismatch defaultAlternative, string defaultGameSave)
+        {
+            //TODO
+        }
 
         public static bool AreThereMismatches
         {
@@ -206,6 +223,8 @@ namespace Grabcraft_Helper.Model
 
         public Dictionary<string, string> LoadBlockNamesDictionaryOutput { get; set; }
         public Dictionary<string, string> LoadBlockAttributesDictionaryOutput { get; set; }
+        public Dictionary<string, string> LoadUserDefinedBlockInfosDictionary { get; set; }
+        public UserConfig LoadUserConfigOutput { get; set; }
         public HtmlDocument DownloadBuildingHtmlOutput { get; set; }
         public string ExtractBuildingNameOutput { get; set; }
         public string ExtractLayermapURLOutput { get; set; }

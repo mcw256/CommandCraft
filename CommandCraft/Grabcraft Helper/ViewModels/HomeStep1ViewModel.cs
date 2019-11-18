@@ -50,6 +50,41 @@ namespace Grabcraft_Helper.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private bool _isThereError;
+        public bool IsThereError
+        {
+            get
+            {
+                return _isThereError;
+            }
+            set
+            {
+                if (_isThereError == value)
+                    return;
+
+                _isThereError = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _errorMsg;
+        public string ErrorMsg
+        {
+            get
+            {
+                if (!IsThereError || _errorMsg == null) return "";
+                return _errorMsg;
+            }
+            set
+            {
+                if (_errorMsg == value)
+                    return;
+
+                _errorMsg = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion
 
         #region Command Handlers
@@ -58,7 +93,8 @@ namespace Grabcraft_Helper.ViewModels
             var response = await ActionManager.DownloadAndProcessBuilding(BuildingURL);
             if (response.IsError)
             {
-                //TODO guierror
+                IsThereError = true;
+                ErrorMsg = response.ErrorMsg;
                 return;
             }
             mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep2"];
@@ -69,7 +105,8 @@ namespace Grabcraft_Helper.ViewModels
             var response = await ActionManager.LoadDictionaries();
             if (response.IsError)
             {
-                // TODO guierror
+                IsThereError = true;
+                ErrorMsg = response.ErrorMsg;
                 return;
             }
         }

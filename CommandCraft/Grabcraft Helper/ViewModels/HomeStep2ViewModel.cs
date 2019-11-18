@@ -98,14 +98,69 @@ namespace Grabcraft_Helper.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        private bool _isThereError;
+        public bool IsThereError
+        {
+            get
+            {
+                return _isThereError;
+            }
+            set
+            {
+                if (_isThereError == value)
+                    return;
+
+                _isThereError = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _errorMsg;
+        public string ErrorMsg
+        {
+            get
+            {
+                if (!IsThereError || _errorMsg == null) return "";
+                return _errorMsg;
+            }
+            set
+            {
+                if (_errorMsg == value)
+                    return;
+
+                _errorMsg = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isDialogHostOpen;
+
+        public bool IsDialogHostOpen
+        {
+            get
+            { 
+                return _isDialogHostOpen;
+            }
+            set
+            {
+                if (_isDialogHostOpen == value)
+                    return;
+
+                _isDialogHostOpen = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion Properties
 
         #region Command Handlers
         private void SaveToMinecraftButtonClickedHandler(object obj)
         {
-            MessageBox.Show($"{this.GetType().Name} Right now I do nothin");
-            mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
+            //MessageBox.Show($"{this.GetType().Name} Right now I do nothin");
+            //mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
             //TODO, write internals
+            IsDialogHostOpen = true;
         } // TODO make it async
 
         private async void SaveButtonClickedHandler(object obj)
@@ -113,9 +168,11 @@ namespace Grabcraft_Helper.ViewModels
             var response =  await ActionManager.AssembleMFunctionAndSave(HowToHandleMismatch);
             if(response.IsError)
             {
-                //TODO guierror
+                IsThereError = true;
+                ErrorMsg = response.ErrorMsg;
                 return;
             }
+            if (response.ErrorMsg == "user canceled") return;
             mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
         }
 

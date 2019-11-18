@@ -9,7 +9,7 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf"
-    d:DesignHeight="450"
+    d:DesignHeight="800"
     d:DesignWidth="600"
     Background="{StaticResource MyGrayBackground}"
     Foreground="{StaticResource MyDimmedWhiteForeground}"
@@ -21,23 +21,40 @@
     </behaviors:Interaction.Triggers>
 
 
-    <Border Padding="5" BorderThickness="0">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
 
-            <UserControl Style="{StaticResource ErrorMsg}" Tag="Error" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
 
-            <Border Style="{StaticResource MainBorderWrapper}" >
 
-                <StackPanel Margin="0,10,0,0" >
+        <StackPanel Grid.Row="1" Grid.Column="1">
+
+            <UserControl
+                Style="{StaticResource ErrorMsg}"
+                Tag="{Binding ErrorMsg}"
+                Visibility="{Binding IsThereError, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+            <Border Style="{StaticResource MainBorderWrapper}">
+
+                <StackPanel Margin="0,10,0,0">
                     <ProgressBar
                         Height="10"
-                        Margin="0 0 0 5"
+                        Margin="0,0,0,5"
                         Value="33" />
 
                     <TextBlock
                         Margin="0,15,0,5"
                         HorizontalAlignment="Center"
-                        FontSize="15">
+                        FontSize="15"
+                        FontWeight="Bold">
                         Paste building URL
                     </TextBlock>
 
@@ -46,10 +63,9 @@
                         <Button
                             MinWidth="75"
                             Margin="10,10,0,0"
-                            FontSize="15"
-                            
                             Command="{Binding GoButtonClicked}"
-                            Content="Go" />
+                            Content="Go"
+                            FontSize="15" />
                     </WrapPanel>
                     <TextBlock Margin="0,10,0,0" FontFamily="{StaticResource Font SpaceMono Italic}">example: https://www.grabcraft.com/minecraft/pig-statue/farm-animals-1</TextBlock>
 
@@ -61,5 +77,5 @@
 
 
 
-    </Border>
+    </Grid>
 </UserControl>      

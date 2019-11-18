@@ -9,8 +9,8 @@
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:valueConverters="clr-namespace:Grabcraft_Helper.Views.ValueConverters"
-    d:DesignHeight="450"
-    d:DesignWidth="600"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
     Background="{StaticResource MyGrayBackground}"
     FontFamily="{StaticResource Font SpaceMono}"
     Foreground="{StaticResource MyDimmedWhiteForeground}"
@@ -21,40 +21,58 @@
         </behaviors:EventTrigger>
     </behaviors:Interaction.Triggers>
 
-    <Border Padding="5" BorderThickness="0">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
 
-            <UserControl Style="{StaticResource ErrorMsg}" Tag="Error" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="1">
 
-            <Border Style="{StaticResource MainBorderWrapper}" MinWidth="509">
+            <UserControl
+                Style="{StaticResource ErrorMsg}"
+                Tag="{Binding ErrorMsg}"
+                Visibility="{Binding IsThereError, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+            <Border MinWidth="509" Style="{StaticResource MainBorderWrapper}">
 
                 <StackPanel>
                     <ProgressBar
                         Height="10"
-                        Margin="0,0,0,5"
+                        Margin="0,0,0,0"
                         Value="66" />
 
-                    <TextBlock Margin="0,10,0,0" FontSize="15" />
-                    <StackPanel
-                        Margin="0,20,0,0"
+
+                    <WrapPanel
+                        Margin="0,15,0,15"
                         HorizontalAlignment="Center"
-                        Orientation="Horizontal"
-                        Width="400">
-                        <TextBlock FontSize="18" Text="Loaded " />
+                        Orientation="Horizontal">
                         <TextBlock
-                            MaxWidth="60"
-                            FontSize="18"
+                            FontFamily="Arial"
+                            FontSize="15"
+                            FontWeight="Bold"
+                            Text="Loaded " />
+                        <TextBlock
+                            FontFamily="Arial"
+                            FontSize="15"
+                            FontWeight="Bold"
                             Text="{Binding BuildingName, Mode=OneWay}" />
-                    </StackPanel>
+                    </WrapPanel>
 
 
                     <StackPanel Visibility="{Binding AreThereMismatches, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                         <Border Style="{StaticResource MainBorderWrapper}">
                             <Border.Background>
-                                <SolidColorBrush Color="OrangeRed" Opacity="0.2" />
+                                <SolidColorBrush Opacity="0.2" Color="OrangeRed" />
                             </Border.Background>
                             <Border.BorderBrush>
-                                <SolidColorBrush Color="OrangeRed" Opacity="0.5" />
+                                <SolidColorBrush Opacity="0.5" Color="OrangeRed" />
                             </Border.BorderBrush>
                             <StackPanel>
                                 <StackPanel
@@ -74,12 +92,12 @@
                                         Foreground="OrangeRed"
                                         Text="Couldn't match following blocks" />
                                 </StackPanel>
-                               
+
                                 <TextBox
                                     Height="100"
+                                    Margin="0,9,0,0"
                                     VerticalContentAlignment="Top"
                                     AcceptsReturn="True"
-                                    Margin="0 9 0 0"
                                     BorderThickness="1"
                                     IsReadOnly="True"
                                     Style="{StaticResource MismatchesTextBox}"
@@ -98,16 +116,16 @@
                                             Margin="10"
                                             Content="Ignore"
                                             FontFamily="Arial"
-                                    FontSize="14"
-                                    Foreground="OrangeRed"
+                                            FontSize="14"
+                                            Foreground="OrangeRed"
                                             GroupName="Group1"
                                             IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Ignore}}" />
                                         <RadioButton
                                             Margin="10"
                                             Content="Replace with red wool"
                                             FontFamily="Arial"
-                                    FontSize="14"
-                                    Foreground="OrangeRed"
+                                            FontSize="14"
+                                            Foreground="OrangeRed"
                                             GroupName="Group1"
                                             IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Red_wool}}" />
 
@@ -115,8 +133,8 @@
                                             Margin="10"
                                             Content="Replace with text sign"
                                             FontFamily="Arial"
-                                    FontSize="14"
-                                    Foreground="OrangeRed"
+                                            FontSize="14"
+                                            Foreground="OrangeRed"
                                             GroupName="Group1"
                                             IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Sign_with_text}}" />
 
@@ -150,5 +168,5 @@
 
 
 
-    </Border>
+    </Grid>
 </UserControl>

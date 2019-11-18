@@ -27,12 +27,13 @@ namespace Grabcraft_Helper.Models.FileOperations.Savers
                 {
                     if (saveDialog.FilterIndex == 1)
                         File.WriteAllText($@"{saveDialog.FileName}", mFunction.ToString()); //TODO, this needs to be tested
-                    
+
 
                     if (saveDialog.FilterIndex == 2)
                         File.WriteAllText($@"{saveDialog.FileName}", mFunction.ToString());
-                    
+
                 }
+                else return new Response(false, "user canceled");
 
             }
             catch (DirectoryNotFoundException)

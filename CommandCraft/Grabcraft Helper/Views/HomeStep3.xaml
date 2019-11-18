@@ -18,32 +18,52 @@
         </behaviors:EventTrigger>
     </behaviors:Interaction.Triggers>
 
-    <Border Padding="5" BorderThickness="0">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock FontSize="25">Minecraft function creator</TextBlock>
-            <TextBlock FontSize="22">Step 3/3</TextBlock>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="40" />
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
 
 
-            <WrapPanel
+
+        <Border Style="{StaticResource MainBorderWrapper}" Grid.Row="1" Grid.Column="1" >
+            <StackPanel>
+                <ProgressBar
+                        Height="10"
+                        Margin="0,0,0,0"
+                        Value="100" />
+                
+                <WrapPanel
                 Margin="0,20,0,0"
                 HorizontalAlignment="Center"
                 Orientation="Horizontal">
-                <TextBlock FontSize="22" Text="Successfully saved " />
-                <TextBlock FontSize="22" Text="{Binding BuildingName, Mode=OneWay}" />
-                <!--<TextBlock FontSize="22" Text="to " />
+                    <TextBlock
+                    FontFamily="Arial"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    Text="Successfully saved " />
+                    <TextBlock
+                    FontFamily="Arial"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    Text="{Binding BuildingName, Mode=OneWay}" />
+                    <!--<TextBlock FontSize="22" Text="to " />
                 <TextBlock FontSize="22" Text="path_name" />-->
-            </WrapPanel>
+                </WrapPanel>
 
-            <Button
+                <Button
                 MaxWidth="70"
                 Margin="15"
                 Command="{Binding OkButtonClicked}"
                 Content="Ok" />
-        </StackPanel>
-
-
-
-
-
-    </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
 </UserControl>

@@ -16,9 +16,7 @@ namespace Grabcraft_Helper.ViewModels
         {
             this.mainWindowViewModel = _mainWindowViewModel;
             OkButtonClicked = new RelayCommand<object>(OkButtonClickedHandler);
-            Loaded = new RelayCommand<object>(LoadedHandler);
-
-            
+            Loaded = new RelayCommand<object>(LoadedHandler);   
         }
         #endregion
 
