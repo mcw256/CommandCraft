@@ -35,6 +35,20 @@ namespace Grabcraft_Helper.Model.Processing.BlockInfosTranslatorUtils
                 blockMInfo.Name = dic.Output;
         }
 
+        public static bool TranslateInfo(BlockMInfo blockMInfo, string info)
+        {
+            var dic = new SearchInfosDictionary();
+
+            if (dic.Search(info) == false)
+                return false;
+
+           
+                blockMInfo.Name = dic.Output;
+                blockMInfo.Attributes = new List<string>();
+            return true;
+
+        }
+
         public static void TranslateAttributes( BlockMInfo blockMInfo, List<string> attriubtes )
         {
             var dic = new SearchAttributesDictionary();

@@ -85,7 +85,7 @@ namespace Grabcraft_Helper.Model
                 var downloadLayermap = new DownloadLayermap();
                 var layermapDeserializer = new LayermapDeserializer();
                 var coordsNormalizer = new CoordsNormalizer();
-                var blockInfosTranslator = new BlockInfosTranslator(data.LoadBlockNamesDictionaryOutput, data.LoadBlockAttributesDictionaryOutput);
+                var blockInfosTranslator = new BlockInfosTranslator(data.LoadBlockNamesDictionaryOutput, data.LoadBlockAttributesDictionaryOutput, data.LoadUserDefinedBlockInfosDictionary);
 
                 //download building html, using passed building url
                 response = downloadBuildingHtml.Download(buildingURL);

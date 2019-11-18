@@ -33,7 +33,26 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1">
+
+        <materialDesign:DialogHost HorizontalAlignment="Center" VerticalAlignment="Center"
+                                           IsOpen="{Binding IsDialogHostOpen}"
+                                           CloseOnClickAway="True" 
+                                   Grid.Row="1" Grid.Column="1"
+                                   >
+            <materialDesign:DialogHost.DialogContent>
+                <Border Width="300" Height="115" Padding="10">
+                    
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Select minecraft save: " HorizontalAlignment="Center" Margin="10 0"/>
+                        <ComboBox Margin="0 0 0 10">
+
+                        </ComboBox>
+                        <Button Content="Ok" Width="50" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+                
+            </materialDesign:DialogHost.DialogContent>
+            <StackPanel >
 
             <UserControl
                 Style="{StaticResource ErrorMsg}"
@@ -165,6 +184,7 @@
             </Border>
 
         </StackPanel>
+            </materialDesign:DialogHost>
 
 
 

@@ -148,6 +148,7 @@
     <Compile Include="Model\FileOperations\Savers\SaveUserConfig.cs" />
     <Compile Include="Model\Processing\BlockInfosTranslator.cs" />
     <Compile Include="Model\Processing\BlockInfosTranslatorUtils\SearchAttributesDictionary.cs" />
+    <Compile Include="Model\Processing\BlockInfosTranslatorUtils\SearchInfosDictionary.cs" />
     <Compile Include="Model\Processing\BlockInfosTranslatorUtils\SearchNamesDictionary.cs" />
     <Compile Include="Model\Processing\BlockInfosTranslatorUtils\SpecialTranslation.cs" />
     <Compile Include="Model\Processing\BlockInfosTranslatorUtils\TranslateExtraordinaryBlocks.cs" />
