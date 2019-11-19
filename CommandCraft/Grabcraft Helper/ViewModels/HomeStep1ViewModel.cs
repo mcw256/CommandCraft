@@ -31,9 +31,44 @@ namespace Grabcraft_Helper.ViewModels
         // Commands
         public RelayCommand<object> GoButtonClicked { get; set; }
         public RelayCommand<object> Loaded { get; set; }
-        
-        
+
+
         //Actual properties
+        private bool _isGoButtonEnabled;
+        public bool IsGoButtonEnabled
+        {
+            get
+            {
+                return _isGoButtonEnabled;
+            }
+            set
+            {
+                if (_isGoButtonEnabled == value)
+                    return;
+
+                _isGoButtonEnabled = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _isGoButtonInProgress;
+        public bool IsGoButtonInProgress
+        {
+            get
+            {
+                return _isGoButtonInProgress;
+            }
+            set
+            {
+                if (_isGoButtonInProgress == value)
+                    return;
+
+                _isGoButtonInProgress = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private string _buildingURL;
         public string BuildingURL
         {
@@ -90,6 +125,8 @@ namespace Grabcraft_Helper.ViewModels
         #region Command Handlers
         private async void GoButtonClickedHandler(object obj)
         {
+            IsGoButtonEnabled = false;
+            IsGoButtonInProgress = true;
             var response = await ActionManager.DownloadAndProcessBuilding(BuildingURL);
             if (response.IsError)
             {
@@ -97,16 +134,23 @@ namespace Grabcraft_Helper.ViewModels
                 ErrorMsg = response.ErrorMsg;
                 return;
             }
+
+
             mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep2"];
         }
 
         private async void LoadedHandler(object obj)
         {
+            IsGoButtonEnabled = true;
+            IsGoButtonInProgress = false;
+            IsThereError = false;
+
             var response = await ActionManager.LoadDictionaries();
             if (response.IsError)
             {
                 IsThereError = true;
                 ErrorMsg = response.ErrorMsg;
+                IsGoButtonEnabled = false;
                 return;
             }
         }

@@ -1,11 +1,1 @@
-﻿7. Zmienić nazwy private fieldow na _field w viewmodelach
-
-8. Add icon
-
-10. Make comments in actionmanager
-
-11. Replace abstract with intrefaces
-
-12. Dodać data triggera przy elementach menu
-
-13. Implement async in populating mismatching collection
+﻿1. Dodać zapisywanie userconfigu

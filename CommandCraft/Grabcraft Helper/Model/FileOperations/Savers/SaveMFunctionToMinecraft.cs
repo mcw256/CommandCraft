@@ -79,6 +79,7 @@ namespace Grabcraft_Helper.Model.FileOperations.Savers
                 currentPath.Append(@"\functions");
                 File.WriteAllText($@"{currentPath.ToString()}\{mFunction.Name}.mcfunction", mFunction.ToString());
 
+                
 
             }
             catch (DirectoryNotFoundException)
@@ -97,7 +98,6 @@ namespace Grabcraft_Helper.Model.FileOperations.Savers
             {
                 return new Response(true, "Error");
             }
-
             return new Response(false, "");
         }
     }

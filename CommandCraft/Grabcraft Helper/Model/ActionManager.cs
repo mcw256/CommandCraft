@@ -22,10 +22,7 @@ namespace Grabcraft_Helper.Model
     {
         static DataContainer data = new DataContainer();
 
-        /// <summary>
-        /// Loads necessary dictionaries
-        /// </summary>
-        /// <returns></returns>
+  
         public static async Task<Response> LoadDictionaries()
         {
             return await Task.Run(() =>
@@ -36,6 +33,8 @@ namespace Grabcraft_Helper.Model
                var loadBlockAttributesDictionary = new LoadBlockAttributesDictionary();
                var loadUserDefinedBlockInfosDictionary = new LoadUserDefinedBlockInfosDictionary();
                var loadUserConfig = new LoadUserConfig();
+               var loadPlayerSavesList = new LoadPlayerSavesList();
+               IsSaveToMinecraftAvailable = true;
 
                // - - - - - - - - - - - - -
 
@@ -56,18 +55,24 @@ namespace Grabcraft_Helper.Model
 
                //load user config
                response = loadUserConfig.Load();
-               if (response.IsError) return response;
+               if (response.IsError)
+                   SaveUserConfig(HowToHandleMismatch.Ignore, "", false);
+
+               response = loadUserConfig.Load();
+               if (response.IsError)
+                   return response;
+
                data.LoadUserConfigOutput = loadUserConfig.Output;
+
+               //load player saves list
+               response = loadPlayerSavesList.Load(data.LoadUserConfigOutput.MinecraftPath);
+               if (response.IsError) return response;
+               data.LoadPlayerSavesListOutput = loadPlayerSavesList.Output;
 
                return new Response(false, "");
            });
         }
 
-        /// <summary>
-        /// Downloads building data and proccesses(translate) it using dictionaries
-        /// </summary>
-        /// <param name="buildingURL"></param>
-        /// <returns></returns>
         public static async Task<Response> DownloadAndProcessBuilding(string buildingURL)
         {
             return await Task.Run(() =>
@@ -155,7 +160,7 @@ namespace Grabcraft_Helper.Model
             });
         }
 
-        public static async Task<Response> AssembleMFunctionAndSaveToMinecraft(HowToHandleMismatch howToHandleMismatch)
+        public static async Task<Response> AssembleMFunctionAndSaveToMinecraft(HowToHandleMismatch howToHandleMismatch, string saveName)
         {
             return await Task.Run(() =>
             {
@@ -172,18 +177,20 @@ namespace Grabcraft_Helper.Model
                 if (response.IsError) return response;
                 data.MFunctionComposerOutput = mFunctionComposer.Output;
 
-
-                // TODO, user config needs to be implemented for this to work
-                //response = saveMFunctionToMinecraft.Save(data.MFunctionComposerOutput, "", "" );
-                // if (response.IsError) return response;
-
+                response = saveMFunctionToMinecraft.Save(data.MFunctionComposerOutput, data.LoadUserConfigOutput.MinecraftPath, saveName);
+                if (response.IsError) return response;
+                
                 return new Response(false, "");
             });
         }
 
-        public static void SaveUserConfig(HowToHandleMismatch defaultAlternative, string defaultGameSave)
+        public static void SaveUserConfig(HowToHandleMismatch defaultAlternative, string defaultGameSave, bool isMinecraftPathSaved = true)
         {
-            //TODO
+            var saveUserConfig = new SaveUserConfig();
+            if (isMinecraftPathSaved)
+                saveUserConfig.Save(new UserConfig(data.LoadUserConfigOutput.MinecraftPath, defaultGameSave, defaultAlternative));
+            else
+                saveUserConfig.Save(new UserConfig($@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\.minecraft", defaultGameSave, defaultAlternative));
         }
 
         public static bool AreThereMismatches
@@ -207,9 +214,33 @@ namespace Grabcraft_Helper.Model
             }
         }
 
+        public static List<string> PlayerSavesList
+        {
+            get
+            {
+                return data.LoadPlayerSavesListOutput;
+            }
+        }
+
+        public static string DefaultPlayerSave
+        {
+            get
+            {
+                return data.LoadUserConfigOutput.DefaultGameSave;
+
+            }
+        }
+
         public static string BuildingName
         {
             get { return data.ExtractBuildingNameOutput; }
+        }
+
+        private static bool _isSaveToMinecraftAvailable;
+        public static bool IsSaveToMinecraftAvailable
+        {
+            get { return _isSaveToMinecraftAvailable; }
+            set { _isSaveToMinecraftAvailable = value; }
         }
 
         public static void ResetData()
@@ -225,6 +256,7 @@ namespace Grabcraft_Helper.Model
         public Dictionary<string, string> LoadBlockAttributesDictionaryOutput { get; set; }
         public Dictionary<string, string> LoadUserDefinedBlockInfosDictionary { get; set; }
         public UserConfig LoadUserConfigOutput { get; set; }
+        public List<string> LoadPlayerSavesListOutput { get; set; }
         public HtmlDocument DownloadBuildingHtmlOutput { get; set; }
         public string ExtractBuildingNameOutput { get; set; }
         public string ExtractLayermapURLOutput { get; set; }
@@ -234,6 +266,7 @@ namespace Grabcraft_Helper.Model
         public List<BlockMInfo> BlockInfosTranslatorOutput { get; set; }
         public List<MBlock> MBlocksGluerOutput { get; set; }
         public MFunction MFunctionComposerOutput { get; set; }
+        public SaveMFunctionToMinecraft SaveMFunctionToMinecraftOutput { get; set; }
     }
 
 }

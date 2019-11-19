@@ -63,9 +63,14 @@
                         <Button
                             MinWidth="75"
                             Margin="10,10,0,0"
+                            materialDesign:ButtonProgressAssist.IsIndeterminate="{Binding IsGoButtonInProgress}"
+                            materialDesign:ButtonProgressAssist.IsIndicatorVisible="True"
+                            materialDesign:ButtonProgressAssist.Value="-1"
                             Command="{Binding GoButtonClicked}"
                             Content="Go"
-                            FontSize="15" />
+                            FontSize="15"
+                            IsEnabled="{Binding IsGoButtonEnabled}"
+                            Style="{StaticResource MaterialDesignRaisedButton}" />
                     </WrapPanel>
                     <TextBlock Margin="0,10,0,0" FontFamily="{StaticResource Font SpaceMono Italic}">example: https://www.grabcraft.com/minecraft/pig-statue/farm-animals-1</TextBlock>
 
