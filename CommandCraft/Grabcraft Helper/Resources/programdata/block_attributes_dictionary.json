@@ -1,0 +1,42 @@
+{ 
+  "Bottom": "type=bottom",
+  "Upper": "type=top",
+  
+  "Facing Up": "face=floor",
+  
+  "Facing East": "facing=east",
+  "Facing North": "facing=north",
+  "Facing South": "facing=south",
+  "Facing West": "facing=west", 
+  
+  "facing east": "facing=east",
+  "facing north": "facing=north",
+  "facing south": "facing=south",
+  "facing west": "facing=west",
+  
+  "East": "facing=east",
+  "North": "facing=north",
+  "South": "facing=south",
+  "West": "facing=west",
+  
+  "East from block": "facing=east",
+  "North from block": "facing=north",
+  "South from block": "facing=south",
+  "West from block": "facing=west",
+  
+  "Open": "open=true",
+  "Closed": "open=false",
+ 
+  "Axis Y": "axis=y",
+  "Axis X": "axis=X",
+  "Axis Z": "axis=Z",
+  "Oriented vertically": "axis=y",
+  "Oriented east-west": "axis=x",
+  "Oriented north-south": "axis=z",
+  
+  
+  "Top Half": "half=top",
+  "Upside-down": "half=top",
+  "Bottom half": "half=bottom"
+  
+}

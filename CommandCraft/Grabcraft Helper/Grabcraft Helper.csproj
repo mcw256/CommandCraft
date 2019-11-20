@@ -217,6 +217,18 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Content Include="Resources\programdata\block_attributes_dictionary.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\programdata\block_names_dictionary.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\programdata\user_block_dictionary.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\programdata\user_config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Black.ttf" />
     <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Light.ttf" />
     <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Regular.ttf" />
