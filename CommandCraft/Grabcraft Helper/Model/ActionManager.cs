@@ -21,8 +21,6 @@ namespace Grabcraft_Helper.Model
     static class ActionManager
     {
         static DataContainer data = new DataContainer();
-
-  
         public static async Task<Response> LoadDictionaries()
         {
             return await Task.Run(() =>
@@ -56,12 +54,12 @@ namespace Grabcraft_Helper.Model
                //load user config
                response = loadUserConfig.Load();
                if (response.IsError)
+               {
                    SaveUserConfig(HowToHandleMismatch.Ignore, "", false);
-
-               response = loadUserConfig.Load();
-               if (response.IsError)
-                   return response;
-
+                   response = loadUserConfig.Load();
+                   if (response.IsError)
+                       return response;
+               }
                data.LoadUserConfigOutput = loadUserConfig.Output;
 
                //load player saves list
@@ -80,7 +78,7 @@ namespace Grabcraft_Helper.Model
                 //check whether the dictionaries has been set
                 if (data.LoadBlockAttributesDictionaryOutput == null) return new Response(true, "Attributes dictionary not set");
                 if (data.LoadBlockNamesDictionaryOutput == null) return new Response(true, "Names dictionary not set");
-                
+
                 Response response;
 
                 //initialize action classes
@@ -179,7 +177,7 @@ namespace Grabcraft_Helper.Model
 
                 response = saveMFunctionToMinecraft.Save(data.MFunctionComposerOutput, data.LoadUserConfigOutput.MinecraftPath, saveName);
                 if (response.IsError) return response;
-                
+
                 return new Response(false, "");
             });
         }
@@ -227,7 +225,14 @@ namespace Grabcraft_Helper.Model
             get
             {
                 return data.LoadUserConfigOutput.DefaultGameSave;
+            }
+        }
 
+        public static HowToHandleMismatch DefaultMismatchOption
+        {
+            get
+            {
+                return data.LoadUserConfigOutput.DefaultMismatchOption;
             }
         }
 

@@ -12,7 +12,7 @@ namespace Grabcraft_Helper.Model.FileOperations.Loaders
 {
     class LoadUserConfig : Loader<UserConfig>
     {
-        public static readonly string fileName = "User config.json";
+        public static readonly string fileName = "user_config.json";
         public override UserConfig Output { get; protected set; } = new UserConfig();
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace Grabcraft_Helper.Model.FileOperations.Loaders
         {
             try
             {
-                string rawJson = File.ReadAllText(fileName);
+                string rawJson = File.ReadAllText($@"programdata\{fileName}");
                 Output = JsonConvert.DeserializeObject<UserConfig>(rawJson);
 
             }

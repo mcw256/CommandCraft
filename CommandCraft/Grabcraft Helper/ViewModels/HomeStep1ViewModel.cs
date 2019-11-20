@@ -144,6 +144,8 @@ namespace Grabcraft_Helper.ViewModels
             IsGoButtonEnabled = true;
             IsGoButtonInProgress = false;
             IsThereError = false;
+            BuildingURL = "";
+            ActionManager.ResetData();
 
             var response = await ActionManager.LoadDictionaries();
             if (response.IsError)

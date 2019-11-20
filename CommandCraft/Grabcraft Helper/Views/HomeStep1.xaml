@@ -59,7 +59,7 @@
                     </TextBlock>
 
                     <WrapPanel Margin="0,0,0,0" Orientation="Horizontal">
-                        <TextBox MinWidth="400" Text="{Binding BuildingURL, UpdateSourceTrigger=PropertyChanged, Mode=OneWayToSource}" />
+                        <TextBox MinWidth="400" Text="{Binding BuildingURL, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         <Button
                             MinWidth="75"
                             Margin="10,10,0,0"

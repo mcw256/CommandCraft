@@ -218,9 +218,6 @@ namespace Grabcraft_Helper.ViewModels
                 OnPropertyChanged();
             }
         }
-
-
-
         #endregion Properties
 
         #region Command Handlers
@@ -260,7 +257,8 @@ namespace Grabcraft_Helper.ViewModels
                 ErrorMsg = response.ErrorMsg;
                 return;
             }
-            
+            ActionManager.SaveUserConfig(HowToHandleMismatch, SelectedSave);
+
             mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
         }
 
@@ -277,6 +275,7 @@ namespace Grabcraft_Helper.ViewModels
             SelectedSave = ActionManager.DefaultPlayerSave == "" ? null : ActionManager.DefaultPlayerSave;
             BuildingName = ActionManager.BuildingName;
             IsSaveToMinecraftAvailable = ActionManager.IsSaveToMinecraftAvailable;
+            HowToHandleMismatch = ActionManager.DefaultMismatchOption;
 
             AreThereMismatches = ActionManager.AreThereMismatches;
             if (AreThereMismatches)

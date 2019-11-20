@@ -236,7 +236,7 @@
                             <Setter Property="Foreground" Value="{StaticResource MyLighterGrayBackground}" />
                             <Setter Property="Cursor" Value="Hand" />
                         </Trigger>
-                        <Trigger Property="IsEnabled" Value="False"> 
+                        <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Foreground" Value="{StaticResource MyLighterGrayBackground}" />
                         </Trigger>
                     </ControlTemplate.Triggers>

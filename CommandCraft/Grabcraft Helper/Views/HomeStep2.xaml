@@ -56,7 +56,7 @@
                         <ComboBox
                             Margin="0,0,0,10"
                             ItemsSource="{Binding PlayerSavesList}"
-                            SelectedItem="{Binding SelectedSave}" />
+                            SelectedItem="{Binding SelectedSave, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                         <Button
                             Width="50"
                             HorizontalAlignment="Center"
