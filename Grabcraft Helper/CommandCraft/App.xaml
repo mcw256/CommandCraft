@@ -20,17 +20,11 @@
 
             </ResourceDictionary.MergedDictionaries>
 
-
             <valueConverters:CollectionToStringConverter x:Key="CollectionToStringConverter" />
             <valueConverters:StringToEnumConverter x:Key="StringToEnumConverter" />
             <valueConverters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
 
-
-
         </ResourceDictionary>
-
-
-
 
     </Application.Resources>
 </Application>
