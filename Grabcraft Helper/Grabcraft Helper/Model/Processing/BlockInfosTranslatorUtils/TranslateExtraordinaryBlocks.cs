@@ -9,7 +9,7 @@ namespace Grabcraft_Helper.Model.Processing.BlockInfosTranslatorUtils
 {
     static class TranslateExtraordinaryBlocks
     {
-        static readonly Dictionary<string, NameAndAttributes> extraordinaryInfosDictionary = new Dictionary<string, NameAndAttributes>
+        static readonly Dictionary<string, NameAndAttributes> ExtraordinaryInfosDictionary = new Dictionary<string, NameAndAttributes>
         {
             #region Redstone Torch
             { "Redstone Torch",
@@ -114,9 +114,9 @@ namespace Grabcraft_Helper.Model.Processing.BlockInfosTranslatorUtils
 
         public static BlockMInfo Translate(string info)
         {
-            if (extraordinaryInfosDictionary.ContainsKey(info))
+            if (ExtraordinaryInfosDictionary.ContainsKey(info))
             {
-                var result = extraordinaryInfosDictionary[info];
+                var result = ExtraordinaryInfosDictionary[info];
 
                 return new BlockMInfo(result.Name, result.Attributes);
             }

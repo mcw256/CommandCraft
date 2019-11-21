@@ -20,7 +20,7 @@ namespace Grabcraft_Helper.Model
     /// </summary>
     static class ActionManager
     {
-        static DataContainer data = new DataContainer();
+        static DataContainer _data = new DataContainer();
         public static async Task<Response> LoadDictionaries()
         {
             return await Task.Run(() =>
@@ -39,17 +39,17 @@ namespace Grabcraft_Helper.Model
                //load block names dictionary
                response = loadBlockNamesDictionary.Load(); //get resposnse
                if (response.IsError) return response;
-               data.LoadBlockNamesDictionaryOutput = loadBlockNamesDictionary.Output;
+               _data.LoadBlockNamesDictionaryOutput = loadBlockNamesDictionary.Output;
 
                //load block attributes dictionary
                response = loadBlockAttributesDictionary.Load();
                if (response.IsError) return response;
-               data.LoadBlockAttributesDictionaryOutput = loadBlockAttributesDictionary.Output;
+               _data.LoadBlockAttributesDictionaryOutput = loadBlockAttributesDictionary.Output;
 
                //load user block infos dictionary
                response = loadUserDefinedBlockInfosDictionary.Load();
                if (response.IsError) return response;
-               data.LoadUserDefinedBlockInfosDictionary = loadUserDefinedBlockInfosDictionary.Output;
+               _data.LoadUserDefinedBlockInfosDictionary = loadUserDefinedBlockInfosDictionary.Output;
 
                //load user config
                response = loadUserConfig.Load();
@@ -60,70 +60,70 @@ namespace Grabcraft_Helper.Model
                    if (response.IsError)
                        return response;
                }
-               data.LoadUserConfigOutput = loadUserConfig.Output;
+               _data.LoadUserConfigOutput = loadUserConfig.Output;
 
                //load player saves list
-               response = loadPlayerSavesList.Load(data.LoadUserConfigOutput.MinecraftPath);
+               response = loadPlayerSavesList.Load(_data.LoadUserConfigOutput.MinecraftPath);
                if (response.IsError) return response;
-               data.LoadPlayerSavesListOutput = loadPlayerSavesList.Output;
+               _data.LoadPlayerSavesListOutput = loadPlayerSavesList.Output;
 
                return new Response(false, "");
            });
         }
 
-        public static async Task<Response> DownloadAndProcessBuilding(string buildingURL)
+        public static async Task<Response> DownloadAndProcessBuilding(string buildingUrl)
         {
             return await Task.Run(() =>
             {
                 //check whether the dictionaries has been set
-                if (data.LoadBlockAttributesDictionaryOutput == null) return new Response(true, "Attributes dictionary not set");
-                if (data.LoadBlockNamesDictionaryOutput == null) return new Response(true, "Names dictionary not set");
+                if (_data.LoadBlockAttributesDictionaryOutput == null) return new Response(true, "Attributes dictionary not set");
+                if (_data.LoadBlockNamesDictionaryOutput == null) return new Response(true, "Names dictionary not set");
 
                 Response response;
 
                 //initialize action classes
                 var downloadBuildingHtml = new DownloadBuildingHtml();
                 var extractBuildingName = new ExtractBuildingName();
-                var extractLayermapUrl = new ExtractLayermapURL();
+                var extractLayermapUrl = new ExtractLayermapUrl();
                 var downloadLayermap = new DownloadLayermap();
                 var layermapDeserializer = new LayermapDeserializer();
                 var coordsNormalizer = new CoordsNormalizer();
-                var blockInfosTranslator = new BlockInfosTranslator(data.LoadBlockNamesDictionaryOutput, data.LoadBlockAttributesDictionaryOutput, data.LoadUserDefinedBlockInfosDictionary);
+                var blockInfosTranslator = new BlockInfosTranslator(_data.LoadBlockNamesDictionaryOutput, _data.LoadBlockAttributesDictionaryOutput, _data.LoadUserDefinedBlockInfosDictionary);
 
                 //download building html, using passed building url
-                response = downloadBuildingHtml.Download(buildingURL);
+                response = downloadBuildingHtml.Download(buildingUrl);
                 if (response.IsError) return response;
-                data.DownloadBuildingHtmlOutput = downloadBuildingHtml.Output;
+                _data.DownloadBuildingHtmlOutput = downloadBuildingHtml.Output;
 
                 //extract building name from /\ html output
-                response = extractBuildingName.Extract(data.DownloadBuildingHtmlOutput);
+                response = extractBuildingName.Extract(_data.DownloadBuildingHtmlOutput);
                 if (response.IsError) return response;
-                data.ExtractBuildingNameOutput = extractBuildingName.Output;
+                _data.ExtractBuildingNameOutput = extractBuildingName.Output;
 
                 //extract layermapUrl from //\\ html output
-                response = extractLayermapUrl.Extract(data.DownloadBuildingHtmlOutput);
+                response = extractLayermapUrl.Extract(_data.DownloadBuildingHtmlOutput);
                 if (response.IsError) return response;
-                data.ExtractLayermapURLOutput = extractLayermapUrl.Output;
+                _data.ExtractLayermapUrlOutput = extractLayermapUrl.Output;
 
                 //download layermap from /\ layermapUrl 
-                response = downloadLayermap.Download(data.ExtractLayermapURLOutput);
+                response = downloadLayermap.Download(_data.ExtractLayermapUrlOutput);
                 if (response.IsError) return response;
-                data.DownloadLayermapOutput = downloadLayermap.Output;
+                _data.DownloadLayermapOutput = downloadLayermap.Output;
 
                 //deserialize /\ layermap
-                response = layermapDeserializer.Process(data.DownloadLayermapOutput);
+                response = layermapDeserializer.Process(_data.DownloadLayermapOutput);
                 if (response.IsError) return response;
-                data.LayermapDeserializerOutput = layermapDeserializer.Output;
+                _data.LayermapDeserializerOutput = layermapDeserializer.Output;
 
                 //translate coords from GBlocks(this /\ deserialzed layermap)
-                response = coordsNormalizer.Process(data.LayermapDeserializerOutput.GBlocks.Select(x => x.Coords).ToList<Coords>(), data.LayermapDeserializerOutput.Interval);
+                response = coordsNormalizer.Process(_data.LayermapDeserializerOutput.GBlocks.Select(x => x.Coords).ToList<Coords>(), _data.LayermapDeserializerOutput.Interval);
                 if (response.IsError) return response;
-                data.CoordsNormalizerOutput = coordsNormalizer.Output;
+                _data.CoordsNormalizerOutput = coordsNormalizer.Output;
 
                 //translate GInfos from GBlocks( //\\ deserialzed layermap)
-                response = blockInfosTranslator.Process(data.LayermapDeserializerOutput.GBlocks.Select(x => x.Info).ToList());
+                response = blockInfosTranslator.Process(_data.LayermapDeserializerOutput.GBlocks.Select(x => x.Info).ToList());
                 if (response.IsError) return response;
-                data.BlockInfosTranslatorOutput = blockInfosTranslator.Output;
+                _data.BlockInfosTranslatorOutput = blockInfosTranslator.Output;
 
 
                 return new Response(false, "");
@@ -140,15 +140,15 @@ namespace Grabcraft_Helper.Model
                 var mFunctionComposer = new MFunctionComposer();
                 var saveMFunction = new SaveMFunction();
 
-                response = mBlocksGluer.Process(data.CoordsNormalizerOutput, data.BlockInfosTranslatorOutput);
+                response = mBlocksGluer.Process(_data.CoordsNormalizerOutput, _data.BlockInfosTranslatorOutput);
                 if (response.IsError) return response;
-                data.MBlocksGluerOutput = mBlocksGluer.Output;
+                _data.MBlocksGluerOutput = mBlocksGluer.Output;
 
-                response = mFunctionComposer.Process(data.MBlocksGluerOutput, howToHandleMismatch, data.ExtractBuildingNameOutput);
+                response = mFunctionComposer.Process(_data.MBlocksGluerOutput, howToHandleMismatch, _data.ExtractBuildingNameOutput);
                 if (response.IsError) return response;
-                data.MFunctionComposerOutput = mFunctionComposer.Output;
+                _data.MFunctionComposerOutput = mFunctionComposer.Output;
 
-                response = saveMFunction.Save(data.MFunctionComposerOutput);
+                response = saveMFunction.Save(_data.MFunctionComposerOutput);
                 if (response.IsError) return response;
 
                 if (response.IsError == false && response.ErrorMsg == "user canceled")
@@ -167,15 +167,15 @@ namespace Grabcraft_Helper.Model
                 var mFunctionComposer = new MFunctionComposer();
                 var saveMFunctionToMinecraft = new SaveMFunctionToMinecraft();
 
-                response = mBlocksGluer.Process(data.CoordsNormalizerOutput, data.BlockInfosTranslatorOutput);
+                response = mBlocksGluer.Process(_data.CoordsNormalizerOutput, _data.BlockInfosTranslatorOutput);
                 if (response.IsError) return response;
-                data.MBlocksGluerOutput = mBlocksGluer.Output;
+                _data.MBlocksGluerOutput = mBlocksGluer.Output;
 
-                response = mFunctionComposer.Process(data.MBlocksGluerOutput, howToHandleMismatch, data.ExtractBuildingNameOutput);
+                response = mFunctionComposer.Process(_data.MBlocksGluerOutput, howToHandleMismatch, _data.ExtractBuildingNameOutput);
                 if (response.IsError) return response;
-                data.MFunctionComposerOutput = mFunctionComposer.Output;
+                _data.MFunctionComposerOutput = mFunctionComposer.Output;
 
-                response = saveMFunctionToMinecraft.Save(data.MFunctionComposerOutput, data.LoadUserConfigOutput.MinecraftPath, saveName);
+                response = saveMFunctionToMinecraft.Save(_data.MFunctionComposerOutput, _data.LoadUserConfigOutput.MinecraftPath, saveName);
                 if (response.IsError) return response;
 
                 return new Response(false, "");
@@ -186,7 +186,7 @@ namespace Grabcraft_Helper.Model
         {
             var saveUserConfig = new SaveUserConfig();
             if (isMinecraftPathSaved)
-                saveUserConfig.Save(new UserConfig(data.LoadUserConfigOutput.MinecraftPath, defaultGameSave, defaultAlternative));
+                saveUserConfig.Save(new UserConfig(_data.LoadUserConfigOutput.MinecraftPath, defaultGameSave, defaultAlternative));
             else
                 saveUserConfig.Save(new UserConfig($@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\.minecraft", defaultGameSave, defaultAlternative));
         }
@@ -195,9 +195,9 @@ namespace Grabcraft_Helper.Model
         {
             get
             {
-                if (data.BlockInfosTranslatorOutput == null) return false;
+                if (_data.BlockInfosTranslatorOutput == null) return false;
 
-                if (data.BlockInfosTranslatorOutput.Where(x => x.IsMismatched == true).ToList().Count >= 1)
+                if (_data.BlockInfosTranslatorOutput.Where(x => x.IsMismatched == true).ToList().Count >= 1)
                     return true;
                 else
                     return false;
@@ -208,55 +208,33 @@ namespace Grabcraft_Helper.Model
         {
             get
             {
-                return data.BlockInfosTranslatorOutput.Where(x => x.IsMismatched == true).Select(x => x.Info).Distinct().ToList();
+                return _data.BlockInfosTranslatorOutput.Where(x => x.IsMismatched == true).Select(x => x.Info).Distinct().ToList();
             }
         }
 
-        public static List<string> PlayerSavesList
-        {
-            get
-            {
-                return data.LoadPlayerSavesListOutput;
-            }
-        }
+        public static List<string> PlayerSavesList => _data.LoadPlayerSavesListOutput;
 
-        public static string DefaultPlayerSave
-        {
-            get
-            {
-                return data.LoadUserConfigOutput.DefaultGameSave;
-            }
-        }
+        public static string DefaultPlayerSave => _data.LoadUserConfigOutput.DefaultGameSave;
 
-        public static HowToHandleMismatch DefaultMismatchOption
-        {
-            get
-            {
-                return data.LoadUserConfigOutput.DefaultMismatchOption;
-            }
-        }
+        public static HowToHandleMismatch DefaultMismatchOption => _data.LoadUserConfigOutput.DefaultMismatchOption;
 
-        public static string BuildingName
-        {
-            get { return data.ExtractBuildingNameOutput; }
-        }
+        public static string BuildingName => _data.ExtractBuildingNameOutput;
 
         private static bool _isSaveToMinecraftAvailable;
         public static bool IsSaveToMinecraftAvailable
         {
-            get { return _isSaveToMinecraftAvailable; }
-            set { _isSaveToMinecraftAvailable = value; }
+            get => _isSaveToMinecraftAvailable;
+            set => _isSaveToMinecraftAvailable = value;
         }
 
         public static void ResetData()
         {
-            data = new DataContainer();
+            _data = new DataContainer();
         }
     }
 
     class DataContainer
     {
-
         public Dictionary<string, string> LoadBlockNamesDictionaryOutput { get; set; }
         public Dictionary<string, string> LoadBlockAttributesDictionaryOutput { get; set; }
         public Dictionary<string, string> LoadUserDefinedBlockInfosDictionary { get; set; }
@@ -264,14 +242,13 @@ namespace Grabcraft_Helper.Model
         public List<string> LoadPlayerSavesListOutput { get; set; }
         public HtmlDocument DownloadBuildingHtmlOutput { get; set; }
         public string ExtractBuildingNameOutput { get; set; }
-        public string ExtractLayermapURLOutput { get; set; }
+        public string ExtractLayermapUrlOutput { get; set; }
         public string DownloadLayermapOutput { get; set; }
         public DeserializedLayermap LayermapDeserializerOutput { get; set; }
         public List<Coords> CoordsNormalizerOutput { get; set; }
         public List<BlockMInfo> BlockInfosTranslatorOutput { get; set; }
         public List<MBlock> MBlocksGluerOutput { get; set; }
         public MFunction MFunctionComposerOutput { get; set; }
-        public SaveMFunctionToMinecraft SaveMFunctionToMinecraftOutput { get; set; }
     }
 
 }

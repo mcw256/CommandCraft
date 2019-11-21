@@ -22,7 +22,7 @@ namespace Grabcraft_Helper.Model.DataTypes
 
                 return result;
             }
-            set { _name = value; }
+            set => _name = value;
         }
 
 

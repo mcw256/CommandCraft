@@ -12,11 +12,11 @@ namespace Grabcraft_Helper.Model.Processing
     class BlockInfosTranslator : Processor<List<BlockMInfo>, List<BlockGInfo>>
     {
         public override List<BlockMInfo> Output { get; protected set; } = new List<BlockMInfo>();
-        public BlockInfosTranslator(Dictionary<string, string> _namesDictionary, Dictionary<string, string> _attributesDictionary, Dictionary<string, string> _userDictionary)
+        public BlockInfosTranslator(Dictionary<string, string> namesDictionary, Dictionary<string, string> attributesDictionary, Dictionary<string, string> userDictionary)
         {
-            SearchNamesDictionary.NamesDictionary = _namesDictionary;
-            SearchAttributesDictionary.AttributesDictionary = _attributesDictionary;
-            SearchInfosDictionary.InfosDictionary = _userDictionary;
+            SearchNamesDictionary.NamesDictionary = namesDictionary;
+            SearchAttributesDictionary.AttributesDictionary = attributesDictionary;
+            SearchInfosDictionary.InfosDictionary = userDictionary;
         }
 
         public override Response Process(List<BlockGInfo> blockGInfos)

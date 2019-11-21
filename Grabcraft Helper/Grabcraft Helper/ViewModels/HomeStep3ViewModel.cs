@@ -12,16 +12,16 @@ namespace Grabcraft_Helper.ViewModels
     class HomeStep3ViewModel : ViewModelBase
     {
         #region Constructor
-        public HomeStep3ViewModel(MainWindowViewModel _mainWindowViewModel)
+        public HomeStep3ViewModel(MainWindowViewModel mainWindowViewModel)
         {
-            this.mainWindowViewModel = _mainWindowViewModel;
+            this._mainWindowViewModel = mainWindowViewModel;
             OkButtonClicked = new RelayCommand<object>(OkButtonClickedHandler);
             Loaded = new RelayCommand<object>(LoadedHandler);   
         }
         #endregion
 
         #region Fields
-        private MainWindowViewModel mainWindowViewModel;
+        private MainWindowViewModel _mainWindowViewModel;
         #endregion
 
         #region Properties
@@ -33,10 +33,7 @@ namespace Grabcraft_Helper.ViewModels
         private string _buildingName;
         public string BuildingName
         {
-            get
-            {
-                return _buildingName;
-            }
+            get => _buildingName;
             set
             {
                 if (_buildingName == value)
@@ -51,7 +48,7 @@ namespace Grabcraft_Helper.ViewModels
         #region Command Handlers
         private void OkButtonClickedHandler(object obj)
         {
-            mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep1"];
+            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep1"];
         }
 
         private void LoadedHandler(object obj)

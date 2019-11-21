@@ -18,7 +18,7 @@ namespace Grabcraft_Helper.Model.FileOperations.Savers
             try
             {
                 string serializedConfig = JsonConvert.SerializeObject(userConfig); 
-                File.WriteAllText($@"programdata\{LoadUserConfig.fileName}", serializedConfig); //LoadUserConfig.fileName is a static readonly resource.
+                File.WriteAllText($@"programdata\{LoadUserConfig.FileName}", serializedConfig); //LoadUserConfig.fileName is a static readonly resource.
             }
             catch (DirectoryNotFoundException)
             {

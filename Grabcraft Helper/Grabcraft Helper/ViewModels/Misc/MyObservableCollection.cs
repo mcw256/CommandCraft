@@ -28,15 +28,9 @@ namespace Grabcraft_Helper.ViewModels.Misc
         public event OnCollectionChange OnCollectionChange;
         private string _instanceName;
 
-        public int Count
-        {
-            get { return _items.Count; }
-        }
+        public int Count => _items.Count;
 
-        public bool IsReadOnly
-        {
-            get { return false; }
-        }
+        public bool IsReadOnly => false;
 
         #endregion
 
@@ -44,13 +38,13 @@ namespace Grabcraft_Helper.ViewModels.Misc
         public void Add(T item)
         {
             _items.Add(item);
-            OnCollectionChange.Invoke(_instanceName);
+            OnCollectionChange?.Invoke(_instanceName);
         }
 
         public void Clear()
         {
             _items.Clear();
-            OnCollectionChange.Invoke(_instanceName);
+            OnCollectionChange?.Invoke(_instanceName);
         }
 
         public bool Contains(T item)

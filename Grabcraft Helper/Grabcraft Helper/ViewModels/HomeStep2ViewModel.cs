@@ -16,9 +16,9 @@ namespace Grabcraft_Helper.ViewModels
     class HomeStep2ViewModel : ViewModelBase
     {
         #region Constructor
-        public HomeStep2ViewModel(MainWindowViewModel _mainWindowViewModel)
+        public HomeStep2ViewModel(MainWindowViewModel mainWindowViewModel)
         {
-            this.mainWindowViewModel = _mainWindowViewModel;
+            this._mainWindowViewModel = mainWindowViewModel;
             SaveButtonClicked = new RelayCommand<object>(SaveButtonClickedHandler);
             SaveToMinecraftButtonClicked = new RelayCommand<object>(SaveToMinecraftButtonClickedHandler);
             Loaded = new RelayCommand<object>(LoadedHandler);
@@ -29,8 +29,7 @@ namespace Grabcraft_Helper.ViewModels
         #endregion
 
         #region Fields
-        private MainWindowViewModel mainWindowViewModel;
-        private bool dialogButtonClicked = false;
+        private MainWindowViewModel _mainWindowViewModel;
         #endregion
 
         #region Properties
@@ -44,10 +43,7 @@ namespace Grabcraft_Helper.ViewModels
         private string _buildingName;
         public string BuildingName
         {
-            get
-            {
-                return _buildingName;
-            }
+            get => _buildingName;
             set
             {
                 if (_buildingName == value)
@@ -61,7 +57,7 @@ namespace Grabcraft_Helper.ViewModels
         private MyObservableCollection<string> _mismatchesList;
         public MyObservableCollection<string> MismatchesList
         {
-            get { return _mismatchesList; }
+            get => _mismatchesList;
             set
             {
                 _mismatchesList = value;
@@ -73,10 +69,7 @@ namespace Grabcraft_Helper.ViewModels
         private HowToHandleMismatch _howToHandleMismatch;
         public HowToHandleMismatch HowToHandleMismatch
         {
-            get
-            {
-                return _howToHandleMismatch;
-            }
+            get => _howToHandleMismatch;
             set
             {
                 if (_howToHandleMismatch == value)
@@ -90,10 +83,7 @@ namespace Grabcraft_Helper.ViewModels
         private bool _areThereMismatches;
         public bool AreThereMismatches
         {
-            get
-            {
-                return _areThereMismatches;
-            }
+            get => _areThereMismatches;
             set
             {
                 if (value == _areThereMismatches) return;
@@ -106,10 +96,7 @@ namespace Grabcraft_Helper.ViewModels
         private bool _isThereError;
         public bool IsThereError
         {
-            get
-            {
-                return _isThereError;
-            }
+            get => _isThereError;
             set
             {
                 if (_isThereError == value)
@@ -141,10 +128,7 @@ namespace Grabcraft_Helper.ViewModels
         private bool _isDialogHostOpen;
         public bool IsDialogHostOpen
         {
-            get
-            { 
-                return _isDialogHostOpen;
-            }
+            get => _isDialogHostOpen;
             set
             {
                 if (_isDialogHostOpen == value)
@@ -158,10 +142,7 @@ namespace Grabcraft_Helper.ViewModels
         private bool _isSaveToMinecraftAvailable;
         public bool IsSaveToMinecraftAvailable
         {
-            get
-            {
-                return _isSaveToMinecraftAvailable;
-            }
+            get => _isSaveToMinecraftAvailable;
             set
             {
                 if (_isSaveToMinecraftAvailable == value)
@@ -175,7 +156,7 @@ namespace Grabcraft_Helper.ViewModels
         private MyObservableCollection<string> _playerSavesList;
         public MyObservableCollection<string> PlayerSavesList
         {
-            get { return _playerSavesList; }
+            get => _playerSavesList;
             set
             {
                 _playerSavesList = value;
@@ -187,10 +168,7 @@ namespace Grabcraft_Helper.ViewModels
         private string _selectedSave;
         public string SelectedSave
         {
-            get
-            {
-                return _selectedSave;
-            }
+            get => _selectedSave;
             set
             {
                 if (_selectedSave == value)
@@ -202,13 +180,9 @@ namespace Grabcraft_Helper.ViewModels
         }
 
         private bool _areButtonsEnabled;
-
         public bool AreButtonsEnabled
         {
-            get
-            {
-                return _areButtonsEnabled;
-            }
+            get => _areButtonsEnabled;
             set
             {
                 if (_areButtonsEnabled == value)
@@ -244,7 +218,7 @@ namespace Grabcraft_Helper.ViewModels
                 return;
             }
             
-            mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
+            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep3"];
         }
 
         private async void SaveSelectingDialogButtonClickedHandler(object obj)
@@ -259,7 +233,7 @@ namespace Grabcraft_Helper.ViewModels
             }
             ActionManager.SaveUserConfig(HowToHandleMismatch, SelectedSave);
 
-            mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep3"];
+            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep3"];
         }
 
         private void LoadedHandler(object obj)

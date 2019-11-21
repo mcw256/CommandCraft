@@ -43,10 +43,7 @@ namespace Grabcraft_Helper.ViewModels
         private UserControl _currentPage;
         public UserControl CurrentPage
         {
-            get
-            {
-                return _currentPage;
-            }
+            get => _currentPage;
             set
             {
                 if (_currentPage == value)
@@ -60,16 +57,12 @@ namespace Grabcraft_Helper.ViewModels
         private bool _isHomeButtonActive;
         public bool IsHomeButtonActive // when its active, xamls enable prop is meant to be set on false, thats why this code gets little bit confusing
         {
-            get
-            {
-                return _isHomeButtonActive;
-            }
+            get => _isHomeButtonActive;
             set
             {
                 if (value == true) //set all the others
                 {
                     IsInfoButtonActive = false;
-
                 }
 
                 if (_isHomeButtonActive == !value)
@@ -86,10 +79,7 @@ namespace Grabcraft_Helper.ViewModels
         private bool _isInfoButtonActive;
         public bool IsInfoButtonActive
         {
-            get
-            {
-                return _isInfoButtonActive;
-            }
+            get => _isInfoButtonActive;
             set
             {
                 if (value == true)//set all the others on false

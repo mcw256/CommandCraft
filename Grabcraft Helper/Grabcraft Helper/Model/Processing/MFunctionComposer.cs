@@ -27,11 +27,11 @@ namespace Grabcraft_Helper.Model.Processing
                         {
                             case HowToHandleMismatch.Ignore:
                                 break;
-                            case HowToHandleMismatch.Red_wool:
+                            case HowToHandleMismatch.RedWool:
                                 line = $"setblock ~{item.Coords.X} ~{item.Coords.Z} ~{item.Coords.Y} minecraft:red_wool replace";
                                 Output.Content.Add(line);
                                 break;
-                            case HowToHandleMismatch.Sign_with_text:
+                            case HowToHandleMismatch.SignWithText:
                                 line = $@"setblock ~{item.Coords.X} ~{item.Coords.Z} ~{item.Coords.Y} minecraft:oak_sign" + @"{Text1:""{\""text\"":\""" + $"{item.Info.Name}" + @"\""}""} replace";
                                 Output.Content.Add(line);
                                 break;

@@ -26,7 +26,7 @@ namespace Grabcraft_Helper.Models.FileOperations.Savers
                 if (result == true)
                 {
                     if (saveDialog.FilterIndex == 1)
-                        File.WriteAllText($@"{saveDialog.FileName}", mFunction.ToString()); //TODO, this needs to be tested
+                        File.WriteAllText($@"{saveDialog.FileName}", mFunction.ToString());
 
 
                     if (saveDialog.FilterIndex == 2)

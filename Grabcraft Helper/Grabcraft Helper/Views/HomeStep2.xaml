@@ -160,7 +160,7 @@
                                                 FontSize="14"
                                                 Foreground="OrangeRed"
                                                 GroupName="Group1"
-                                                IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Red_wool}}" />
+                                                IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.RedWool}}" />
 
                                             <RadioButton
                                                 Margin="10"
@@ -169,7 +169,7 @@
                                                 FontSize="14"
                                                 Foreground="OrangeRed"
                                                 GroupName="Group1"
-                                                IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.Sign_with_text}}" />
+                                                IsChecked="{Binding HowToHandleMismatch, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringToEnumConverter}, ConverterParameter={x:Static dataTypes:HowToHandleMismatch.SignWithText}}" />
 
                                         </WrapPanel>
                                     </StackPanel>
@@ -201,8 +201,6 @@
 
             </StackPanel>
         </materialDesign:DialogHost>
-
-
 
     </Grid>
 </UserControl>

@@ -11,7 +11,6 @@ namespace Grabcraft_Helper.Model.DataTypes
         public virtual string Info { get; set; }
         public abstract string Name { get; set; }
         public abstract List<string> Attributes { get; set; }
-        public virtual bool HasAttributes { get => (Attributes.Count == 0) ? false : true; }
-
+        public virtual bool HasAttributes => (Attributes.Count != 0);
     }
 }

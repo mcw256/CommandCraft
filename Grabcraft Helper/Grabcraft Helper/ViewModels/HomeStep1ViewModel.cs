@@ -15,16 +15,16 @@ namespace Grabcraft_Helper.ViewModels
     class HomeStep1ViewModel : ViewModelBase
     {
         #region Constructor
-        public HomeStep1ViewModel(MainWindowViewModel _mainWindowViewModel)
+        public HomeStep1ViewModel(MainWindowViewModel mainWindowViewModel)
         {
-            this.mainWindowViewModel = _mainWindowViewModel;
+            this._mainWindowViewModel = mainWindowViewModel;
             GoButtonClicked = new RelayCommand<object>(GoButtonClickedHandler);
             Loaded = new RelayCommand<object>(LoadedHandler);
         }
         #endregion
 
         #region Fields
-        private MainWindowViewModel mainWindowViewModel;
+        private MainWindowViewModel _mainWindowViewModel;
         #endregion
 
         #region Properties
@@ -37,10 +37,7 @@ namespace Grabcraft_Helper.ViewModels
         private bool _isGoButtonEnabled;
         public bool IsGoButtonEnabled
         {
-            get
-            {
-                return _isGoButtonEnabled;
-            }
+            get => _isGoButtonEnabled;
             set
             {
                 if (_isGoButtonEnabled == value)
@@ -54,10 +51,7 @@ namespace Grabcraft_Helper.ViewModels
         private bool _isGoButtonInProgress;
         public bool IsGoButtonInProgress
         {
-            get
-            {
-                return _isGoButtonInProgress;
-            }
+            get => _isGoButtonInProgress;
             set
             {
                 if (_isGoButtonInProgress == value)
@@ -69,19 +63,16 @@ namespace Grabcraft_Helper.ViewModels
         }
 
 
-        private string _buildingURL;
-        public string BuildingURL
+        private string _buildingUrl;
+        public string BuildingUrl
         {
-            get
-            {
-                return _buildingURL;
-            }
+            get => _buildingUrl;
             set
             {
-                if (_buildingURL == value)
+                if (_buildingUrl == value)
                     return;
 
-                _buildingURL = value;
+                _buildingUrl = value;
                 OnPropertyChanged();
             }
         }
@@ -89,10 +80,7 @@ namespace Grabcraft_Helper.ViewModels
         private bool _isThereError;
         public bool IsThereError
         {
-            get
-            {
-                return _isThereError;
-            }
+            get => _isThereError;
             set
             {
                 if (_isThereError == value)
@@ -127,7 +115,7 @@ namespace Grabcraft_Helper.ViewModels
         {
             IsGoButtonEnabled = false;
             IsGoButtonInProgress = true;
-            var response = await ActionManager.DownloadAndProcessBuilding(BuildingURL);
+            var response = await ActionManager.DownloadAndProcessBuilding(BuildingUrl);
             if (response.IsError)
             {
                 IsThereError = true;
@@ -135,8 +123,7 @@ namespace Grabcraft_Helper.ViewModels
                 return;
             }
 
-
-            mainWindowViewModel.CurrentPage = mainWindowViewModel.Pages["HomeStep2"];
+            _mainWindowViewModel.CurrentPage = _mainWindowViewModel.Pages["HomeStep2"];
         }
 
         private async void LoadedHandler(object obj)
@@ -144,7 +131,7 @@ namespace Grabcraft_Helper.ViewModels
             IsGoButtonEnabled = true;
             IsGoButtonInProgress = false;
             IsThereError = false;
-            BuildingURL = "";
+            BuildingUrl = "";
             ActionManager.ResetData();
 
             var response = await ActionManager.LoadDictionaries();

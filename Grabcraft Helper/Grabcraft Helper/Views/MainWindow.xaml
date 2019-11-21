@@ -109,13 +109,6 @@
 
         </StackPanel>
 
-
-        <!--<Frame
-            x:Name="contentFrame"
-            Grid.Row="1"
-            Grid.Column="1"
-            NavigationUIVisibility="Hidden" />-->
-
         <ContentControl
             Grid.Row="1"
             Grid.Column="1"

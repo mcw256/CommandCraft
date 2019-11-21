@@ -14,7 +14,7 @@ namespace Grabcraft_Helper.Model.Processing.BlockInfosTranslatorUtils
         {
             for (int i = 0; i < attributes.Count; i++)
             {
-                if (SpecialTranslation.ignoredAttributes.Contains(attributes[i]))
+                if (SpecialTranslation.IgnoredAttributes.Contains(attributes[i]))
                     attributes.RemoveAt(i);
             }
         }

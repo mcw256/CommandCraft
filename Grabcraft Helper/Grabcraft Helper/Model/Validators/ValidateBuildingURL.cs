@@ -9,16 +9,16 @@ using Grabcraft_Helper.Model.DataTypes;
 
 namespace Grabcraft_Helper.Model.Validators
 {
-    class ValidateBuildingURL : Validator<string>
+    class ValidateBuildingUrl : Validator<string>
     {
-        public override Response Validate(string buildingURL)
+        public override Response Validate(string buildingUrl)
         {
             try
             {
                 string standardUrlValidation = @"^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$"; //https://www.regextester.com/94502
                 string myValidation = @"grabcraft\.com/minecraft";
 
-                if ( (Regex.IsMatch(buildingURL, standardUrlValidation) || Regex.IsMatch(buildingURL, myValidation)) == false )
+                if ( (Regex.IsMatch(buildingUrl, standardUrlValidation) || Regex.IsMatch(buildingUrl, myValidation)) == false )
                     return new Response(true, "Invalid URL error");
             }
             catch (Exception)

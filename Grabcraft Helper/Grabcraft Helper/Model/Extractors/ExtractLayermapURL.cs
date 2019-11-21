@@ -9,7 +9,7 @@ using HtmlAgilityPack;
 
 namespace Grabcraft_Helper.Model.Extractors
 {
-    class ExtractLayermapURL : Extractor<string, HtmlDocument>
+    class ExtractLayermapUrl : Extractor<string, HtmlDocument>
     {
         public override string Output { get; protected set; }
 

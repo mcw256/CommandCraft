@@ -45,12 +45,6 @@ namespace Grabcraft_Helper.Model.DataTypes
             set => Attributes = value; // obligatory code
         }
 
-        public bool IsValid
-        {
-            get
-            {
-                return (Regex.IsMatch(Info, @"^[\w\s']+\s(\([\w\s\-,]+\))?$") || Regex.IsMatch(Info, @"^\w[\w\s']+$"));
-            }
-        }
+        public bool IsValid => (Regex.IsMatch(Info, @"^[\w\s']+\s(\([\w\s\-,]+\))?$") || Regex.IsMatch(Info, @"^\w[\w\s']+$"));
     }
 }
