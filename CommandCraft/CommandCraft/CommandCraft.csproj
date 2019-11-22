@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DD2D9E96-3047-44C1-BE3D-642EFFE8F7AC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Grabcraft_Helper</RootNamespace>
-    <AssemblyName>Grabcraft Helper</AssemblyName>
+    <RootNamespace>CommandCraft</RootNamespace>
+    <AssemblyName>CommandCraft</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Icons\GrabcraftHelperIcon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icons\CommandCraft.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack, Version=1.11.12.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
@@ -234,7 +234,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\GrabcraftHelperIcon.ico" />
+    <Resource Include="Resources\Icons\CommandCraft.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="TODO.txt" />

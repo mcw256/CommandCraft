@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandCraft", "Grabcraft Helper\CommandCraft.csproj", "{DD2D9E96-3047-44C1-BE3D-642EFFE8F7AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandCraft", "CommandCraft\CommandCraft.csproj", "{DD2D9E96-3047-44C1-BE3D-642EFFE8F7AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
