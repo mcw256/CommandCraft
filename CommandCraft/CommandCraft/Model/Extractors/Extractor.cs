@@ -1,12 +1,12 @@
-﻿using Grabcraft_Helper.DataTypes;
-using Grabcraft_Helper.Model.DataTypes;
+﻿using CommandCraft.Model.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandCraft.DataTypes;
 
-namespace Grabcraft_Helper.Model.Extractors
+namespace CommandCraft.Model.Extractors
 {
     abstract class Extractor<TOutput, TInput1>
     {

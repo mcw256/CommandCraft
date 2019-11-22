@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Grabcraft_Helper.Views.ValueConverters
+namespace CommandCraft.Views.ValueConverters
 {
     class BoolToVisibilityConverter : IValueConverter
     {

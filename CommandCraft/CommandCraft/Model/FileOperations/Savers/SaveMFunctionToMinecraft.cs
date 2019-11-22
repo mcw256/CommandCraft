@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Grabcraft_Helper.DataTypes;
-using Grabcraft_Helper.Model.DataTypes;
-using Grabcraft_Helper.Model.FileOperations.Savers.SaveMFunctionUtils;
+using CommandCraft.DataTypes;
+using CommandCraft.Model.DataTypes;
+using CommandCraft.Model.FileOperations.Savers.SaveMFunctionUtils;
 
-namespace Grabcraft_Helper.Model.FileOperations.Savers
+namespace CommandCraft.Model.FileOperations.Savers
 {
     class SaveMFunctionToMinecraft : Saver<MFunction, string, string>
     {

@@ -5,7 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grabcraft_Helper.Model.Downloaders.Utils
+namespace CommandCraft.Model.Downloaders.Utils
 {
     class ImprovedWebClient : WebClient
     {

@@ -1,11 +1,11 @@
-﻿using Grabcraft_Helper.Model.DataTypes;
+﻿using CommandCraft.Model.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grabcraft_Helper.Model.Processing.BlockInfosTranslatorUtils
+namespace CommandCraft.Model.Processing.BlockInfosTranslatorUtils
 {
     static class SpecialTranslation
     {

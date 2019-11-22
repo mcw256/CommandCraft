@@ -1,5 +1,4 @@
-﻿using Grabcraft_Helper.DataTypes;
-using Grabcraft_Helper.Model.FileOperations.Loaders;
+﻿using CommandCraft.Model.FileOperations.Loaders;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,8 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandCraft.DataTypes;
 
-namespace Grabcraft_Helper.Model.FileOperations.Loaders
+namespace CommandCraft.Model.FileOperations.Loaders
 {
     class LoadUserDefinedBlockInfosDictionary : Loader<Dictionary<string, string>>
     {

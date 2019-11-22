@@ -1,13 +1,13 @@
-﻿using Grabcraft_Helper;
-using Grabcraft_Helper.Model;
-using Grabcraft_Helper.ViewModels.Misc;
+﻿using CommandCraft;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandCraft.Model;
+using CommandCraft.ViewModels.Misc;
 
-namespace Grabcraft_Helper.ViewModels
+namespace CommandCraft.ViewModels
 {
     class HomeStep3ViewModel : ViewModelBase
     {

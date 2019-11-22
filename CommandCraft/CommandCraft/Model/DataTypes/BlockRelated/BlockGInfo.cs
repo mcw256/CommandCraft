@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Grabcraft_Helper.Model.DataTypes
+namespace CommandCraft.Model.DataTypes
 {
     class BlockGInfo : BlockInfo
     {

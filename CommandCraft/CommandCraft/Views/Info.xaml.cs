@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Grabcraft_Helper.Views
+namespace CommandCraft.Views
 {
     /// <summary>
     /// Interaction logic for Info.xaml
@@ -23,6 +23,12 @@ namespace Grabcraft_Helper.Views
         public Info()
         {
             InitializeComponent();
+        }
+
+        //I found it no reason for setting datacontext and viewmodel for this page, so here goes backing code event handler
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            System.Diagnostics.Process.Start(e.Uri.ToString());
         }
     }
 }

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Grabcraft_Helper.DataTypes;
-using Grabcraft_Helper.Model.Downloaders.Utils;
+using CommandCraft.DataTypes;
+using CommandCraft.Model.Downloaders.Utils;
 using HtmlAgilityPack;
 
 
-namespace Grabcraft_Helper.Model.Downloaders
+namespace CommandCraft.Model.Downloaders
 {
     class DownloadBuildingHtml : Downloader<HtmlDocument, string>
     {

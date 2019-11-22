@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Grabcraft_Helper.Views.ValueConverters
+namespace CommandCraft.Views.ValueConverters
 {
     class StringToEnumConverter : IValueConverter
     {

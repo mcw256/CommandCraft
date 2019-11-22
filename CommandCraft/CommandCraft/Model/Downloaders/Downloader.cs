@@ -1,11 +1,11 @@
-﻿using Grabcraft_Helper.DataTypes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandCraft.DataTypes;
 
-namespace Grabcraft_Helper.Model.Downloaders
+namespace CommandCraft.Model.Downloaders
 {
     abstract class Downloader<TOutput, TInput>
     {

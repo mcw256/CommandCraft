@@ -1,4 +1,4 @@
-﻿namespace Grabcraft_Helper.DataTypes
+﻿namespace CommandCraft.DataTypes
 {
 
     enum HowToHandleMismatch

@@ -1,7 +1,4 @@
-﻿using Grabcraft_Helper.DataTypes;
-using Grabcraft_Helper.Model.DataTypes;
-using Grabcraft_Helper.Model.Processing.LayermapDeserializerUtils;
-using Grabcraft_Helper.Model.Processing.LayermapDeserializerUtils.DataTypes;
+﻿using CommandCraft.Model.Processing.LayermapDeserializerUtils;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,8 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using CommandCraft.DataTypes;
+using CommandCraft.Model.DataTypes;
+using CommandCraft.Model.Processing.LayermapDeserializerUtils.DataTypes;
 
-namespace Grabcraft_Helper.Model.Processing
+namespace CommandCraft.Model.Processing
 {
     class LayermapDeserializer : Processor<DeserializedLayermap, string>
     {

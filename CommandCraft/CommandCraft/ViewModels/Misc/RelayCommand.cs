@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Grabcraft_Helper.ViewModels.Misc
+namespace CommandCraft.ViewModels.Misc
 {
     public class RelayCommand<T> : ICommand
     {

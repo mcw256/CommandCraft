@@ -1,19 +1,19 @@
-﻿using Grabcraft_Helper.DataTypes;
-using Grabcraft_Helper.Model.DataTypes;
-using Grabcraft_Helper.Model.Downloaders;
-using Grabcraft_Helper.Model.Extractors;
-using Grabcraft_Helper.Model.FileOperations.Loaders;
-using Grabcraft_Helper.Model.FileOperations.Savers;
-using Grabcraft_Helper.Model.Processing;
-using Grabcraft_Helper.Models.FileOperations.Savers;
-using HtmlAgilityPack;
+﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandCraft.DataTypes;
+using CommandCraft.Model.DataTypes;
+using CommandCraft.Model.Downloaders;
+using CommandCraft.Model.Extractors;
+using CommandCraft.Model.FileOperations.Loaders;
+using CommandCraft.Model.FileOperations.Savers;
+using CommandCraft.Model.Processing;
+using CommandCraft.Models.FileOperations.Savers;
 
-namespace Grabcraft_Helper.Model
+namespace CommandCraft.Model
 {
     /// <summary>
     /// Main class to coordinate everything. I don't know how will I glue it with ViewModel and Program.cs, but I will figure out.

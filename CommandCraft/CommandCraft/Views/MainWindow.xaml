@@ -1,10 +1,10 @@
 ﻿<Window
-    x:Class="Grabcraft_Helper.Views.MainWindow"
+    x:Class="CommandCraft.Views.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Grabcraft_Helper.Views"
+    xmlns:local="clr-namespace:CommandCraft.Views"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Width="800"
@@ -55,7 +55,7 @@
                 Panel.ZIndex="1"
                 FontFamily="{StaticResource Font Montserrat}"
                 FontSize="22">
-                Grabcraft Helper
+                CommandCraft
             </TextBlock>
 
             <StackPanel

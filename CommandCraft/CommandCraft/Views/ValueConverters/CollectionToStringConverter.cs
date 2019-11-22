@@ -1,4 +1,4 @@
-﻿using Grabcraft_Helper.ViewModels;
+﻿using CommandCraft.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace Grabcraft_Helper.Views.ValueConverters
+namespace CommandCraft.Views.ValueConverters
 {
     class CollectionToStringConverter : IValueConverter
     {

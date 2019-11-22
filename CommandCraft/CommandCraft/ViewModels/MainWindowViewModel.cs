@@ -1,6 +1,4 @@
-﻿using Grabcraft_Helper;
-using Grabcraft_Helper.ViewModels.Misc;
-using Grabcraft_Helper.Views;
+﻿using CommandCraft;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using CommandCraft.ViewModels.Misc;
+using CommandCraft.Views;
 
-namespace Grabcraft_Helper.ViewModels
+namespace CommandCraft.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase
     {

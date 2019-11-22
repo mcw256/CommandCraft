@@ -1,17 +1,17 @@
-﻿using Grabcraft_Helper;
+﻿using CommandCraft;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Grabcraft_Helper.DataTypes;
 using System.Windows;
 using System.Collections.Specialized;
-using Grabcraft_Helper.ViewModels.Misc;
-using Grabcraft_Helper.Model;
+using CommandCraft.DataTypes;
+using CommandCraft.Model;
+using CommandCraft.ViewModels.Misc;
 
-namespace Grabcraft_Helper.ViewModels
+namespace CommandCraft.ViewModels
 {
     class HomeStep2ViewModel : ViewModelBase
     {
@@ -202,7 +202,6 @@ namespace Grabcraft_Helper.ViewModels
 
         private async void SaveButtonClickedHandler(object obj)
         {
-            IsDialogHostOpen = true;
             AreButtonsEnabled = false;
 
             var response =  await ActionManager.AssembleMFunctionAndSave(HowToHandleMismatch);

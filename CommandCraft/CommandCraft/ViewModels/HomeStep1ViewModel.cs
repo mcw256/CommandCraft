@@ -1,7 +1,5 @@
-﻿using Grabcraft_Helper;
-using Grabcraft_Helper.DataTypes;
-using Grabcraft_Helper.Model;
-using Grabcraft_Helper.ViewModels.Misc;
+﻿using CommandCraft;
+using CommandCraft.DataTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +7,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using CommandCraft.Model;
+using CommandCraft.ViewModels.Misc;
 
-namespace Grabcraft_Helper.ViewModels
+namespace CommandCraft.ViewModels
 {
     class HomeStep1ViewModel : ViewModelBase
     {
@@ -63,16 +63,16 @@ namespace Grabcraft_Helper.ViewModels
         }
 
 
-        private string _buildingUrl;
-        public string BuildingUrl
+        private string _buildingURL;
+        public string BuildingURL
         {
-            get => _buildingUrl;
+            get => _buildingURL;
             set
             {
-                if (_buildingUrl == value)
+                if (_buildingURL == value)
                     return;
 
-                _buildingUrl = value;
+                _buildingURL = value;
                 OnPropertyChanged();
             }
         }
@@ -115,7 +115,7 @@ namespace Grabcraft_Helper.ViewModels
         {
             IsGoButtonEnabled = false;
             IsGoButtonInProgress = true;
-            var response = await ActionManager.DownloadAndProcessBuilding(BuildingUrl);
+            var response = await ActionManager.DownloadAndProcessBuilding(BuildingURL);
             if (response.IsError)
             {
                 IsThereError = true;
@@ -131,7 +131,7 @@ namespace Grabcraft_Helper.ViewModels
             IsGoButtonEnabled = true;
             IsGoButtonInProgress = false;
             IsThereError = false;
-            BuildingUrl = "";
+            BuildingURL = "";
             ActionManager.ResetData();
 
             var response = await ActionManager.LoadDictionaries();

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grabcraft_Helper.Model.Processing.LayermapDeserializerUtils.DataTypes
+namespace CommandCraft.Model.Processing.LayermapDeserializerUtils.DataTypes
 {
     class RawGBlock
     {

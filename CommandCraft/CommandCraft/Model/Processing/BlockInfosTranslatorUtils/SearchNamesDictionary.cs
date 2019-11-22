@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grabcraft_Helper.Model.Processing.BlockInfosTranslatorUtils
+namespace CommandCraft.Model.Processing.BlockInfosTranslatorUtils
 {
     class SearchNamesDictionary
     {

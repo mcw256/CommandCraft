@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grabcraft_Helper.DataTypes
+namespace CommandCraft.DataTypes
 {
     /// <summary>
     /// immutable models response

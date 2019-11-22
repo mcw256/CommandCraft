@@ -1,15 +1,15 @@
-﻿using Grabcraft_Helper.DataTypes;
-using Grabcraft_Helper.Model.DataTypes;
-using Grabcraft_Helper.Model.FileOperations.Loaders;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandCraft.DataTypes;
+using CommandCraft.Model.DataTypes;
+using CommandCraft.Model.FileOperations.Loaders;
 
-namespace Grabcraft_Helper.Model.FileOperations.Savers
+namespace CommandCraft.Model.FileOperations.Savers
 {
     class SaveUserConfig : Saver<UserConfig>
     {

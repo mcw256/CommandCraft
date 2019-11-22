@@ -1,11 +1,11 @@
-﻿using Grabcraft_Helper.Model.DataTypes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommandCraft.Model.DataTypes;
 
-namespace Grabcraft_Helper.Model.Processing.CoordsNormalizerUtils
+namespace CommandCraft.Model.Processing.CoordsNormalizerUtils
 {
     static class Utils
     {

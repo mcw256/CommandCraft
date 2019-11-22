@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Grabcraft_Helper.DataTypes;
-using Grabcraft_Helper.Model.DataTypes;
+using CommandCraft.DataTypes;
+using CommandCraft.Model.DataTypes;
 using HtmlAgilityPack;
 
-namespace Grabcraft_Helper.Model.Extractors
+namespace CommandCraft.Model.Extractors
 {
     class ExtractLayermapUrl : Extractor<string, HtmlDocument>
     {

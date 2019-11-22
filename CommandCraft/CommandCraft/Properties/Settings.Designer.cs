@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Grabcraft_Helper.Properties
+namespace CommandCraft.Properties
 {
 
 

@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grabcraft_Helper.ViewModels
+namespace CommandCraft.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
