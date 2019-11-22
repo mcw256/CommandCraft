@@ -16,7 +16,7 @@ using CommandCraft.Models.FileOperations.Savers;
 namespace CommandCraft.Model
 {
     /// <summary>
-    /// Main class to coordinate everything. I don't know how will I glue it with ViewModel and Program.cs, but I will figure out.
+    /// Main class
     /// </summary>
     static class ActionManager
     {
@@ -58,14 +58,17 @@ namespace CommandCraft.Model
                    SaveUserConfig(HowToHandleMismatch.Ignore, "", false);
                    response = loadUserConfig.Load();
                    if (response.IsError)
-                       return response;
+                       IsSaveToMinecraftAvailable = false;
                }
                _data.LoadUserConfigOutput = loadUserConfig.Output;
 
                //load player saves list
                response = loadPlayerSavesList.Load(_data.LoadUserConfigOutput.MinecraftPath);
-               if (response.IsError) return response;
+               if (response.IsError)
+                   IsSaveToMinecraftAvailable = false;
+                   
                _data.LoadPlayerSavesListOutput = loadPlayerSavesList.Output;
+
 
                return new Response(false, "");
            });

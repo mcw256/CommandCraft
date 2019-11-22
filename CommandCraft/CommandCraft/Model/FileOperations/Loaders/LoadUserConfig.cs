@@ -13,7 +13,7 @@ namespace CommandCraft.Model.FileOperations.Loaders
     class LoadUserConfig : Loader<UserConfig>
     {
         public static readonly string FileName = "user_config.json";
-        public override UserConfig Output { get; protected set; } = new UserConfig();
+        public override UserConfig Output { get; protected set; } = new UserConfig("", "", HowToHandleMismatch.Ignore);
 
         /// <summary>
         /// Loads and deserializes user config

@@ -217,9 +217,6 @@
     <Content Include="programdata\user_block_dictionary.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="programdata\user_config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Black.ttf" />
     <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Light.ttf" />
     <Resource Include="Resources\Fonts\Londrina Solid\LondrinaSolid-Regular.ttf" />
@@ -235,9 +232,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\CommandCraft.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="TODO.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

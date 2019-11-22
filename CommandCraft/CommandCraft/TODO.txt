@@ -1,2 +1,0 @@
-﻿1. Dodać zapisywanie userconfigu
-2. Dodać resetowanie blockname
