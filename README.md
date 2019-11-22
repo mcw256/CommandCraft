@@ -1,11 +1,11 @@
 # CommandCraft
 Tool for generating minecraft commands using *grabcraft.com* buildings URLs.
 - - -
-Note that this is not an official minecraft program. It's not approved by or associated with mojang. 
+*Note that this is not an official minecraft program. It's not approved by or associated with mojang.*
 
-Also note that, I do not claim any rights to GrabCraft. 
+*Also note that, I do not claim any rights to GrabCraft. 
 GrabCraft and all related brands, names and content are the property of GrabCraft LLC.
-This is just a friendly application to help people generating  in-game structures
+This is just a friendly application to help people generating  in-game structures*
 - - -
 ## Screenshots
 
