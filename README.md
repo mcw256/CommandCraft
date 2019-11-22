@@ -9,6 +9,10 @@ GrabCraft and all related brands, names and content are the property of GrabCraf
 ## Screenshots
 <img src="screenshots/screenshot1.png" alt="1" width="400" height="300"/>.<img src="screenshots/screenshot2.png" alt="2" width="400" height="300"/><img src="screenshots/screenshot3.png" alt="3" width="400" height="300"/>
 - - -
+## Download
+Windows bin:
+[CommandCraft v1.0.zip](https://github.com/mcw256/CommandCraft/releases/download/v1.0/CommandCraft.v1.0.zip)
+
 
 ## FAQ
 **1. Minecraft doesn't detect .mcfunction, even though it's in the right location.**
@@ -16,7 +20,6 @@ GrabCraft and all related brands, names and content are the property of GrabCraf
 This is very common. It probably means, that mcfunction contains a block that isn't in your minecraft version, or it was badly translated by CommandCraft. To fix this error, go to ```C:\Users\_thatsyou_\AppData\Roaming\.minecraft\logs```
 , then open latest log file, and look for block that caused error.
 After that, you can add your custom translation for this block to the ```programdata\user_block_dictionary.json``` file, which is loaded at the start by CommandCraft. On how to do that, look to quick guide below
-
 **2. I'm getting an error trying to load to commandcraft one specific building, even though all the others are loading just fine**
 
 Yeah, that can happen. There are several buildings on grabcraft that have corrupted blueprints. These ones you just gotta build by yourself xd.

@@ -17,7 +17,7 @@
                 FontSize="17"
                 TextWrapping="Wrap">
                 Check out  
-                <Hyperlink NavigateUri="http://www.google.com" RequestNavigate="Hyperlink_RequestNavigate">github repo</Hyperlink>
+                <Hyperlink NavigateUri="https://github.com/mcw256/CommandCraft" RequestNavigate="Hyperlink_RequestNavigate">github repo</Hyperlink>
                 for FAQ and more info
             </TextBlock>
         </WrapPanel>
