@@ -20,6 +20,7 @@ Windows bin:
 This is very common. It probably means, that mcfunction contains a block that isn't in your minecraft version, or it was badly translated by CommandCraft. To fix this error, go to ```C:\Users\_thatsyou_\AppData\Roaming\.minecraft\logs```
 , then open latest log file, and look for block that caused error.
 After that, you can add your custom translation for this block to the ```programdata\user_block_dictionary.json``` file, which is loaded at the start by CommandCraft. On how to do that, look to quick guide below
+
 **2. I'm getting an error trying to load to commandcraft one specific building, even though all the others are loading just fine**
 
 Yeah, that can happen. There are several buildings on grabcraft that have corrupted blueprints. These ones you just gotta build by yourself xd.
