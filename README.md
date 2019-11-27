@@ -7,7 +7,7 @@
 GrabCraft and all related brands, names and content are the property of GrabCraft LLC. This is just a friendly application to help people in generating  in-game structures*
 - - -
 ## Screenshots
-<img src="screenshots/screenshot1.png" alt="1" width="400" height="300"/>.<img src="screenshots/screenshot2.png" alt="2" width="400" height="300"/><img src="screenshots/screenshot3.png" alt="3" width="400" height="300"/>
+<img src="screenshots/screenshot1.png" alt="1" width="400" height="300"/>.<img src="screenshots/screenshot2.png" alt="2" width="400" height="300"/><img src="screenshots/screenshot3.png" alt="3" width="400" height="300"/>.<img src="screenshots/screenshot4.png" alt="4" width="400" height="300"/>
 - - -
 ## Download
 Windows bin:
