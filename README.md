@@ -17,7 +17,7 @@ Windows bin:
 ## FAQ
 **1. Minecraft doesn't detect .mcfunction, even though it's in the right location.**
 
-This is very common. It probably means, that mcfunction contains a block that isn't in your minecraft version, or it was badly translated by CommandCraft. To fix this error, go to ```C:\Users\_thatsyou_\AppData\Roaming\.minecraft\logs```
+This is very common issue. It probably means, that mcfunction contains a block that isn't in your minecraft version, or it was badly translated by CommandCraft. To fix this error, go to ```C:\Users\_thatsyou_\AppData\Roaming\.minecraft\logs```
 , then open latest log file, and look for block that caused error.
 After that, you can add your custom translation for this block to the ```programdata\user_block_dictionary.json``` file, which is loaded at the start by CommandCraft. On how to do that, look to quick guide below
 
