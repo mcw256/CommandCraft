@@ -35,7 +35,7 @@ Or if you really want to have that full nice ```.mcfunction``` to do it all, you
 ```
 "Cobblestone Stairs (West, Normal)": "minecraft:cobblestone_stairs[facing=west,half=bottom]",
 ```
-**When translating block names, CommandCraft first looks into ```user_block_dictionary.json``` for possible translation**, and if there are no matching elements, then it separates attributes and block names and uses 
+**When translating block names, CommandCraft first checks ```user_block_dictionary.json``` for possible translation**, and if there are no matching elements, then it separates attributes and block names and uses 
 ```block_names_dictionary.json``` and ```block_attributes_dictionary.json``` for further translation. Btw. you can edit them as well, if you fell good with JSON.
 
 
