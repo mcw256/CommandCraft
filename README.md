@@ -1,5 +1,5 @@
 ﻿# CommandCraft
-**Open source tool for generating minecraft commands using *grabcraft.com* buildings URLs.**
+**Open source tool for generating minecraft commands that generate buildings in minecraft from *grabcraft.com* blueprints of these buildings**
 - - -
 *Note that this is not an official minecraft program. It's not approved by or associated with mojang.*
 
